@@ -3,58 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giftastic</title>
+    <title>Giftastic | Premium Gifts</title>
+    <!-- Importing a clean, modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --secondary: #2f3542;
+            --accent: #eccc68;
+            --bg: #f8f9fa;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fdfbf7;
-            color: #333;
+            background-color: var(--bg);
+            color: var(--secondary);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+        
+        /* Upgraded Header with a modern gradient */
         header {
-            background-color: #e84393;
+            background: linear-gradient(135deg, #ff6b81, #ff4757);
+            color: white;
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.2em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 50px 20px;
+        }
+        .content h2 {
+            font-size: 2em;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        .content p {
+            color: #57606f;
+            margin-bottom: 40px;
+        }
+        
+        /* Premium Video Showcase (Device Mockup Style) */
+        .video-container {
+            width: 320px;
+            height: 568px; /* Perfect 9:16 aspect ratio */
+            margin: 0 auto;
+            background-color: #000;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            border: 8px solid #ffffff; /* Creates a clean white border/bezel */
+            overflow: hidden;
+            position: relative;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video fills the frame completely */
+        }
+        
+        /* Modern, Dark Footer */
+        .contact-info {
+            background-color: var(--secondary);
             color: white;
             padding: 60px 20px;
         }
-        h1 {
-            margin: 0;
-            font-size: 3.5em;
-            letter-spacing: 2px;
-        }
-        .content {
-            padding: 40px 20px;
-        }
-        /* Styling specifically sized for a vertical social media video */
-        .video-container {
-            width: 300px;
-            height: 533px; /* 9:16 Aspect Ratio */
-            background-color: #dfe6e9;
-            margin: 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            border: 3px dashed #b2bec3;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .contact-info {
-            background-color: #2d3436;
-            color: white;
-            padding: 40px;
-            margin-top: 20px;
+        .contact-info h2 {
+            margin-top: 0;
+            font-weight: 400;
         }
         .contact-info h3 {
-            color: #fdcb6e;
-            font-size: 1.8em;
+            color: var(--accent); /* Elegant gold accent for the phone number */
+            font-size: 2.2em;
+            margin: 15px 0 0 0;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- This area is perfect for your gift box opening animation -->
         <h1>🎁 Giftastic</h1>
         <p>The perfect surprise, every time.</p>
     </header>
@@ -63,9 +107,9 @@
         <h2>Our Latest Creations</h2>
         <p>Watch our featured promotions below.</p>
         
-        <!-- Corrected Video Embed -->
         <div class="video-container">
-            <video width="100%" height="100%" controls autoplay loop muted style="border-radius: 12px;">
+            <!-- This points directly to the video you already successfully uploaded! -->
+            <video controls autoplay loop muted playsinline>
                 <source src="my-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -75,7 +119,6 @@
     <div class="contact-info">
         <h2>Let's Make Something Special</h2>
         <p>Call us today to order your customized gift!</p>
-        <!-- Updated Phone Number -->
         <h3>📞 +91 7411958018</h3>
     </div>
 
