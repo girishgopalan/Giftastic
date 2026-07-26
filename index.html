@@ -4,95 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giftastic | Premium Gifts</title>
-    <!-- Importing a clean, modern Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Importing a beautiful, modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --secondary: #2f3542;
-            --accent: #eccc68;
-            --bg: #f8f9fa;
+            --gold: #f1c40f;
+            --dark-bg: #111111;
+            --text-main: #2d3436;
         }
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
-            color: var(--secondary);
+            /* Soft, elegant off-white gradient for the background */
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            color: var(--text-main);
             text-align: center;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         
-        /* Upgraded Header with a modern gradient */
+        /* Premium, rich jewel-tone header */
         header {
-            background: linear-gradient(135deg, #ff6b81, #ff4757);
+            background: linear-gradient(135deg, #4b134f, #c94b4b);
             color: white;
-            padding: 50px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 70px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            border-bottom: 5px solid var(--gold);
         }
         header h1 {
             margin: 0;
-            font-size: 3.2em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 4em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.4);
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: 300;
             margin-top: 10px;
-            opacity: 0.95;
+            letter-spacing: 1px;
+            color: #f8a5c2;
         }
         
         .content {
             flex: 1;
-            padding: 50px 20px;
+            padding: 70px 20px;
         }
         .content h2 {
-            font-size: 2em;
-            color: var(--secondary);
+            font-size: 2.5em;
             margin-bottom: 5px;
+            font-weight: 600;
+            color: #2d3436;
         }
         .content p {
-            color: #57606f;
-            margin-bottom: 40px;
+            color: #636e72;
+            margin-bottom: 50px;
+            font-size: 1.1em;
         }
         
-        /* Premium Video Showcase (Device Mockup Style) */
+        /* Enhanced Video Bezel with a hover lift effect */
         .video-container {
             width: 320px;
-            height: 568px; /* Perfect 9:16 aspect ratio */
+            height: 568px; 
             margin: 0 auto;
             background-color: #000;
-            border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-            border: 8px solid #ffffff; /* Creates a clean white border/bezel */
+            border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            border: 8px solid #ffffff; 
             overflow: hidden;
             position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .video-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
         }
         video {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video fills the frame completely */
+            object-fit: cover; 
         }
         
-        /* Modern, Dark Footer */
+        /* Midnight footer with glowing gold text */
         .contact-info {
-            background-color: var(--secondary);
+            background-color: var(--dark-bg);
             color: white;
-            padding: 60px 20px;
+            padding: 70px 20px;
         }
         .contact-info h2 {
             margin-top: 0;
             font-weight: 400;
+            letter-spacing: 1px;
         }
         .contact-info h3 {
-            color: var(--accent); /* Elegant gold accent for the phone number */
-            font-size: 2.2em;
-            margin: 15px 0 0 0;
-            font-weight: 600;
+            color: var(--gold); 
+            font-size: 2.8em;
+            margin: 20px 0 0 0;
+            font-weight: 800;
+            text-shadow: 0px 5px 25px rgba(241, 196, 15, 0.4);
         }
     </style>
 </head>
@@ -108,7 +120,6 @@
         <p>Watch our featured promotions below.</p>
         
         <div class="video-container">
-            <!-- This points directly to the video you already successfully uploaded! -->
             <video controls autoplay loop muted playsinline>
                 <source src="my-video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
