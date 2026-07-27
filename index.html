@@ -23,7 +23,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            cursor: pointer; /* Hints to the user they can click anywhere */
         }
         
         /* Premium Header */
@@ -149,8 +148,8 @@
 </head>
 <body>
 
-    <!-- INVISIBLE BACKGROUND MUSIC -->
-    <audio id="bgMusic" loop autoplay>
+    <!-- INVISIBLE BACKGROUND MUSIC (Set to Autoplay) -->
+    <audio id="bgMusic" autoplay loop>
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
@@ -183,22 +182,6 @@
         <p>Or give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
     </div>
-
-    <!-- SMART CODE: Plays music the moment the user clicks anywhere on the page -->
-    <script>
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById('bgMusic');
-            if (audio.paused) {
-                audio.play();
-            }
-        });
-        document.body.addEventListener('touchstart', function() {
-            var audio = document.getElementById('bgMusic');
-            if (audio.paused) {
-                audio.play();
-            }
-        });
-    </script>
 
 </body>
 </html>
