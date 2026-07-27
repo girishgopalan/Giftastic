@@ -23,6 +23,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            cursor: pointer; /* Hints to the user they can click anywhere */
         }
         
         /* Premium Header */
@@ -69,7 +70,7 @@
         }
         .content p {
             color: #636e72;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             font-size: 1.1em;
         }
 
@@ -148,6 +149,11 @@
 </head>
 <body>
 
+    <!-- INVISIBLE BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
     <header>
         <a href="logo.jpg" target="_blank">
             <img src="logo.jpg" alt="Giftastic by Archana" class="logo-img">
@@ -158,15 +164,6 @@
     <div class="content">
         <h2>Our Latest Creations</h2>
         <p>Watch our featured promotions below.</p>
-        
-        <!-- NEW MUSIC PLAYER -->
-        <div style="margin: 20px auto 40px auto; max-width: 320px;">
-            <p style="color: #e6683c; font-weight: 600; margin-bottom: 10px; font-size: 1.1em;">🎵 Play Our Theme Music</p>
-            <audio controls loop style="width: 100%; border-radius: 50px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);">
-                <source src="music.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
         
         <div class="video-container">
             <video controls autoplay loop muted playsinline>
@@ -186,6 +183,22 @@
         <p>Or give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
     </div>
+
+    <!-- SMART CODE: Plays music the moment the user clicks anywhere on the page -->
+    <script>
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('bgMusic');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+        document.body.addEventListener('touchstart', function() {
+            var audio = document.getElementById('bgMusic');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
 
 </body>
 </html>
