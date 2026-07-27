@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giftastic | Premium Gifts</title>
-    <!-- Importing a beautiful, modern font -->
+    <title>Giftastic by Archana | Premium Gifts</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -25,32 +24,41 @@
             min-height: 100vh;
         }
         
-        /* Premium, rich jewel-tone header */
+        /* Premium Header */
         header {
             background: linear-gradient(135deg, #4b134f, #c94b4b);
             color: white;
-            padding: 70px 20px;
+            padding: 50px 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             border-bottom: 5px solid var(--gold);
         }
-        header h1 {
-            margin: 0;
-            font-size: 4em;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.4);
+        
+        /* New Logo Styling */
+        .logo-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes the circular logo look perfect */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 4px solid var(--gold);
+            cursor: pointer;
+            transition: transform 0.3s ease;
         }
+        .logo-img:hover {
+            transform: scale(1.05); /* Slight pop effect when hovered */
+        }
+
         header p {
-            font-size: 1.3em;
+            font-size: 1.1em;
             font-weight: 300;
-            margin-top: 10px;
+            margin-top: 15px;
             letter-spacing: 1px;
             color: #f8a5c2;
         }
         
         .content {
             flex: 1;
-            padding: 70px 20px;
+            padding: 60px 20px;
         }
         .content h2 {
             font-size: 2.5em;
@@ -87,7 +95,7 @@
             object-fit: cover; 
         }
 
-        /* Action Buttons Styling */
+        /* Action Buttons */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -117,7 +125,7 @@
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
         }
         
-        /* Midnight footer with glowing gold text */
+        /* Footer */
         .contact-info {
             background-color: var(--dark-bg);
             color: white;
@@ -140,7 +148,10 @@
 <body>
 
     <header>
-        <h1>🎁 Giftastic</h1>
+        <!-- The logo is wrapped in an anchor link so it opens full screen when clicked by users -->
+        <a href="logo.jpg" target="_blank">
+            <img src="logo.jpg" alt="Giftastic by Archana" class="logo-img">
+        </a>
         <p>The perfect surprise, every time.</p>
     </header>
 
@@ -156,8 +167,8 @@
         </div>
 
         <div class="action-buttons">
-            <!-- UPDATED WHATSAPP NUMBER -->
-            <a href="https://wa.me/9182976654218" target="_blank" class="btn btn-whatsapp">💬 Order on WhatsApp</a>
+            <!-- Corrected Number applied to WhatsApp Link -->
+            <a href="https://wa.me/918296654218" target="_blank" class="btn btn-whatsapp">💬 Order on WhatsApp</a>
             <a href="https://www.instagram.com/giftastic101" target="_blank" class="btn btn-instagram">📸 Follow on Instagram</a>
         </div>
     </div>
@@ -165,8 +176,8 @@
     <div class="contact-info">
         <h2>Let's Make Something Special</h2>
         <p>Or give us a call directly to start your custom order!</p>
-        <!-- UPDATED FOOTER NUMBER -->
-        <h3>📞 +91 82976654218</h3>
+        <!-- Corrected Number applied to Footer Display -->
+        <h3>📞 +91 8296654218</h3>
     </div>
 
 </body>
