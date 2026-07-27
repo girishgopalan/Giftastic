@@ -17,7 +17,6 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            /* Soft, elegant off-white gradient for the background */
             background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
             color: var(--text-main);
             text-align: center;
@@ -65,7 +64,7 @@
             font-size: 1.1em;
         }
         
-        /* Enhanced Video Bezel with a hover lift effect */
+        /* Enhanced Video Bezel */
         .video-container {
             width: 320px;
             height: 568px; 
@@ -86,6 +85,36 @@
             width: 100%;
             height: 100%;
             object-fit: cover; 
+        }
+
+        /* Action Buttons Styling */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            text-decoration: none;
+            color: white;
+            padding: 16px 36px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+        }
+        .btn-whatsapp {
+            background-color: #25D366; /* Official WhatsApp Green */
+        }
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Official Instagram Gradient */
         }
         
         /* Midnight footer with glowing gold text */
@@ -125,11 +154,17 @@
                 Your browser does not support the video tag.
             </video>
         </div>
+
+        <!-- NEW ACTION BUTTONS -->
+        <div class="action-buttons">
+            <a href="https://wa.me/917411958018" target="_blank" class="btn btn-whatsapp">💬 Order on WhatsApp</a>
+            <a href="https://www.instagram.com/giftastic101" target="_blank" class="btn btn-instagram">📸 Follow on Instagram</a>
+        </div>
     </div>
 
     <div class="contact-info">
         <h2>Let's Make Something Special</h2>
-        <p>Call us today to order your customized gift!</p>
+        <p>Or give us a call directly to start your custom order!</p>
         <h3>📞 +91 7411958018</h3>
     </div>
 
