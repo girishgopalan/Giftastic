@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Hampers | Giftastic by Archana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #c94b4b;
+            --secondary: #4b134f;
+            --gold: #f1c40f;
+            --bg-light: #fdfbfb;
+            --text-dark: #2d3436;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: var(--secondary);
+        }
+        .nav-brand img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+        .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
+
+        /* Main Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+        .section-title { text-align: center; font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 10px; color: var(--text-dark); }
+        .section-title span { color: var(--primary); }
+        .subtitle { text-align: center; color: #636e72; margin-bottom: 50px; font-size: 1.1em; }
+
+        /* Product Grid (Expanded for the Shop page) */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            padding-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        
+        .prod-img-1 { background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 220px; }
+        .prod-img-2 { background: linear-gradient(45deg, #a18cd1, #fbc2eb); height: 220px; }
+        .prod-img-3 { background: linear-gradient(45deg, #84fab0, #8fd3f4); height: 220px; }
+        .prod-img-4 { background: linear-gradient(45deg, #fccb90, #d57eeb); height: 220px; }
+        .prod-img-5 { background: linear-gradient(45deg, #f6d365, #fda085); height: 220px; }
+        .prod-img-6 { background: linear-gradient(45deg, #e0c3fc, #8ec5fc); height: 220px; }
+        .prod-img-7 { background: linear-gradient(45deg, #a1c4fd, #c2e9fb); height: 220px; }
+        .prod-img-8 { background: linear-gradient(45deg, #ffecd2, #fcb69f); height: 220px; }
+        
+        .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
+        .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+        .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; }
+        .product-btn:hover { background: var(--primary); }
+
+        footer { background: #111; color: white; text-align: center; padding: 60px 20px; }
+        footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(255, 255, 255, 0.98); flex-direction: column;
+                padding: 20px 0; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: none;
+            }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <!-- Notice this logo now links back to index.html (Home) -->
+        <a href="index.html" class="nav-brand">
+            <img src="logo.jpg" alt="Giftastic Logo">
+            <h1>Giftastic</h1>
+        </a>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="shop.html" style="color: var(--primary);" onclick="toggleMenu()">Shop Hampers</a>
+            <a href="index.html#about" onclick="toggleMenu()">About Us</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Shop <span>Our Collection</span></h2>
+        <p class="subtitle">Browse our full range of curated gift hampers for every occasion.</p>
+        
+        <div class="product-grid">
+            <!-- Row 1 -->
+            <div class="product-card">
+                <div class="prod-img-1"></div>
+                <div class="product-title">The Birthday Coffer</div>
+                <div class="product-price">₹1099</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-2"></div>
+                <div class="product-title">Floral Elegance</div>
+                <div class="product-price">₹1249</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-3"></div>
+                <div class="product-title">Thoughtful Treasure</div>
+                <div class="product-price">₹1299</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-4"></div>
+                <div class="product-title">Crunch Munch</div>
+                <div class="product-price">₹1299</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <!-- Row 2 -->
+            <div class="product-card">
+                <div class="prod-img-5"></div>
+                <div class="product-title">Festive Delight</div>
+                <div class="product-price">₹1499</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-6"></div>
+                <div class="product-title">Corporate Classic</div>
+                <div class="product-price">₹1999</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-7"></div>
+                <div class="product-title">Baby Joy Basket</div>
+                <div class="product-price">₹999</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-8"></div>
+                <div class="product-title">Anniversary Special</div>
+                <div class="product-price">₹2499</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Let's Make Something Special</h2>
+        <p>Give us a call directly to start your custom order!</p>
+        <h3>📞 +91 8296654218</h3>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
