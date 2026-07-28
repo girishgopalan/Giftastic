@@ -91,19 +91,46 @@
         
         .hero p { font-size: clamp(1em, 2vw, 1.2em); max-width: 600px; margin: 0 auto 30px auto; opacity: 0.95; }
 
+        /* UPGRADED HERO BUTTONS AT THE TOP */
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
         .hero-btn {
-            background: var(--gold);
-            color: var(--text-dark);
-            padding: 15px 35px;
+            padding: 14px 28px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 700;
             border-radius: 50px;
-            font-size: 1.1em;
-            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+            font-size: 1.05em;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: inline-block;
+            color: white;
         }
-        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(241, 196, 15, 0.6); }
+        
+        .hero-btn:hover { transform: translateY(-3px); }
+        
+        .btn-shop {
+            background: var(--gold);
+            color: var(--text-dark);
+            box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+        }
+        .btn-shop:hover { box-shadow: 0 8px 20px rgba(241, 196, 15, 0.6); }
+
+        .btn-whatsapp { 
+            background-color: #25D366; 
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5); }
+        
+        .btn-instagram { 
+            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); 
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
+        }
+        .btn-instagram:hover { box-shadow: 0 8px 20px rgba(220, 39, 67, 0.5); }
 
         .features {
             display: flex;
@@ -156,12 +183,6 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { text-decoration: none; color: white; padding: 14px 28px; font-size: 1em; font-weight: 600; border-radius: 50px; transition: transform 0.3s ease; text-align: center; flex: 1; min-width: 200px; }
-        .btn:hover { transform: translateY(-3px); }
-        .btn-whatsapp { background-color: #25D366; }
-        .btn-instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
-
         footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; }
         footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
 
@@ -184,7 +205,6 @@
             }
             .nav-links.active { display: flex; }
             .split-section { flex-direction: column; text-align: center; }
-            .action-buttons { justify-content: center; }
         }
     </style>
 </head>
@@ -205,7 +225,6 @@
         </a>
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <div class="nav-links" id="navMenu">
-            <!-- UPDATED LINKS TO POINT TO THE NEW FILE -->
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="#about" onclick="toggleMenu()">About Us</a>
@@ -215,8 +234,13 @@
     <header class="hero">
         <h2>The Perfect Surprise,<br>Every Time.</h2>
         <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
-        <!-- UPDATED HERO BUTTON TO LINK TO SHOP -->
-        <a href="shop.html" class="hero-btn">Explore Collection</a>
+        
+        <!-- BUTTONS MOVED TO THE TOP HERO SECTION -->
+        <div class="hero-actions">
+            <a href="shop.html" class="hero-btn btn-shop">🛍️ Explore Collection</a>
+            <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-whatsapp">💬 Chat on WhatsApp</a>
+            <a href="https://www.instagram.com/giftastic101" target="_blank" class="hero-btn btn-instagram">📸 Follow on Instagram</a>
+        </div>
     </header>
 
     <div class="features">
@@ -261,11 +285,6 @@
                 <h3>Welcome to Giftastic</h3>
                 <p><strong>Your own customised gifting stop for all occasions!</strong> India is a land of festivals and traditions. Here, celebrating little joys has been a reason to be surrounded by loved ones.</p>
                 <p>When you do not know what kind of gift you want to give to someone, just hop onto Giftastic and we have your back! We enjoy creating hampers with utmost care and just love for you all. We hope these gift hampers are worth the smiles of your loved ones.</p>
-                
-                <div class="action-buttons">
-                    <a href="https://wa.me/918296654218" target="_blank" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
-                    <a href="https://www.instagram.com/giftastic101" target="_blank" class="btn btn-instagram">📸 Follow on Instagram</a>
-                </div>
             </div>
             
             <div class="video-wrapper">
