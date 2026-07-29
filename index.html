@@ -241,6 +241,25 @@
         }
         .floating-music-btn:hover { transform: scale(1.05); }
 
+        /* THE ANIMATED WALKING GIRL CSS */
+        .walking-girl {
+            position: fixed;
+            bottom: 10px;
+            left: -150px;
+            width: 100px;
+            z-index: 999;
+            pointer-events: none;
+            animation: walkAcross 20s linear infinite;
+        }
+
+        @keyframes walkAcross {
+            0% { left: -150px; transform: scaleX(1); }
+            45% { left: 110vw; transform: scaleX(1); }
+            50% { left: 110vw; transform: scaleX(-1); }
+            95% { left: -150px; transform: scaleX(-1); }
+            100% { left: -150px; transform: scaleX(1); }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             .nav-links {
@@ -251,6 +270,7 @@
             }
             .nav-links.active { display: flex; }
             .split-section { flex-direction: column; text-align: center; }
+            .walking-girl { width: 75px; } 
         }
     </style>
 </head>
@@ -325,11 +345,11 @@
             </div>
         </div>
 
-        <!-- SECTION 2: OUR UNIQUE PRODUCTS (10 Slots Total) -->
+        <!-- SECTION 2: OUR UNIQUE PRODUCTS -->
         <h2 class="section-title">Our <span>Unique Products</span></h2>
         <div class="product-grid">
             
-            <!-- Product 1: Customised Name Wallet (Active) -->
+            <!-- Product 1: Customised Name Wallet -->
             <div class="product-card">
                 <img src="Name Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img">
                 <div class="product-title">Personalised Name Wallet</div>
@@ -337,13 +357,15 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
             
-            <!-- Products 2 to 10: Placeholders -->
+            <!-- Product 2: NEW Fridge Magnet -->
             <div class="product-card">
-                <div class="prod-img-2"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <img src="Fridge Magnet.jpeg" alt="Fridge Magnet" class="prod-real-img">
+                <div class="product-title">Fridge Magnet</div>
+                <div class="product-price">₹199</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
+
+            <!-- Products 3 to 10: Placeholders -->
             <div class="product-card">
                 <div class="prod-img-3"></div>
                 <div class="product-title">Coming Soon</div>
@@ -422,6 +444,8 @@
     <button class="floating-music-btn" id="musicToggle" onclick="toggleMusic()">
         <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
     </button>
+
+    <img src="girl.gif" class="walking-girl" alt="Happy Shopper" onerror="this.style.display='none'">
 
     <script>
         function toggleMusic() {
