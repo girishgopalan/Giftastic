@@ -81,6 +81,10 @@
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
+        
+        /* New styling to position mobile call button perfectly */
+        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        .mobile-call-btn { display: none; } 
 
         .nav-call-btn {
             background: linear-gradient(135deg, #00b09b, #96c93d);
@@ -89,6 +93,8 @@
             border-radius: 20px;
             box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3);
             transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 600;
         }
         .nav-call-btn:hover {
             transform: translateY(-2px);
@@ -382,6 +388,11 @@
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
+            
+            /* Tweak to show call button on mobile */
+            .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
+            .desktop-call-btn { display: none !important; }
+            
             .nav-links {
                 position: absolute; top: 100%; left: 0; width: 100%;
                 background: rgba(255, 255, 255, 0.98); flex-direction: column;
@@ -415,12 +426,16 @@
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <!-- The new wrapper keeps the Call button and Menu next to each other perfectly! -->
+        <div class="nav-right-controls">
+            <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="#about" onclick="toggleMenu()">About Us</a>
-            <a href="tel:+918296654218" class="nav-call-btn" onclick="toggleMenu()">📞 Call Now</a>
+            <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
         </div>
     </nav>
 
@@ -458,7 +473,7 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- NEW PRODUCT: The Glow Box (WITH FULLY POPULATED DETAILS) -->
+            <!-- NEW PRODUCT: The Glow Box -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Glow Box', ['1 Photo frame (4x4)', 'Ring album (10 photos)', '15 Munch chocolates', '5 Sneakers chocolates', '5 KitKat chocolates', 'Mini panda lamp']))">
                     <img src="The%20Glow%20Box.jpeg" alt="The Glow Box" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Glow%20Box.jpg';">
