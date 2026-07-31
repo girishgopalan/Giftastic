@@ -145,54 +145,76 @@
         footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; margin-top: 40px;}
         footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
 
-        /* LIGHTBOX MODAL CSS */
+        /* NEW LIGHTBOX MODAL CSS FOR DETAILED VIEW */
         .modal {
             display: none; 
             position: fixed;
             z-index: 2000; 
             left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
-            flex-direction: column;
         }
         
-        .modal-content {
-            max-width: 90%;
-            max-height: 80vh; 
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            animation: zoomIn 0.3s ease;
+        .modal-layout {
+            display: flex;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
         }
         
         @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
+            from { transform: scale(0.9); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-img-container {
+            flex: 1.2;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 40px 30px;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
         }
 
         .close-modal {
             position: absolute;
-            top: 20px;
-            right: 40px;
+            top: 15px;
+            right: 25px;
             color: #f1f1f1;
-            font-size: 45px;
+            font-size: 35px;
             font-weight: bold;
             cursor: pointer;
             transition: color 0.3s;
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
         }
         
-        .close-modal:hover { color: var(--gold); }
+        .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8);}
         
-        #modalCaption {
-            margin-top: 15px;
-            color: white;
-            font-size: 1.3em;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-align: center;
-            max-width: 80%;
-        }
+        #modalCaption { width: 100%; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -203,6 +225,12 @@
                 display: none;
             }
             .nav-links.active { display: flex; }
+            
+            /* Responsive Modal */
+            .modal-layout { flex-direction: column; overflow-y: auto; }
+            .modal-img-container { height: 40vh; flex: none; }
+            .modal-details { flex: none; padding: 25px 20px; }
+            .close-modal { top: 10px; right: 10px; }
         }
     </style>
 </head>
@@ -232,7 +260,7 @@
         <div class="product-grid">
             
             <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, `Gentleman's Choice`)">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails(`Gentleman's Choice`, ['Premium men\'s accessories', 'Customized styling items']))">
                     <img src="Gentleman%27s%20Choice.jpeg" alt="Gentleman's Choice" class="prod-real-img" onerror="this.onerror=null; this.src='Gentleman%27s%20Choice.jpg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
@@ -241,9 +269,9 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- NEW PRODUCT: The Glow Box -->
+            <!-- NEW PRODUCT: The Glow Box (WITH FULLY POPULATED DETAILS) -->
             <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'The Glow Box')">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Glow Box', ['1 Photo frame (4x4)', 'Ring album (10 photos)', '15 Munch chocolates', '5 Sneakers chocolates', '5 KitKat chocolates', 'Mini panda lamp']))">
                     <img src="The%20Glow%20Box.jpeg" alt="The Glow Box" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Glow%20Box.jpg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
@@ -252,7 +280,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Placeholders for future shop items -->
             <div class="product-card">
                 <div class="prod-img-2"></div>
                 <div class="product-title">Coming Soon</div>
@@ -300,34 +327,59 @@
         <h3>📞 +91 8296654218</h3>
     </footer>
 
-    <!-- HIDDEN IMAGE PREVIEW MODAL -->
+    <!-- NEW DETAILED IMAGE PREVIEW MODAL -->
     <div id="imageModal" class="modal" onclick="closeModal(event)">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div id="modalCaption"></div>
+        <div class="modal-layout">
+            <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
+            <div class="modal-img-container">
+                <img class="modal-content" id="modalImage">
+            </div>
+            <div class="modal-details">
+                <div id="modalCaption"></div>
+            </div>
+        </div>
     </div>
 
     <script>
+        // NEW JAVASCRIPT FUNCTION TO BUILD THE BEAUTIFUL LIST
+        function formatDetails(title, itemsList) {
+            let html = `
+            <div style='text-align: left;'>
+                <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3>
+                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>What's inside this hamper:</p>
+                <ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>
+            `;
+            
+            itemsList.forEach(item => {
+                html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`;
+            });
+            
+            html += `</ul></div>`;
+            return html;
+        }
+
         // MOBILE MENU CONTROLS
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
         }
 
-        // IMAGE PREVIEW MODAL CONTROLS
-        function openModal(imgSrc, captionText) {
+        // UPDATED PREVIEW MODAL CONTROLS
+        function openModal(imgSrc, formattedHtml) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const caption = document.getElementById("modalCaption");
             
             modal.style.display = "flex"; 
             modalImg.src = imgSrc; 
-            caption.innerHTML = captionText; 
+            caption.innerHTML = formattedHtml; 
+            document.body.style.overflow = "hidden"; // Stop scrolling in background
         }
 
-        function closeModal(event) {
-            if (event.target.id === 'imageModal' || event.target.className === 'close-modal') {
+        function closeModal(event, forceClose = false) {
+            if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') {
                 document.getElementById("imageModal").style.display = "none";
+                document.body.style.overflow = "auto"; // Re-enable scrolling
             }
         }
     </script>
