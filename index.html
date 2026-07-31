@@ -390,32 +390,38 @@
 
     <div class="container">
         
-        <!-- SECTION 1: BEST SELLERS -->
+        <!-- SECTION 1: BEST SELLERS (No more dummy text!) -->
         <h2 class="section-title">Our <span>Best Sellers</span></h2>
         <div class="product-grid">
+            <!-- NEW PRODUCT #1: Gentleman's Choice -->
             <div class="product-card">
-                <div class="prod-img-1"></div>
-                <div class="product-title">The Birthday Coffer</div>
-                <div class="product-price">₹1099</div>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'Gentleman&apos;s Choice')">
+                    <img src="Gentleman%27s%20Choice.jpeg" alt="Gentleman's Choice" class="prod-real-img" onerror="this.onerror=null; this.src='Gentleman%27s%20Choice.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Gentleman's Choice</div>
+                <div class="product-price">₹2299</div>
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
+
+            <!-- Placeholders for future Best Sellers -->
             <div class="product-card">
                 <div class="prod-img-2"></div>
-                <div class="product-title">Floral Elegance</div>
-                <div class="product-price">₹1249</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
             <div class="product-card">
                 <div class="prod-img-3"></div>
-                <div class="product-title">Thoughtful Treasure</div>
-                <div class="product-price">₹1299</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
             <div class="product-card">
                 <div class="prod-img-4"></div>
-                <div class="product-title">Crunch Munch</div>
-                <div class="product-price">₹1299</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
         </div>
 
@@ -423,7 +429,6 @@
         <h2 class="section-title">Our <span>Unique Products</span></h2>
         <div class="product-grid">
             
-            <!-- Product 1: Customised Name Wallet -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'Personalised Name Wallet')">
                     <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='Name%20Wallet.jpg';">
@@ -434,7 +439,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
             
-            <!-- Product 2: Fridge Magnet -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'Fridge Magnet')">
                     <img src="Fridge%20Magnet.jpeg" alt="Fridge Magnet" class="prod-real-img" onerror="this.onerror=null; this.src='Fridge%20Magnet.jpg';">
@@ -445,7 +449,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Product 3: For Him Combo 1 -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'A personalized wallet, pen, key chain and 500 ml bottle')">
                     <img src="For%20Him%20Combo%201.jpeg" alt="For Him Combo 1" class="prod-real-img" onerror="this.onerror=null; this.src='For%20Him%20Combo%201.jpg';">
@@ -456,7 +459,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Product 4: For Him Combo 2 -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'A personalized wallet, spec cover and a Key chain')">
                     <img src="For%20Him%20Combo%202.jpeg" alt="For Him Combo 2" class="prod-real-img" onerror="this.onerror=null; this.src='For%20Him%20Combo%202.jpg';">
@@ -467,7 +469,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Product 5: Customized Cup -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'Customized Cup')">
                     <img src="Customized%20Cup.jpeg" alt="Customized Cup" class="prod-real-img" onerror="this.onerror=null; this.src='Customized%20Cup.jpg';">
@@ -478,7 +479,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Product 6: UPDATED Kinder Bloom (Extra space removed!) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, 'Kinder Bloom')">
                     <img src="Kinder%20Bloom.jpeg" alt="Kinder Bloom" class="prod-real-img" onerror="this.onerror=null; this.src='Kinder%20Bloom.jpg';">
@@ -489,7 +489,7 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- Products 7 to 10: Placeholders -->
+            <!-- Placeholders for future unique products -->
             <div class="product-card">
                 <div class="prod-img-3"></div>
                 <div class="product-title">Coming Soon</div>
@@ -498,18 +498,6 @@
             </div>
             <div class="product-card">
                 <div class="prod-img-4"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
-            </div>
-            <div class="product-card">
-                <div class="prod-img-1"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
-            </div>
-            <div class="product-card">
-                <div class="prod-img-2"></div>
                 <div class="product-title">Coming Soon</div>
                 <div class="product-price">---</div>
                 <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
