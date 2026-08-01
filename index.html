@@ -384,6 +384,32 @@
         
         #modalCaption { width: 100%; }
 
+        /* THEMED SEASONAL SECTION STYLING */
+        .seasonal-section {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(220, 39, 67, 0.05));
+            border: 2px dashed var(--gold);
+            border-radius: 25px;
+            padding: 40px 20px;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+        }
+        .seasonal-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             
@@ -428,6 +454,8 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
+            <!-- Added the festive seasonal jump link -->
+            <a href="#seasonal" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
@@ -453,6 +481,31 @@
     </div>
 
     <div class="container">
+
+        <!-- NEW SEASONAL POP-UP SECTION -->
+        <div id="seasonal" class="seasonal-section">
+            <div class="seasonal-badge">LIMITED TIME ONLY</div>
+            
+            <h2 class="section-title" style="margin-top: 10px; margin-bottom: 10px;">Celebrate <span>Onam</span> 🌸</h2>
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05em;">Bring the harvest festival joy to your loved ones with our exclusive, hand-crafted Onam gift hampers!</p>
+            
+            <div class="product-grid" style="margin-bottom: 0;">
+                <!-- Placeholder for Onam Hamper 1 -->
+                <div class="product-card">
+                    <div class="prod-img-1" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
+                    <div class="product-title">Onam Premium Box</div>
+                    <div class="product-price">---</div>
+                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
+                </div>
+                <!-- Placeholder for Onam Hamper 2 -->
+                <div class="product-card">
+                    <div class="prod-img-2" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
+                    <div class="product-title">Festive Delights</div>
+                    <div class="product-price">---</div>
+                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
+                </div>
+            </div>
+        </div>
         
         <h2 class="section-title">Our <span>Best Sellers</span></h2>
         <div class="product-grid">
@@ -564,7 +617,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- NEW PRODUCT: Polaroid Photos -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
                     <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='Polaroid%20Photos.jpg';">
@@ -620,7 +672,6 @@
     </div>
 
     <script>
-        // Updated text to say "Product Details" instead of "What's inside this hamper"
         function formatDetails(title, itemsList) {
             let html = `
             <div style='text-align: left;'>
