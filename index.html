@@ -356,7 +356,18 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* NEW FOOTER & CTA STYLES */
+        /* NEW FAQ STYLES */
+        .faq-section { max-width: 800px; margin: 80px auto 40px auto; padding: 0 20px; }
+        .faq-section h2 { text-align: center; color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 40px; }
+        .faq-section h2 span { color: var(--primary); }
+        .faq-item { background: white; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); overflow: hidden; transition: all 0.3s ease; }
+        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--text-dark); font-size: 1.1em; background: white; transition: background 0.3s ease; }
+        .faq-question:hover { background: #fafafa; color: var(--primary); }
+        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-light); line-height: 1.6; }
+        .faq-item.active .faq-answer { padding: 0 25px 20px 25px; max-height: 250px; }
+        .faq-icon { font-size: 1.2em; color: var(--gold); transition: transform 0.3s ease; font-weight: 800;}
+        .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--primary); }
+
         .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
         .cta-section h2 { color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin: 0 0 10px 0; font-weight: 800; }
         .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
@@ -577,23 +588,16 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Bloom & Bliss', ['Bellavita perfume', 'Kitkat chocolate (4 nos)', 'Beautiful flower arrangement']))">
-                    <img src="Bloom%26Bliss.jpeg" alt="Bloom & Bliss" class="prod-real-img" onerror="this.onerror=null; this.src='Bloom%26Bliss.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Bloom & Bliss</div>
-                <div class="product-price">₹999</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <div class="prod-img-3"></div>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
-
             <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Watch Hamper', ['Premium Men\'s Watch', 'Beautiful packaging']))">
-                    <img src="The%20Watch%20Hamper.jpeg" alt="The Watch Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Watch%20Hamper.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">The Watch Hamper</div>
-                <div class="product-price">₹1799</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <div class="prod-img-4"></div>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
         </div>
 
@@ -747,14 +751,49 @@
         </div>
     </div>
 
-    <!-- NEW PRE-FOOTER CTA -->
+    <!-- NEW FAQ SECTION -->
+    <div class="faq-section">
+        <h2>Frequently Asked <span>Questions</span></h2>
+        
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                Do I need to pay an advance to confirm my order?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Yes, to begin crafting your personalized hamper, we require an advance payment of 40% of the total order cost. Once the advance is received, our team will immediately start working on your beautiful gift!
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                Can I customize the items inside a hamper?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely! Every hamper can be fully customized to match your specific wishes and budget. There are no limitations—we are here to bring your perfect gifting vision to life.
+            </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+                How do I track my order?
+                <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+                As soon as your custom gift is dispatched, we will share the tracking details and proof of dispatch with you. You can easily track your package's journey directly through our courier partner's official website.
+            </div>
+        </div>
+    </div>
+
+    <!-- PRE-FOOTER CTA -->
     <div class="cta-section">
         <h2>Let's Make Something Special</h2>
         <p>Give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
     </div>
 
-    <!-- NEW DETAILED FOOTER -->
+    <!-- DETAILED FOOTER -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
@@ -813,6 +852,10 @@
     </div>
 
     <script>
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+
         function formatDetails(title, itemsList) {
             let html = `
             <div style='text-align: left;'>
