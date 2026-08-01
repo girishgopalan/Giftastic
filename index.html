@@ -101,11 +101,44 @@
         }
 
         .hero {
+            position: relative; /* Added for the floating badge */
             background: linear-gradient(135deg, rgba(75, 19, 79, 0.75), rgba(201, 75, 75, 0.65)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2040&auto=format&fit=crop') center/cover;
             background-attachment: fixed;
             color: white;
             text-align: center;
             padding: clamp(80px, 15vw, 150px) 20px;
+            overflow: hidden;
+        }
+        
+        /* THE NEW FLOATING ONAM BADGE */
+        .onam-floating-badge {
+            position: absolute;
+            top: 22%;
+            right: 12vw;
+            background: linear-gradient(135deg, #f1c40f 0%, #e38200 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.3em;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(227, 130, 0, 0.5);
+            border: 3px solid white;
+            transform: rotate(12deg);
+            z-index: 10;
+            animation: floatBadge 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .onam-floating-badge:hover {
+            transform: scale(1.1) rotate(0deg);
+            box-shadow: 0 15px 35px rgba(227, 130, 0, 0.7);
+        }
+
+        @keyframes floatBadge {
+            0% { transform: translateY(0px) rotate(12deg); }
+            50% { transform: translateY(-15px) rotate(12deg); }
+            100% { transform: translateY(0px) rotate(12deg); }
         }
         
         @keyframes fadeInUp {
@@ -384,7 +417,6 @@
         
         #modalCaption { width: 100%; }
 
-        /* THEMED SEASONAL SECTION STYLING */
         .seasonal-section {
             background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(220, 39, 67, 0.05));
             border: 2px dashed var(--gold);
@@ -408,6 +440,19 @@
             font-size: 0.9em;
             letter-spacing: 1px;
             white-space: nowrap;
+        }
+
+        /* Make sure it adapts gracefully to mobile screens */
+        @media (max-width: 900px) {
+            .onam-floating-badge {
+                position: relative;
+                top: auto;
+                right: auto;
+                display: inline-block;
+                margin-bottom: 30px;
+                transform: rotate(0deg);
+                animation: none;
+            }
         }
 
         @media (max-width: 768px) {
@@ -454,8 +499,6 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <!-- Added the festive seasonal jump link -->
-            <a href="#seasonal" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
@@ -463,6 +506,9 @@
     </nav>
 
     <header class="hero">
+        <!-- New absolute positioned badge right where you circled! -->
+        <a href="#seasonal" class="onam-floating-badge">🌸 Onam Specials!</a>
+        
         <h2>The Perfect Surprise,<br>Every Time.</h2>
         <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
         
@@ -482,7 +528,6 @@
 
     <div class="container">
 
-        <!-- NEW SEASONAL POP-UP SECTION -->
         <div id="seasonal" class="seasonal-section">
             <div class="seasonal-badge">LIMITED TIME ONLY</div>
             
@@ -490,14 +535,12 @@
             <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05em;">Bring the harvest festival joy to your loved ones with our exclusive, hand-crafted Onam gift hampers!</p>
             
             <div class="product-grid" style="margin-bottom: 0;">
-                <!-- Placeholder for Onam Hamper 1 -->
                 <div class="product-card">
                     <div class="prod-img-1" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
                     <div class="product-title">Onam Premium Box</div>
                     <div class="product-price">---</div>
                     <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
                 </div>
-                <!-- Placeholder for Onam Hamper 2 -->
                 <div class="product-card">
                     <div class="prod-img-2" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
                     <div class="product-title">Festive Delights</div>
