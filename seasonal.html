@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYMRJE47WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DYMRJE47WB');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seasonal Specials | Giftastic by Archana</title>
+    <title>Onam Specials | Giftastic by Archana</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -59,7 +67,6 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
@@ -68,35 +75,20 @@
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
 
-        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
-        .mobile-call-btn { display: none; } 
+        .page-header { text-align: center; padding: 60px 20px 20px 20px; background: linear-gradient(135deg, rgba(75, 19, 79, 0.1), rgba(241, 196, 15, 0.1)); }
+        .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--secondary); }
+        .page-header h2 span { color: #e38200; }
+        .page-header p { font-size: 1.1em; color: var(--text-light); margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .nav-call-btn {
-            background: linear-gradient(135deg, #00b09b, #96c93d);
-            color: white !important;
-            padding: 8px 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .nav-call-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5);
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; min-height: 70vh;}
-        .section-title { text-align: center; font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 40px; color: var(--text-dark); margin-top: 40px; }
-        .section-title span { color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .product-card {
             background: white; border-radius: 20px; overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center;
-            padding-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding-bottom: 25px; transition: transform 0.3s ease;
         }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .product-card:hover { transform: translateY(-8px); }
         
         .img-wrapper {
             position: relative;
@@ -112,9 +104,7 @@
             transition: transform 0.5s ease;
         }
         
-        .img-wrapper:hover .prod-real-img {
-            transform: scale(1.08); 
-        }
+        .img-wrapper:hover .prod-real-img { transform: scale(1.08); }
 
         .preview-badge {
             position: absolute;
@@ -133,194 +123,129 @@
             pointer-events: none; 
         }
 
-        .img-wrapper:hover .preview-badge {
-            bottom: 15px; 
-            opacity: 1;
-        }
-
+        .img-wrapper:hover .preview-badge { bottom: 15px; opacity: 1; }
+        
         .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
         .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
         .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; display: inline-block;}
         .product-btn:hover { background: var(--primary); }
 
-        .seasonal-section {
-            background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(220, 39, 67, 0.05));
-            border: 2px dashed var(--gold);
-            border-radius: 25px;
-            padding: 50px 20px 40px 20px;
-            margin-top: 20px;
-            margin-bottom: 60px;
-            text-align: center;
-            position: relative;
-        }
-        .seasonal-badge {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            border: 2px solid var(--gold);
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
+        .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
+        .cta-section h2 { color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin: 0 0 10px 0; font-weight: 800; }
+        .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
+        .cta-section h3 { color: var(--primary); font-size: 1.8em; margin: 0; }
 
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 2000; 
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-layout {
-            display: flex;
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-            animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; border-top: 5px solid var(--primary); }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 220px; text-align: left; }
+        .footer-col h3 { color: var(--gold); font-size: 1.3em; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #bbb; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bbb; text-decoration: none; transition: color 0.3s ease; font-size: 0.95em; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
+        .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
 
-        .modal-img-container {
-            flex: 1.2;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-        }
-
-        .modal-details {
-            flex: 1;
-            padding: 40px 30px;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: #f1f1f1;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 10;
-            background: rgba(0,0,0,0.5);
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-        }
-        
-        .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8);}
-        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+        .modal-layout { display: flex; background: #1a1a1a; border-radius: 20px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 20px 50px rgba(0,0,0,0.7); position: relative; }
+        .modal-img-container { flex: 1.2; background: #000; display: flex; align-items: center; justify-content: center; }
+        .modal-content { width: 100%; height: 100%; object-fit: contain; }
+        .modal-details { flex: 1; padding: 40px 30px; overflow-y: auto; background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%); }
+        .close-modal { position: absolute; top: 15px; right: 25px; color: #f1f1f1; font-size: 35px; font-weight: bold; cursor: pointer; z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8); }
         #modalCaption { width: 100%; }
-
-        footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; margin-top: 40px;}
-        footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
-            .desktop-call-btn { display: none !important; }
-            
-            .nav-links {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: rgba(255, 255, 255, 0.98); flex-direction: column;
-                padding: 20px 0; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                display: none;
-            }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
-
             .modal-layout { flex-direction: column; overflow-y: auto; }
             .modal-img-container { height: 40vh; flex: none; }
             .modal-details { flex: none; padding: 25px 20px; }
-            .close-modal { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="nav-brand">
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
-        <div class="nav-right-controls">
-            <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
-            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
-            <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
+            <a href="tel:+918296654218" class="nav-call-btn" onclick="toggleMenu()" style="background: linear-gradient(135deg, #00b09b, #96c93d); color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none;">📞 Call Now</a>
         </div>
     </nav>
 
+    <div class="page-header">
+        <h2>Onam <span>Specials</span></h2>
+        <p>Celebrate the festival of colors, joy, and togetherness with our specially curated Onam gift hampers!</p>
+    </div>
+
     <div class="container">
-        <div class="seasonal-section">
-            <div class="seasonal-badge">LIMITED TIME ONLY</div>
-            
-            <h2 class="section-title" style="margin-top: 10px; margin-bottom: 10px;">Celebrate <span>Onam</span> 🌸</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 40px auto; font-size: 1.05em;">Bring the harvest festival joy to your loved ones with our exclusive, hand-crafted Onam gift hampers!</p>
-            
-            <div class="product-grid" style="margin-bottom: 0;">
-                
-                <!-- NEW PRODUCT: Onam Hamper - Her -->
-                <div class="product-card">
-                    <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Her', ['Beautiful Saree', 'Jumka earrings', 'Matching Bangles', 'Premium Chocolates', 'Decorative Sticker']))">
-                        <img src="Onam%20Hamper%20-%20Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Her.jpg';">
-                        <span class="preview-badge">🔍 Click to Preview</span>
-                    </div>
-                    <div class="product-title">Onam Hamper - Her</div>
-                    <div class="product-price">₹2599</div>
-                    <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Special Hamper', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings']))">
+                    <img src="onam1.jpeg" alt="Onam Special Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400?text=Onam+Hamper';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
-
-                <!-- NEW PRODUCT: Onam Shirt Hamper - Him -->
-                <div class="product-card">
-                    <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Shirt Hamper - Him', ['Traditional Shirt', 'Classic Mund', 'Assorted Kerala snacks']))">
-                        <img src="Onam%20Hamper%20-%20Him.jpeg" alt="Onam Shirt Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Him.jpg';">
-                        <span class="preview-badge">🔍 Click to Preview</span>
-                    </div>
-                    <div class="product-title">Onam Shirt Hamper - Him</div>
-                    <div class="product-price">₹2499</div>
-                    <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
-                </div>
-
+                <div class="product-title">Onam Special Hamper</div>
+                <div class="product-price">₹1499</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
         </div>
     </div>
 
-    <footer>
+    <div class="cta-section">
         <h2>Let's Make Something Special</h2>
         <p>Give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated gift hampers for every reason and season. Making your loved ones feel truly special, one box at a time.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">💬</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">📸</a>
+                    <a href="tel:+918296654218" title="Call Us">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Hampers</a></li>
+                    <li><a href="seasonal.html">Onam Specials</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="shipping.html">Shipping Policy</a></li>
+                    <li><a href="returns.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>📞 +91 8296654218</p>
+                <p>📍 Ships Pan-India</p>
+                <p>⏰ Mon - Sat, 9AM to 8PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
     </footer>
 
     <div id="imageModal" class="modal" onclick="closeModal(event)">
@@ -337,43 +262,14 @@
 
     <script>
         function formatDetails(title, itemsList) {
-            let html = `
-            <div style='text-align: left;'>
-                <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3>
-                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p>
-                <ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>
-            `;
-            
-            itemsList.forEach(item => {
-                html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`;
-            });
-            
+            let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`;
+            itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; });
             html += `</ul></div>`;
             return html;
         }
-
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        function openModal(imgSrc, formattedHtml) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            const caption = document.getElementById("modalCaption");
-            
-            modal.style.display = "flex"; 
-            modalImg.src = imgSrc; 
-            caption.innerHTML = formattedHtml; 
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function closeModal(event, forceClose = false) {
-            if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') {
-                document.getElementById("imageModal").style.display = "none";
-                document.body.style.overflow = "auto"; 
-            }
-        }
+        function toggleMenu() { const navMenu = document.getElementById('navMenu'); navMenu.classList.toggle('active'); }
+        function openModal(imgSrc, formattedHtml) { const modal = document.getElementById("imageModal"); const modalImg = document.getElementById("modalImage"); const caption = document.getElementById("modalCaption"); modal.style.display = "flex"; modalImg.src = imgSrc; caption.innerHTML = formattedHtml; document.body.style.overflow = "hidden"; }
+        function closeModal(event, forceClose = false) { if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { document.getElementById("imageModal").style.display = "none"; document.body.style.overflow = "auto"; } }
     </script>
 </body>
 </html>
