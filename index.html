@@ -254,11 +254,6 @@
         }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .prod-img-1 { background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 220px; }
-        .prod-img-2 { background: linear-gradient(45deg, #a18cd1, #fbc2eb); height: 220px; }
-        .prod-img-3 { background: linear-gradient(45deg, #84fab0, #8fd3f4); height: 220px; }
-        .prod-img-4 { background: linear-gradient(45deg, #fccb90, #d57eeb); height: 220px; }
-        
         .img-wrapper {
             position: relative;
             cursor: zoom-in;
@@ -356,7 +351,7 @@
         }
         video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* NEW FAQ STYLES */
+        /* FAQ STYLES */
         .faq-section { max-width: 800px; margin: 80px auto 40px auto; padding: 0 20px; }
         .faq-section h2 { text-align: center; color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 40px; }
         .faq-section h2 span { color: var(--primary); }
@@ -368,6 +363,7 @@
         .faq-icon { font-size: 1.2em; color: var(--gold); transition: transform 0.3s ease; font-weight: 800;}
         .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--primary); }
 
+        /* FOOTER & CTA STYLES */
         .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
         .cta-section h2 { color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin: 0 0 10px 0; font-weight: 800; }
         .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
@@ -588,16 +584,23 @@
             </div>
 
             <div class="product-card">
-                <div class="prod-img-3"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('SweetWear', ['Shirt hamper', 'Shirt', 'Chocolates']))">
+                    <img src="SweetWear.jpeg" alt="SweetWear" class="prod-real-img" onerror="this.onerror=null; this.src='SweetWear.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">SweetWear</div>
+                <div class="product-price">₹1499</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
+            
             <div class="product-card">
-                <div class="prod-img-4"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Watch Hamper', ['Premium Men\'s Watch', 'Beautiful packaging']))">
+                    <img src="The%20Watch%20Hamper.jpeg" alt="The Watch Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Watch%20Hamper.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">The Watch Hamper</div>
+                <div class="product-price">₹1799</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
         </div>
 
@@ -751,7 +754,6 @@
         </div>
     </div>
 
-    <!-- NEW FAQ SECTION -->
     <div class="faq-section">
         <h2>Frequently Asked <span>Questions</span></h2>
         
@@ -786,14 +788,12 @@
         </div>
     </div>
 
-    <!-- PRE-FOOTER CTA -->
     <div class="cta-section">
         <h2>Let's Make Something Special</h2>
         <p>Give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
     </div>
 
-    <!-- DETAILED FOOTER -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
