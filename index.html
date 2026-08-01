@@ -101,7 +101,7 @@
         }
 
         .hero {
-            position: relative; /* Added for the floating badge */
+            position: relative; 
             background: linear-gradient(135deg, rgba(75, 19, 79, 0.75), rgba(201, 75, 75, 0.65)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2040&auto=format&fit=crop') center/cover;
             background-attachment: fixed;
             color: white;
@@ -110,11 +110,10 @@
             overflow: hidden;
         }
         
-        /* THE NEW FLOATING ONAM BADGE */
         .onam-floating-badge {
             position: absolute;
             top: 22%;
-            right: 12vw;
+            right: 4vw; 
             background: linear-gradient(135deg, #f1c40f 0%, #e38200 100%);
             color: white;
             padding: 15px 30px;
@@ -417,32 +416,6 @@
         
         #modalCaption { width: 100%; }
 
-        .seasonal-section {
-            background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(220, 39, 67, 0.05));
-            border: 2px dashed var(--gold);
-            border-radius: 25px;
-            padding: 40px 20px;
-            margin-bottom: 60px;
-            text-align: center;
-            position: relative;
-        }
-        .seasonal-badge {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            border: 2px solid var(--gold);
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        /* Make sure it adapts gracefully to mobile screens */
         @media (max-width: 900px) {
             .onam-floating-badge {
                 position: relative;
@@ -499,6 +472,8 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
+            <!-- Link updated to point to the new seasonal.html page -->
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
@@ -506,8 +481,8 @@
     </nav>
 
     <header class="hero">
-        <!-- New absolute positioned badge right where you circled! -->
-        <a href="#seasonal" class="onam-floating-badge">🌸 Onam Specials!</a>
+        <!-- Floating badge updated to point to the new seasonal.html page -->
+        <a href="seasonal.html" class="onam-floating-badge">🌸 Onam Specials!</a>
         
         <h2>The Perfect Surprise,<br>Every Time.</h2>
         <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
@@ -527,28 +502,6 @@
     </div>
 
     <div class="container">
-
-        <div id="seasonal" class="seasonal-section">
-            <div class="seasonal-badge">LIMITED TIME ONLY</div>
-            
-            <h2 class="section-title" style="margin-top: 10px; margin-bottom: 10px;">Celebrate <span>Onam</span> 🌸</h2>
-            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05em;">Bring the harvest festival joy to your loved ones with our exclusive, hand-crafted Onam gift hampers!</p>
-            
-            <div class="product-grid" style="margin-bottom: 0;">
-                <div class="product-card">
-                    <div class="prod-img-1" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
-                    <div class="product-title">Onam Premium Box</div>
-                    <div class="product-price">---</div>
-                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
-                </div>
-                <div class="product-card">
-                    <div class="prod-img-2" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
-                    <div class="product-title">Festive Delights</div>
-                    <div class="product-price">---</div>
-                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
-                </div>
-            </div>
-        </div>
         
         <h2 class="section-title">Our <span>Best Sellers</span></h2>
         <div class="product-grid">
