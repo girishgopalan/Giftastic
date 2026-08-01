@@ -289,17 +289,7 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- NEW PRODUCT: Polaroid Photos added to the main shop feed -->
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
-                    <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='Polaroid%20Photos.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Polaroid Photos</div>
-                <div class="product-price">₹12 / pc</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
-            </div>
-
+            <!-- Removed Polaroid Photos and put Placeholders back -->
             <div class="product-card">
                 <div class="prod-img-3"></div>
                 <div class="product-title">Coming Soon</div>
@@ -320,6 +310,18 @@
             </div>
             <div class="product-card">
                 <div class="prod-img-2"></div>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-3"></div>
+                <div class="product-title">Coming Soon</div>
+                <div class="product-price">---</div>
+                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+            </div>
+            <div class="product-card">
+                <div class="prod-img-4"></div>
                 <div class="product-title">Coming Soon</div>
                 <div class="product-price">---</div>
                 <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
@@ -348,7 +350,6 @@
     </div>
 
     <script>
-        // Updated text to say "Product Details"
         function formatDetails(title, itemsList) {
             let html = `
             <div style='text-align: left;'>
