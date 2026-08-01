@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seasonal Specials | Giftastic by Archana</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -94,15 +98,51 @@
         }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .prod-img-1 { background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 220px; }
-        .prod-img-2 { background: linear-gradient(45deg, #a18cd1, #fbc2eb); height: 220px; }
+        .img-wrapper {
+            position: relative;
+            cursor: zoom-in;
+            overflow: hidden;
+        }
         
+        .prod-real-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .img-wrapper:hover .prod-real-img {
+            transform: scale(1.08); 
+        }
+
+        .preview-badge {
+            position: absolute;
+            bottom: -30px; 
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--secondary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            pointer-events: none; 
+        }
+
+        .img-wrapper:hover .preview-badge {
+            bottom: 15px; 
+            opacity: 1;
+        }
+
         .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
         .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
         .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; display: inline-block;}
         .product-btn:hover { background: var(--primary); }
 
-        /* THEMED SEASONAL SECTION STYLING */
         .seasonal-section {
             background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(220, 39, 67, 0.05));
             border: 2px dashed var(--gold);
@@ -129,6 +169,76 @@
             white-space: nowrap;
         }
 
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 2000; 
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-layout {
+            display: flex;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+            animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-img-container {
+            flex: 1.2;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 40px 30px;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: #f1f1f1;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+            background: rgba(0,0,0,0.5);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8);}
+        
+        #modalCaption { width: 100%; }
+
         footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; margin-top: 40px;}
         footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
 
@@ -144,6 +254,11 @@
                 display: none;
             }
             .nav-links.active { display: flex; }
+
+            .modal-layout { flex-direction: column; overflow-y: auto; }
+            .modal-img-container { height: 40vh; flex: none; }
+            .modal-details { flex: none; padding: 25px 20px; }
+            .close-modal { top: 10px; right: 10px; }
         }
     </style>
 </head>
@@ -168,7 +283,6 @@
     </nav>
 
     <div class="container">
-        <!-- SEASONAL SECTION LIVES EXCLUSIVELY HERE NOW -->
         <div class="seasonal-section">
             <div class="seasonal-badge">LIMITED TIME ONLY</div>
             
@@ -176,18 +290,29 @@
             <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 40px auto; font-size: 1.05em;">Bring the harvest festival joy to your loved ones with our exclusive, hand-crafted Onam gift hampers!</p>
             
             <div class="product-grid" style="margin-bottom: 0;">
+                
+                <!-- NEW PRODUCT: Onam Hamper - Her -->
                 <div class="product-card">
-                    <div class="prod-img-1" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
-                    <div class="product-title">Onam Premium Box</div>
-                    <div class="product-price">---</div>
-                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
+                    <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Her', ['Beautiful Saree', 'Jumka earrings', 'Matching Bangles', 'Premium Chocolates', 'Decorative Sticker']))">
+                        <img src="Onam%20Hamper%20-%20Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Her.jpg';">
+                        <span class="preview-badge">🔍 Click to Preview</span>
+                    </div>
+                    <div class="product-title">Onam Hamper - Her</div>
+                    <div class="product-price">₹2599</div>
+                    <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
                 </div>
+
+                <!-- NEW PRODUCT: Onam Shirt Hamper - Him -->
                 <div class="product-card">
-                    <div class="prod-img-2" style="background: linear-gradient(45deg, #f6d365, #fda085);"></div>
-                    <div class="product-title">Festive Delights</div>
-                    <div class="product-price">---</div>
-                    <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Coming Soon</a>
+                    <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Shirt Hamper - Him', ['Traditional Shirt', 'Classic Mund', 'Assorted Kerala snacks']))">
+                        <img src="Onam%20Hamper%20-%20Him.jpeg" alt="Onam Shirt Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Him.jpg';">
+                        <span class="preview-badge">🔍 Click to Preview</span>
+                    </div>
+                    <div class="product-title">Onam Shirt Hamper - Him</div>
+                    <div class="product-price">₹2499</div>
+                    <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
                 </div>
+
             </div>
         </div>
     </div>
@@ -198,10 +323,56 @@
         <h3>📞 +91 8296654218</h3>
     </footer>
 
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-layout">
+            <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
+            <div class="modal-img-container">
+                <img class="modal-content" id="modalImage">
+            </div>
+            <div class="modal-details">
+                <div id="modalCaption"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        function formatDetails(title, itemsList) {
+            let html = `
+            <div style='text-align: left;'>
+                <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3>
+                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p>
+                <ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>
+            `;
+            
+            itemsList.forEach(item => {
+                html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`;
+            });
+            
+            html += `</ul></div>`;
+            return html;
+        }
+
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
+        }
+
+        function openModal(imgSrc, formattedHtml) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const caption = document.getElementById("modalCaption");
+            
+            modal.style.display = "flex"; 
+            modalImg.src = imgSrc; 
+            caption.innerHTML = formattedHtml; 
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeModal(event, forceClose = false) {
+            if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') {
+                document.getElementById("imageModal").style.display = "none";
+                document.body.style.overflow = "auto"; 
+            }
         }
     </script>
 </body>
