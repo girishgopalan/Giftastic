@@ -64,7 +64,6 @@
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
 
-        /* New styling to position mobile call button perfectly */
         .nav-right-controls { display: flex; align-items: center; gap: 15px; }
         .mobile-call-btn { display: none; } 
 
@@ -151,7 +150,6 @@
         footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; margin-top: 40px;}
         footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
 
-        /* NEW LIGHTBOX MODAL CSS FOR DETAILED VIEW */
         .modal {
             display: none; 
             position: fixed;
@@ -225,7 +223,6 @@
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
             
-            /* Tweak to show call button on mobile */
             .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
             .desktop-call-btn { display: none !important; }
             
@@ -237,7 +234,6 @@
             }
             .nav-links.active { display: flex; }
             
-            /* Responsive Modal */
             .modal-layout { flex-direction: column; overflow-y: auto; }
             .modal-img-container { height: 40vh; flex: none; }
             .modal-details { flex: none; padding: 25px 20px; }
@@ -252,7 +248,6 @@
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
-        <!-- The new wrapper keeps the Call button and Menu next to each other perfectly! -->
         <div class="nav-right-controls">
             <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -284,7 +279,6 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
-            <!-- NEW PRODUCT: The Glow Box (WITH FULLY POPULATED DETAILS) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Glow Box', ['1 Photo frame (4x4)', 'Ring album (10 photos)', '15 Munch chocolates', '5 Sneakers chocolates', '5 KitKat chocolates', 'Mini panda lamp']))">
                     <img src="The%20Glow%20Box.jpeg" alt="The Glow Box" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Glow%20Box.jpg';">
@@ -295,12 +289,17 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
+            <!-- NEW PRODUCT: Polaroid Photos added to the main shop feed -->
             <div class="product-card">
-                <div class="prod-img-2"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
+                    <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='Polaroid%20Photos.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Polaroid Photos</div>
+                <div class="product-price">₹12 / pc</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
+
             <div class="product-card">
                 <div class="prod-img-3"></div>
                 <div class="product-title">Coming Soon</div>
@@ -325,12 +324,6 @@
                 <div class="product-price">---</div>
                 <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
             </div>
-            <div class="product-card">
-                <div class="prod-img-3"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
-            </div>
 
         </div>
 
@@ -342,7 +335,6 @@
         <h3>📞 +91 8296654218</h3>
     </footer>
 
-    <!-- NEW DETAILED IMAGE PREVIEW MODAL -->
     <div id="imageModal" class="modal" onclick="closeModal(event)">
         <div class="modal-layout">
             <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
@@ -356,12 +348,12 @@
     </div>
 
     <script>
-        // NEW JAVASCRIPT FUNCTION TO BUILD THE BEAUTIFUL LIST
+        // Updated text to say "Product Details"
         function formatDetails(title, itemsList) {
             let html = `
             <div style='text-align: left;'>
                 <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3>
-                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>What's inside this hamper:</p>
+                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p>
                 <ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>
             `;
             
@@ -373,13 +365,11 @@
             return html;
         }
 
-        // MOBILE MENU CONTROLS
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
             navMenu.classList.toggle('active');
         }
 
-        // UPDATED PREVIEW MODAL CONTROLS
         function openModal(imgSrc, formattedHtml) {
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
@@ -388,13 +378,13 @@
             modal.style.display = "flex"; 
             modalImg.src = imgSrc; 
             caption.innerHTML = formattedHtml; 
-            document.body.style.overflow = "hidden"; // Stop scrolling in background
+            document.body.style.overflow = "hidden"; 
         }
 
         function closeModal(event, forceClose = false) {
             if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') {
                 document.getElementById("imageModal").style.display = "none";
-                document.body.style.overflow = "auto"; // Re-enable scrolling
+                document.body.style.overflow = "auto"; 
             }
         }
     </script>
