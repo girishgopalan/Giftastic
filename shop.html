@@ -99,11 +99,6 @@
         }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .prod-img-1 { background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 220px; }
-        .prod-img-2 { background: linear-gradient(45deg, #a18cd1, #fbc2eb); height: 220px; }
-        .prod-img-3 { background: linear-gradient(45deg, #84fab0, #8fd3f4); height: 220px; }
-        .prod-img-4 { background: linear-gradient(45deg, #fccb90, #d57eeb); height: 220px; }
-        
         .img-wrapper {
             position: relative;
             cursor: zoom-in;
@@ -149,8 +144,25 @@
         .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; display: inline-block;}
         .product-btn:hover { background: var(--primary); }
 
-        footer { background: #111; color: white; text-align: center; padding: 60px 20px 80px 20px; margin-top: 40px;}
-        footer h3 { color: var(--gold); font-size: clamp(2em, 4vw, 2.5em); margin: 10px 0 0 0; font-weight: 800; }
+        /* FOOTER & CTA STYLES */
+        .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
+        .cta-section h2 { color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin: 0 0 10px 0; font-weight: 800; }
+        .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
+        .cta-section h3 { color: var(--primary); font-size: 1.8em; margin: 0; }
+
+        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; font-family: 'Poppins', sans-serif; border-top: 5px solid var(--primary); }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 220px; text-align: left; }
+        .footer-col h3 { color: var(--gold); font-size: 1.3em; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #bbb; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bbb; text-decoration: none; transition: color 0.3s ease; font-size: 0.95em; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
+        .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
 
         .modal {
             display: none; 
@@ -332,28 +344,77 @@
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
+            <!-- NEW PRODUCT: The Panda Hamper -->
             <div class="product-card">
-                <div class="prod-img-3"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Panda Hamper', ['A Panda lamp', 'One Photo frame', 'Kitkat 3 Nos', '5 star 3 Nos', 'Sneakers 3 Nos']))">
+                    <img src="The%20Panda%20Hamper.jpeg" alt="The Panda Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Panda%20Hamper.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">The Panda Hamper</div>
+                <div class="product-price">₹2399</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
             
+            <!-- NEW PRODUCT: BuenoBox -->
             <div class="product-card">
-                <div class="prod-img-4"></div>
-                <div class="product-title">Coming Soon</div>
-                <div class="product-price">---</div>
-                <a href="#" class="product-btn" style="background: var(--text-light); cursor: not-allowed;">Stay Tuned</a>
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('BuenoBox', ['A Panda lamp', 'Kinder Bueno - 5 Nos', 'Period massager', 'Kitkat - 2']))">
+                    <img src="BuenoBox.jpeg" alt="BuenoBox" class="prod-real-img" onerror="this.onerror=null; this.src='BuenoBox.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">BuenoBox</div>
+                <div class="product-price">₹2799</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
 
         </div>
 
     </div>
 
-    <footer>
+    <!-- NEW PRE-FOOTER CTA -->
+    <div class="cta-section">
         <h2>Let's Make Something Special</h2>
         <p>Give us a call directly to start your custom order!</p>
         <h3>📞 +91 8296654218</h3>
+    </div>
+
+    <!-- NEW DETAILED FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated gift hampers for every reason and season. Making your loved ones feel truly special, one box at a time.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">💬</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">📸</a>
+                    <a href="tel:+918296654218" title="Call Us">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Hampers</a></li>
+                    <li><a href="seasonal.html">Onam Specials</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="shipping.html">Shipping Policy</a></li>
+                    <li><a href="returns.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>📞 +91 8296654218</p>
+                <p>📍 Ships Pan-India</p>
+                <p>⏰ Mon - Sat, 9AM to 8PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
     </footer>
 
     <div id="imageModal" class="modal" onclick="closeModal(event)">
