@@ -302,12 +302,12 @@
         .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; display: inline-block;}
         .product-btn:hover { background: var(--primary); }
 
-        /* NEW TESTIMONIAL SECTION CSS */
+        /* UPDATED TESTIMONIAL SECTION FOR IMAGES */
         .testimonials { background-color: white; padding: 80px 20px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
         .testimonial-card { 
             background: var(--bg-light); 
-            padding: 40px 30px; 
+            padding: 15px; 
             border-radius: 20px; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.04); 
             text-align: center; 
@@ -315,11 +315,26 @@
             border-bottom: 4px solid var(--primary);
         }
         .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-        .stars { color: var(--gold); font-size: 1.4em; margin-bottom: 15px; letter-spacing: 2px;}
-        .quote-icon { font-size: 3em; color: rgba(201, 75, 75, 0.1); margin-top: -20px; margin-bottom: 10px; line-height: 1;}
-        .review-text { font-style: italic; color: var(--text-light); line-height: 1.7; margin-bottom: 25px; font-size: 1.05em;}
-        .reviewer-name { font-weight: 700; color: var(--secondary); font-size: 1.1em; margin-bottom: 5px;}
-        .reviewer-item { font-size: 0.85em; color: white; background: var(--primary); display: inline-block; padding: 4px 12px; border-radius: 20px; font-weight: 500;}
+        
+        .review-img-wrapper {
+            cursor: zoom-in;
+            overflow: hidden;
+            border-radius: 12px;
+            width: 100%;
+            height: 350px; /* Forces uniform height for screenshots */
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .review-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .review-img-wrapper:hover img { transform: scale(1.05); }
 
         .split-section {
             display: flex; align-items: center; justify-content: space-between;
@@ -405,7 +420,7 @@
         .modal-content {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Changed to contain so entire screenshot is visible */
         }
 
         .modal-details {
@@ -629,36 +644,46 @@
                 <div class="product-price">₹149</div>
                 <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
             </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
+                    <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='Polaroid%20Photos.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Polaroid Photos</div>
+                <div class="product-price">₹12 / pc</div>
+                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+            </div>
         </div>
     </div>
 
-    <!-- NEW TESTIMONIALS SECTION -->
+    <!-- NEW SCREENSHOT TESTIMONIALS SECTION -->
     <div class="testimonials">
         <h2 class="section-title" style="margin-top: 0;">What Our <span>Customers Say</span></h2>
         <div class="testimonial-grid">
             
+            <!-- Instagram Review Screenshot 1 -->
             <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="review-text">I ordered The Glow Box for my best friend's birthday and she absolutely loved it! The packaging was incredibly premium and the delivery was right on time. Highly recommend Giftastic!</p>
-                <div class="reviewer-name">- Priya S.</div>
-                <div class="reviewer-item">Bought: The Glow Box</div>
+                <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
+                    <!-- Upload your first screenshot to GitHub and name it exactly review1.jpeg -->
+                    <img src="review1.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review1.jpeg';">
+                </div>
             </div>
 
+            <!-- Instagram Review Screenshot 2 -->
             <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="review-text">Gifted the Gentleman's Choice to my husband for our anniversary. The quality of the wallet and the custom engraving were flawless. He uses it every single day. Thank you so much!</p>
-                <div class="reviewer-name">- Anjali M.</div>
-                <div class="reviewer-item">Bought: Gentleman's Choice</div>
+                <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
+                    <!-- Upload your second screenshot to GitHub and name it exactly review2.jpeg -->
+                    <img src="review2.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review2.jpeg';">
+                </div>
             </div>
 
+            <!-- Instagram Review Screenshot 3 -->
             <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="review-text">I was looking for a unique return gift and found the Fridge Magnets. Archana was so helpful on WhatsApp and customized them perfectly for us. The guests adored them.</p>
-                <div class="reviewer-name">- Rahul K.</div>
-                <div class="reviewer-item">Bought: Fridge Magnets</div>
+                <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
+                    <!-- Upload your third screenshot to GitHub and name it exactly review3.jpeg -->
+                    <img src="review3.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review3.jpeg';">
+                </div>
             </div>
 
         </div>
@@ -722,6 +747,15 @@
             
             html += `</ul></div>`;
             return html;
+        }
+
+        function formatReviewCaption() {
+            return `
+            <div style='text-align: left;'>
+                <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>Real Customer Review</h3>
+                <p style='color: white; font-size: 1.05em; line-height: 1.8;'>⭐⭐⭐⭐⭐<br>We love hearing from happy customers! Tap the 'X' to close this view.</p>
+            </div>
+            `;
         }
 
         function toggleMusic() {
