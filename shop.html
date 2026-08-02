@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DYMRJE47WB');
     </script>
 
@@ -31,45 +30,11 @@
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
         
-        nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: var(--secondary);
-        }
-        
-        .nav-brand img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gold);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
+        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--secondary); }
+        .nav-brand img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
         .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
@@ -78,21 +43,8 @@
 
         .nav-right-controls { display: flex; align-items: center; gap: 15px; }
         .mobile-call-btn { display: none; } 
-
-        .nav-call-btn {
-            background: linear-gradient(135deg, #00b09b, #96c93d);
-            color: white !important;
-            padding: 8px 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .nav-call-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5);
-        }
+        .nav-call-btn { background: linear-gradient(135deg, #00b09b, #96c93d); color: white !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3); transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
+        .nav-call-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5); }
 
         .page-header { text-align: center; padding: 60px 20px 20px 20px; }
         .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--text-dark); }
@@ -102,57 +54,46 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .product-card {
-            background: white; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center;
-            padding-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .img-wrapper {
-            position: relative;
-            cursor: zoom-in;
-            overflow: hidden;
-        }
-        
-        .prod-real-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .img-wrapper:hover .prod-real-img {
-            transform: scale(1.08); 
-        }
+        .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; }
+        .prod-real-img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .img-wrapper:hover .prod-real-img { transform: scale(1.08); }
 
-        .preview-badge {
-            position: absolute;
-            bottom: -30px; 
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--secondary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 700;
-            opacity: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            pointer-events: none; 
-        }
-
-        .img-wrapper:hover .preview-badge {
-            bottom: 15px; 
-            opacity: 1;
-        }
+        .preview-badge { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); color: var(--secondary); padding: 8px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 700; opacity: 0; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: none; }
+        .img-wrapper:hover .preview-badge { bottom: 15px; opacity: 1; }
         
         .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
         .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
-        .product-btn { background: var(--secondary); color: white; padding: 10px 28px; border-radius: 25px; text-decoration: none; font-weight: 500; font-size: 0.9em; transition: background 0.3s ease; display: inline-block;}
-        .product-btn:hover { background: var(--primary); }
+        
+        /* NEW BUTTON STYLES */
+        .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
+        .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
+
+        /* CART UI STYLES */
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
+        .floating-cart:hover { transform: scale(1.1); }
+        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+
+        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+        .cart-panel.active { right: 0; }
+        .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { margin: 0; font-size: 1.3em; display: flex; align-items: center; gap: 10px;}
+        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; }
+        .cart-items { flex-grow: 1; padding: 20px; overflow-y: auto; background: var(--bg-light); }
+        .cart-footer { padding: 25px 20px; background: white; border-top: 1px solid #eee; box-shadow: 0 -5px 15px rgba(0,0,0,0.03); }
+        .cart-total { font-size: 1.4em; font-weight: 800; color: var(--text-dark); margin-bottom: 15px; display: flex; justify-content: space-between;}
+        .checkout-btn { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 16px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 600; border-radius: 12px; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
+        
+        .cart-item-row { display: flex; align-items: center; gap: 15px; background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { margin: 0 0 5px 0; font-size: 0.95em; color: var(--text-dark); font-weight: 600; line-height: 1.2;}
+        .cart-item-price { color: var(--primary); font-weight: 700; font-size: 0.9em; }
+        .qty-controls { display: flex; align-items: center; gap: 10px; background: #f5f6fa; border-radius: 20px; padding: 5px; }
+        .qty-btn { background: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;}
 
         /* FOOTER & CTA STYLES */
         .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
@@ -174,90 +115,22 @@
         .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
         .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
 
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 2000; 
-            left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-layout {
-            display: flex;
-            background: #1a1a1a;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 90%;
-            max-width: 900px;
-            max-height: 85vh;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
-            animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-img-container {
-            flex: 1.2;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-        }
-
-        .modal-details {
-            flex: 1;
-            padding: 40px 30px;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            color: #f1f1f1;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 10;
-            background: rgba(0,0,0,0.5);
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-        }
-        
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+        .modal-layout { display: flex; background: #1a1a1a; border-radius: 20px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 20px 50px rgba(0,0,0,0.7); animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-img-container { flex: 1.2; background: #000; display: flex; align-items: center; justify-content: center; }
+        .modal-content { width: 100%; height: 100%; object-fit: contain; }
+        .modal-details { flex: 1; padding: 40px 30px; overflow-y: auto; background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%); }
+        .close-modal { position: absolute; top: 15px; right: 25px; color: #f1f1f1; font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.3s; z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
         .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8);}
-        
         #modalCaption { width: 100%; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            
             .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
             .desktop-call-btn { display: none !important; }
-            
-            .nav-links {
-                position: absolute; top: 100%; left: 0; width: 100%;
-                background: rgba(255, 255, 255, 0.98); flex-direction: column;
-                padding: 20px 0; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                display: none;
-            }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: none; }
             .nav-links.active { display: flex; }
-            
             .modal-layout { flex-direction: column; overflow-y: auto; }
             .modal-img-container { height: 40vh; flex: none; }
             .modal-details { flex: none; padding: 25px 20px; }
@@ -285,13 +158,36 @@
         </div>
     </nav>
 
+    <!-- FLOATING CART BUTTON -->
+    <div class="floating-cart" onclick="toggleCart()">
+        🎁
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>🎁 Your Hamper Box</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items injected by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">💬 Confirm & Order via WhatsApp</button>
+        </div>
+    </div>
+
     <div class="page-header">
         <h2>Shop <span>Our Collection</span></h2>
         <p>Browse our full range of curated gift hampers for every occasion.</p>
     </div>
 
     <div class="container">
-        
         <div class="product-grid">
             
             <div class="product-card">
@@ -301,7 +197,7 @@
                 </div>
                 <div class="product-title">Gentleman's Choice</div>
                 <div class="product-price">₹2299</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('Gentleman\'s Choice', 2299, 'Gentleman%27s%20Choice.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -311,7 +207,7 @@
                 </div>
                 <div class="product-title">The Glow Box</div>
                 <div class="product-price">₹659</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('The Glow Box', 659, 'The%20Glow%20Box.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -321,7 +217,7 @@
                 </div>
                 <div class="product-title">Bloom & Bliss</div>
                 <div class="product-price">₹999</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('Bloom & Bliss', 999, 'Bloom%26Bliss.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -331,7 +227,7 @@
                 </div>
                 <div class="product-title">Cuddle & Charm Box</div>
                 <div class="product-price">₹2039</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('Cuddle & Charm Box', 2039, 'Cuddle%26Charm%20Box.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -341,7 +237,7 @@
                 </div>
                 <div class="product-title">The Watch Hamper</div>
                 <div class="product-price">₹1799</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('The Watch Hamper', 1799, 'The%20Watch%20Hamper.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -351,7 +247,7 @@
                 </div>
                 <div class="product-title">Shirt Hamper</div>
                 <div class="product-price">₹1999</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('Shirt Hamper', 1999, 'Shirt%20Hamper.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -361,7 +257,7 @@
                 </div>
                 <div class="product-title">The Panda Hamper</div>
                 <div class="product-price">₹2399</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('The Panda Hamper', 2399, 'The%20Panda%20Hamper.jpeg')">Add to Hamper 🎁</button>
             </div>
             
             <div class="product-card">
@@ -371,11 +267,10 @@
                 </div>
                 <div class="product-title">BuenoBox</div>
                 <div class="product-price">₹2799</div>
-                <a href="https://wa.me/918296654218" target="_blank" class="product-btn">Buy Now</a>
+                <button class="product-btn" onclick="addToHamper('BuenoBox', 2799, 'BuenoBox.jpeg')">Add to Hamper 🎁</button>
             </div>
 
         </div>
-
     </div>
 
     <div class="cta-section">
@@ -435,45 +330,126 @@
         </div>
     </div>
 
+    <!-- LOCAL STORAGE CART SYSTEM (JAVASCRIPT) -->
     <script>
-        function formatDetails(title, itemsList) {
-            let html = `
-            <div style='text-align: left;'>
-                <h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3>
-                <p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p>
-                <ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>
-            `;
+        // 1. Initialize cart from Local Storage
+        let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
+
+        // 2. Add product to cart
+        function addToHamper(name, price, image) {
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, image: image, quantity: 1 });
+            }
+            saveCart();
+            updateCartUI();
             
-            itemsList.forEach(item => {
-                html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`;
+            // Visual feedback (Bounce the cart icon)
+            let cartBtn = document.querySelector('.floating-cart');
+            cartBtn.style.transform = 'scale(1.2)';
+            setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
+            
+            // Open the cart panel
+            document.getElementById('cartPanel').classList.add('active');
+        }
+
+        // 3. Save cart to browser memory
+        function saveCart() {
+            localStorage.setItem('giftastic_cart', JSON.stringify(cart));
+        }
+
+        // 4. Update the visual cart display
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            if(cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-size:1.1em;">Your hamper box is empty! 🎁</p>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+                
+                // Fallback for missing images
+                let imgSrc = item.image.includes('.jpeg') || item.image.includes('.jpg') ? item.image : item.image + '.jpeg';
+
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span style="font-weight:600; font-size:0.9em;">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartCount.innerText = count;
+            cartTotal.innerText = total;
+        }
+
+        // 5. Change quantities
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1); // Remove item if quantity hits 0
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        // 6. Open/Close the side panel
+        function toggleCart() {
+            document.getElementById('cartPanel').classList.toggle('active');
+        }
+
+        // 7. Format WhatsApp Message & Checkout
+        function checkoutWhatsapp() {
+            if(cart.length === 0) {
+                alert("Please add some items to your Hamper Box first!");
+                return;
+            }
+            
+            let message = "Hi Archana! 🌟 I would like to place an order from Giftastic101.in.\n\n*Here is my Hamper Box:*\n";
+            let total = 0;
+            
+            cart.forEach(item => {
+                message += `🎁 ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                total += item.price * item.quantity;
             });
             
+            message += `\n*Total Amount: ₹${total}*\n\nPlease let me know how I can pay the 40% advance to confirm my order!`;
+            
+            let encodedMessage = encodeURIComponent(message);
+            window.open('https://wa.me/918296654218?text=' + encodedMessage, '_blank');
+        }
+
+        // Initialize cart when page loads
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+
+        // Previous Modal/Menu Functions
+        function formatDetails(title, itemsList) {
+            let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`;
+            itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; });
             html += `</ul></div>`;
             return html;
         }
-
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        function openModal(imgSrc, formattedHtml) {
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            const caption = document.getElementById("modalCaption");
-            
-            modal.style.display = "flex"; 
-            modalImg.src = imgSrc; 
-            caption.innerHTML = formattedHtml; 
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function closeModal(event, forceClose = false) {
-            if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') {
-                document.getElementById("imageModal").style.display = "none";
-                document.body.style.overflow = "auto"; 
-            }
-        }
+        function toggleMenu() { const navMenu = document.getElementById('navMenu'); navMenu.classList.toggle('active'); }
+        function openModal(imgSrc, formattedHtml) { const modal = document.getElementById("imageModal"); const modalImg = document.getElementById("modalImage"); const caption = document.getElementById("modalCaption"); modal.style.display = "flex"; modalImg.src = imgSrc; caption.innerHTML = formattedHtml; document.body.style.overflow = "hidden"; }
+        function closeModal(event, forceClose = false) { if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { document.getElementById("imageModal").style.display = "none"; document.body.style.overflow = "auto"; } }
     </script>
 </body>
 </html>
