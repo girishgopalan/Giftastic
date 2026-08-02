@@ -198,14 +198,14 @@
         <div class="builder-step">
             <h3><span>1</span> Choose Your Box Size</h3>
             <div class="box-options">
-                <div class="box-card selected" onclick="selectBox('Small Elegant Cardboard Box', 300, this)">
+                <div class="box-card selected" onclick="selectBox('Small Elegant HamperBox', 300, this)">
                     <h4>Small Box</h4>
-                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant Cardboard Box</p>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant HamperBox</p>
                     <div class="price">₹300</div>
                 </div>
-                <div class="box-card" onclick="selectBox('Medium Elegant Cardboard Box', 450, this)">
+                <div class="box-card" onclick="selectBox('Medium Elegant HamperBox', 450, this)">
                     <h4>Medium Box</h4>
-                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant Cardboard Box</p>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant HamperBox</p>
                     <div class="price">₹450</div>
                 </div>
                 <div class="box-card" onclick="selectBox('Large Trolley Bag Box', 850, this)">
@@ -226,7 +226,7 @@
             <!-- THE UPGRADED VIRTUAL BOX PREVIEW -->
             <div class="virtual-preview-section">
                 <div class="virtual-preview-title">
-                    <span style="font-size: 1.2em;">🎁</span> Inside Your: <span id="virtualBoxName" style="color: var(--text-dark);">Small Elegant Cardboard Box</span>
+                    <span style="font-size: 1.2em;">🎁</span> Inside Your: <span id="virtualBoxName" style="color: var(--text-dark);">Small Elegant HamperBox</span>
                 </div>
                 <div class="virtual-box empty" id="virtualBoxContainer">
                     <!-- Clustered Items will drop in here -->
@@ -310,7 +310,7 @@
             { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" }
         ];
 
-        let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
+        let selectedBox = { name: "Small Elegant HamperBox", price: 300 };
         let selectedGoodies = {}; 
 
         function renderGoodies() {
