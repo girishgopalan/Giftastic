@@ -69,10 +69,10 @@
         .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
         .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
 
-        /* CART UI STYLES */
         .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
         .floating-cart:hover { transform: scale(1.1); }
         .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+        
         .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
         .cart-panel.active { right: 0; }
         .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
@@ -145,6 +145,7 @@
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
+            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">✨ Build Hamper</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
         </div>
@@ -182,26 +183,24 @@
     <div class="container">
         <div class="product-grid">
             
-            <!-- PRODUCT 1: FOR HER (Using exact provided names with URL encoding for the space) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Her', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Her']))">
                     <img src="Onam%20Hamper-Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam Hamper-Her.jpeg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
                 <div class="product-title">Onam Hamper - Her</div>
-                <div class="product-price">₹2499</div>
-                <button class="product-btn" onclick="addToHamper('Onam Hamper - Her', 2499, 'Onam%20Hamper-Her.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹1499</div>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Her', 1499, 'Onam%20Hamper-Her.jpeg')">Add to Hamper 🎁</button>
             </div>
 
-            <!-- PRODUCT 2: FOR HIM (Using exact provided names with URL encoding for the space) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Him', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Him']))">
                     <img src="Onam%20Hamper-Him.jpeg" alt="Onam Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam Hamper-Him.jpeg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
                 <div class="product-title">Onam Hamper - Him</div>
-                <div class="product-price">₹2499</div>
-                <button class="product-btn" onclick="addToHamper('Onam Hamper - Him', 2499, 'Onam%20Hamper-Him.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹1499</div>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Him', 1499, 'Onam%20Hamper-Him.jpeg')">Add to Hamper 🎁</button>
             </div>
 
         </div>
@@ -230,6 +229,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop Hampers</a></li>
                     <li><a href="seasonal.html">Onam Specials</a></li>
+                    <li><a href="create.html">Build Hamper</a></li>
                     <li><a href="index.html#about">About Us</a></li>
                 </ul>
             </div>
@@ -266,10 +266,7 @@
 
     <!-- LOCAL STORAGE CART SYSTEM (JAVASCRIPT) -->
     <script>
-        // 1. Initialize cart from Local Storage
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
-
-        // 2. Add product to cart
         function addToHamper(name, price, image) {
             let existingItem = cart.find(item => item.name === name);
             if (existingItem) {
@@ -277,44 +274,23 @@
             } else {
                 cart.push({ name: name, price: price, image: image, quantity: 1 });
             }
-            saveCart();
-            updateCartUI();
-            
-            // Visual feedback (Bounce the cart icon)
+            saveCart(); updateCartUI();
             let cartBtn = document.querySelector('.floating-cart');
             cartBtn.style.transform = 'scale(1.2)';
             setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
-            
-            // Open the cart panel
             document.getElementById('cartPanel').classList.add('active');
         }
-
-        // 3. Save cart to browser memory
-        function saveCart() {
-            localStorage.setItem('giftastic_cart', JSON.stringify(cart));
-        }
-
-        // 4. Update the visual cart display
+        function saveCart() { localStorage.setItem('giftastic_cart', JSON.stringify(cart)); }
         function updateCartUI() {
             const cartItemsContainer = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
             const cartTotal = document.getElementById('cartTotal');
-            
             cartItemsContainer.innerHTML = '';
-            let total = 0;
-            let count = 0;
-
-            if(cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-size:1.1em;">Your hamper box is empty! 🎁</p>';
-            }
-
+            let total = 0; let count = 0;
+            if(cart.length === 0) { cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-size:1.1em;">Your hamper box is empty! 🎁</p>'; }
             cart.forEach((item, index) => {
-                total += item.price * item.quantity;
-                count += item.quantity;
-                
-                // Fallback for missing images
-                let imgSrc = item.image.includes('.jpeg') || item.image.includes('.jpg') ? item.image : item.image + '.jpeg';
-
+                total += item.price * item.quantity; count += item.quantity;
+                let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
                 cartItemsContainer.innerHTML += `
                     <div class="cart-item-row">
                         <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
@@ -327,60 +303,31 @@
                             <span style="font-weight:600; font-size:0.9em;">${item.quantity}</span>
                             <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
-
-            cartCount.innerText = count;
-            cartTotal.innerText = total;
+            cartCount.innerText = count; cartTotal.innerText = total;
         }
-
-        // 5. Change quantities
         function changeQuantity(index, change) {
             cart[index].quantity += change;
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1); // Remove item if quantity hits 0
-            }
-            saveCart();
-            updateCartUI();
+            if (cart[index].quantity <= 0) { cart.splice(index, 1); }
+            saveCart(); updateCartUI();
         }
-
-        // 6. Open/Close the side panel
-        function toggleCart() {
-            document.getElementById('cartPanel').classList.toggle('active');
-        }
-
-        // 7. Format WhatsApp Message & Checkout
+        function toggleCart() { document.getElementById('cartPanel').classList.toggle('active'); }
         function checkoutWhatsapp() {
-            if(cart.length === 0) {
-                alert("Please add some items to your Hamper Box first!");
-                return;
-            }
-            
+            if(cart.length === 0) { alert("Please add some items to your Hamper Box first!"); return; }
             let message = "Hi Archana! 🌟 I would like to place an order from Giftastic101.in.\n\n*Here is my Hamper Box:*\n";
             let total = 0;
-            
             cart.forEach(item => {
                 message += `🎁 ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                if(item.details) { message += `   *(${item.details})*\n`; }
                 total += item.price * item.quantity;
             });
-            
             message += `\n*Total Amount: ₹${total}*\n\nPlease let me know how I can pay the 40% advance to confirm my order!`;
-            
-            let encodedMessage = encodeURIComponent(message);
-            window.open('https://wa.me/918296654218?text=' + encodedMessage, '_blank');
+            window.open('https://wa.me/918296654218?text=' + encodeURIComponent(message), '_blank');
         }
-
-        // Initialize cart when page loads
         document.addEventListener('DOMContentLoaded', updateCartUI);
 
-        // Previous Modal Menu Functions
-        function formatDetails(title, itemsList) {
-            let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`;
-            itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; });
-            html += `</ul></div>`;
-            return html;
-        }
+        function formatDetails(title, itemsList) { let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`; itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; }); html += `</ul></div>`; return html; }
         function toggleMenu() { const navMenu = document.getElementById('navMenu'); navMenu.classList.toggle('active'); }
         function openModal(imgSrc, formattedHtml) { const modal = document.getElementById("imageModal"); const modalImg = document.getElementById("modalImage"); const caption = document.getElementById("modalCaption"); modal.style.display = "flex"; modalImg.src = imgSrc; caption.innerHTML = formattedHtml; document.body.style.overflow = "hidden"; }
         function closeModal(event, forceClose = false) { if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { document.getElementById("imageModal").style.display = "none"; document.body.style.overflow = "auto"; } }
