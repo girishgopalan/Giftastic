@@ -74,6 +74,14 @@
         .goodie-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
         .goodie-count { font-weight: 600; font-size: 0.95em; min-width: 15px; text-align: center; }
 
+        /* VIRTUAL BOX PREVIEW (NEW!) */
+        .virtual-preview-section { margin-top: 30px; border-top: 2px dashed #eee; padding-top: 20px; }
+        .virtual-preview-title { text-align: center; color: var(--secondary); font-weight: 600; margin-bottom: 15px; }
+        .virtual-box { background: rgba(75, 19, 79, 0.03); border: 3px dashed var(--secondary); border-radius: 20px; min-height: 180px; padding: 25px; display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: center; gap: 10px; position: relative; transition: all 0.3s ease; }
+        .virtual-box.empty::before { content: "Your box is empty! Tap the '+' buttons above to pack your hamper."; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #aaa; font-size: 0.95em; width: 100%; text-align: center; }
+        .virtual-item { background: white; border: 2px solid var(--primary); color: var(--secondary); padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9em; box-shadow: 0 5px 15px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 8px; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { 0% { transform: scale(0.5) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+
         /* PERSONALIZATION NOTE */
         .note-box { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 1em; margin-top: 10px; resize: vertical; min-height: 90px; }
         .note-box:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(201, 75, 75, 0.1); }
@@ -207,6 +215,14 @@
             <div class="goodies-grid" id="goodiesGrid">
                 <!-- Injected via JS -->
             </div>
+
+            <!-- THE VIRTUAL BOX PREVIEW -->
+            <div class="virtual-preview-section">
+                <div class="virtual-preview-title">👀 Preview: <span id="virtualBoxName">Small Elegant Cardboard Box</span></div>
+                <div class="virtual-box empty" id="virtualBoxContainer">
+                    <!-- Emojis & Items will drop in here -->
+                </div>
+            </div>
         </div>
 
         <!-- STEP 3: PERSONAL NOTE -->
@@ -266,30 +282,30 @@
 
     <!-- BUILDER LOGIC SCRIPT -->
     <script>
-        // Goodies list available for custom packing
+        // Goodies list available with matching Emojis!
         const goodies = [
-            { id: 1, name: "KitKat Chocolate", price: 20 },
-            { id: 2, name: "Dairy Milk", price: 20 },
-            { id: 3, name: "Ferrero Rocher (4pcs)", price: 150 },
-            { id: 4, name: "Mini Panda Lamp", price: 450 },
-            { id: 5, name: "Bella Vita Perfume", price: 399 },
-            { id: 6, name: "Polaroid Photo Print", price: 12 },
-            { id: 7, name: "Photo Frame - 5x6", price: 299 },
-            { id: 8, name: "Photo Frame - 4x4", price: 149 },
-            { id: 9, name: "Customized Coffee Mug", price: 449 },
-            { id: 10, name: "Personalised Name Wallet", price: 249 },
-            { id: 11, name: "Ring Photo Album", price: 149 },
-            { id: 12, name: "Teddy Bear", price: 299 },
-            { id: 13, name: "Artificial Rose Flower", price: 99 },
-            { id: 14, name: "Mens Shirt", price: 780 },
-            { id: 15, name: "Mens Watch", price: 999 },
-            { id: 16, name: "Womens Watch", price: 999 }
+            { id: 1, name: "KitKat Chocolate", price: 20, emoji: "🍫" },
+            { id: 2, name: "Dairy Milk", price: 20, emoji: "🍫" },
+            { id: 3, name: "Ferrero Rocher (4pcs)", price: 150, emoji: "🍬" },
+            { id: 4, name: "Mini Panda Lamp", price: 450, emoji: "🐼" },
+            { id: 5, name: "Bella Vita Perfume", price: 399, emoji: "✨" },
+            { id: 6, name: "Polaroid Photo Print", price: 12, emoji: "📸" },
+            { id: 7, name: "Photo Frame - 5x6", price: 299, emoji: "🖼️" },
+            { id: 8, name: "Photo Frame - 4x4", price: 149, emoji: "🖼️" },
+            { id: 9, name: "Customized Coffee Mug", price: 449, emoji: "☕" },
+            { id: 10, name: "Personalised Name Wallet", price: 249, emoji: "👛" },
+            { id: 11, name: "Ring Photo Album", price: 149, emoji: "📔" },
+            { id: 12, name: "Teddy Bear", price: 299, emoji: "🧸" },
+            { id: 13, name: "Artificial Rose Flower", price: 99, emoji: "🌹" },
+            { id: 14, name: "Mens Shirt", price: 780, emoji: "👔" },
+            { id: 15, name: "Mens Watch", price: 999, emoji: "⌚" },
+            { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" }
         ];
 
         let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
-        let selectedGoodies = {}; // format: { "KitKat Chocolate": { price: 20, qty: 2 } }
+        let selectedGoodies = {}; 
 
-        // Initialize Goodies UI
+        // 1. Initialize Goodies UI
         function renderGoodies() {
             const grid = document.getElementById('goodiesGrid');
             grid.innerHTML = '';
@@ -302,26 +318,29 @@
                             <span>₹${item.price}</span>
                         </div>
                         <div class="goodie-qty">
-                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, -1)">-</button>
+                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, '${item.emoji}', -1)">-</button>
                             <span class="goodie-count" id="qty-${item.id}">${qty}</span>
-                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, 1)">+</button>
+                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, '${item.emoji}', 1)">+</button>
                         </div>
                     </div>
                 `;
             });
         }
 
+        // 2. Select the Box Type
         function selectBox(name, price, element) {
             selectedBox = { name: name, price: price };
             document.querySelectorAll('.box-card').forEach(card => card.classList.remove('selected'));
             element.classList.add('selected');
+            document.getElementById('virtualBoxName').innerText = name;
             calculateTotal();
         }
 
-        function updateGoodie(name, price, change) {
+        // 3. Update Goodies List
+        function updateGoodie(name, price, emoji, change) {
             if (!selectedGoodies[name]) {
                 if (change > 0) {
-                    selectedGoodies[name] = { price: price, qty: change };
+                    selectedGoodies[name] = { price: price, qty: change, emoji: emoji };
                 }
             } else {
                 selectedGoodies[name].qty += change;
@@ -331,8 +350,32 @@
             }
             renderGoodies();
             calculateTotal();
+            renderVirtualBox(); // Update the visual box!
         }
 
+        // 4. Draw the items inside the Virtual Box
+        function renderVirtualBox() {
+            const vBox = document.getElementById('virtualBoxContainer');
+            vBox.innerHTML = ''; // Clear it out
+            let isEmpty = true;
+
+            for (let item in selectedGoodies) {
+                let data = selectedGoodies[item];
+                for (let i = 0; i < data.qty; i++) {
+                    isEmpty = false;
+                    // Create a visual badge for each item added
+                    vBox.innerHTML += `<div class="virtual-item">${data.emoji} ${item}</div>`;
+                }
+            }
+
+            if (isEmpty) {
+                vBox.classList.add('empty');
+            } else {
+                vBox.classList.remove('empty');
+            }
+        }
+
+        // 5. Calculate Total Price
         function calculateTotal() {
             let total = selectedBox.price;
             for (let item in selectedGoodies) {
@@ -342,7 +385,9 @@
             return total;
         }
 
-        // Cart and Storage Management (Shared across site)
+        // ----------------------------------------------------
+        // CART & CHECKOUT LOGIC 
+        // ----------------------------------------------------
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
 
         function saveCart() {
@@ -400,12 +445,10 @@
             document.getElementById('cartPanel').classList.toggle('active');
         }
 
-        // Add Custom Hamper as single item to cart
         function addCustomHamperToCart() {
             let total = calculateTotal();
             let note = document.getElementById('customNote').value.trim();
             
-            // Build description of contents
             let description = `Box: ${selectedBox.name}`;
             let goodiesList = [];
             for (let item in selectedGoodies) {
@@ -418,7 +461,6 @@
                 description += ` | Note: "${note}"`;
             }
 
-            // Push to cart
             cart.push({
                 name: `✨ Custom Hamper (${selectedBox.name})`,
                 price: total,
@@ -430,9 +472,14 @@
             saveCart();
             updateCartUI();
             
-            // Open cart drawer and give feedback
             document.getElementById('cartPanel').classList.add('active');
-            alert("Your custom hamper has been added to your Hamper Box! 🎁");
+            
+            // Reset the builder after adding to cart
+            selectedGoodies = {};
+            document.getElementById('customNote').value = "";
+            renderGoodies();
+            renderVirtualBox();
+            calculateTotal();
         }
 
         function checkoutWhatsapp() {
@@ -463,7 +510,6 @@
             navMenu.classList.toggle('active'); 
         }
 
-        // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             renderGoodies();
             updateCartUI();
