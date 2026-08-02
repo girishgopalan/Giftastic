@@ -86,14 +86,13 @@
         .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
         .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
         
-        /* NEW BUTTON STYLES */
         .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
         .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
 
-        /* CART UI STYLES */
         .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
         .floating-cart:hover { transform: scale(1.1); }
         .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+        
         .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
         .cart-panel.active { right: 0; }
         .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
@@ -251,10 +250,13 @@
         <h2>The Perfect Surprise,<br>Every Time.</h2>
         <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
         
+        <!-- FIXED HERO ACTIONS -->
         <div class="hero-actions">
             <a href="shop.html" class="hero-btn btn-shop">🛍️ Explore Collection</a>
-            <a href="create.html" class="hero-btn btn-call" style="background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%);">✨ Build Your Own</a>
+            <a href="create.html" class="hero-btn" style="background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%); color: white; box-shadow: 0 10px 25px rgba(201, 75, 75, 0.4); border: 2px solid transparent;">✨ Build Your Own</a>
+            <a href="tel:+918296654218" class="hero-btn btn-call">📞 Call Now</a>
             <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-glass btn-whatsapp">💬 Chat on WhatsApp</a>
+            <a href="https://www.instagram.com/giftastic101" target="_blank" class="hero-btn btn-glass btn-instagram">📸 Follow on Instagram</a>
         </div>
     </header>
 
