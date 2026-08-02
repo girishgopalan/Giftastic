@@ -45,7 +45,6 @@
         .nav-call-btn { background: linear-gradient(135deg, #00b09b, #96c93d); color: white !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3); transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
         .nav-call-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5); }
 
-        /* INCREASED TOP PADDING TO FIX OVERLAPPING TEXT */
         .page-header { text-align: center; padding: 100px 20px 40px 20px; background: linear-gradient(135deg, rgba(75, 19, 79, 0.1), rgba(241, 196, 15, 0.1)); }
         .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--secondary); line-height: 1.2; }
         .page-header h2 span { color: #e38200; }
@@ -183,26 +182,26 @@
     <div class="container">
         <div class="product-grid">
             
-            <!-- PRODUCT 1: FOR HER -->
+            <!-- PRODUCT 1: FOR HER (Fixed Spaces in Image Name) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Her', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Her']))">
-                    <img src="Onam%20Hamper%20-%20Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Her.jpg';">
+                    <img src="Onam Hamper - Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam Hamper - Her.jpg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
                 <div class="product-title">Onam Hamper - Her</div>
                 <div class="product-price">₹1499</div>
-                <button class="product-btn" onclick="addToHamper('Onam Hamper - Her', 1499, 'Onam%20Hamper%20-%20Her.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Her', 1499, 'Onam Hamper - Her.jpeg')">Add to Hamper 🎁</button>
             </div>
 
-            <!-- PRODUCT 2: FOR HIM -->
+            <!-- PRODUCT 2: FOR HIM (Fixed Spaces in Image Name) -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Him', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Him']))">
-                    <img src="Onam%20Hamper%20-%20Him.jpeg" alt="Onam Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Him.jpg';">
+                    <img src="Onam Hamper - Him.jpeg" alt="Onam Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam Hamper - Him.jpg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
                 <div class="product-title">Onam Hamper - Him</div>
                 <div class="product-price">₹1499</div>
-                <button class="product-btn" onclick="addToHamper('Onam Hamper - Him', 1499, 'Onam%20Hamper%20-%20Him.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Him', 1499, 'Onam Hamper - Him.jpeg')">Add to Hamper 🎁</button>
             </div>
 
         </div>
