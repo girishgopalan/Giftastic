@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYMRJE47WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DYMRJE47WB');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Own Hamper | Giftastic by Archana</title>
+    
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #c94b4b;
+            --secondary: #4b134f;
+            --gold: #f1c40f;
+            --bg-light: #fdfbfb;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+        
+        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; }
+        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--secondary); }
+        .nav-brand img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+        .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
+        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        .mobile-call-btn { display: none; } 
+        .nav-call-btn { background: linear-gradient(135deg, #00b09b, #96c93d); color: white !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3); transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
+
+        .page-header { text-align: center; padding: 60px 20px 20px 20px; }
+        .page-header h2 { font-size: clamp(2.2em, 5vw, 3.2em); margin: 0; color: var(--text-dark); }
+        .page-header h2 span { color: var(--primary); }
+        .page-header p { font-size: 1.1em; color: var(--text-light); margin-top: 10px; }
+
+        .builder-container { max-width: 900px; margin: 20px auto 60px auto; padding: 0 20px; }
+        
+        .builder-step { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 5px solid var(--secondary); }
+        .builder-step h3 { margin-top: 0; color: var(--secondary); font-size: 1.4em; display: flex; align-items: center; gap: 10px; }
+        .builder-step h3 span { background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8em; }
+
+        /* BOX SELECTION GRID */
+        .box-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; }
+        .box-card { border: 2px solid #eee; border-radius: 15px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.3s ease; background: var(--bg-light); }
+        .box-card:hover { border-color: var(--secondary); transform: translateY(-4px); }
+        .box-card.selected { border-color: var(--primary); background: rgba(201, 75, 75, 0.03); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.15); }
+        .box-card h4 { margin: 10px 0 5px 0; color: var(--text-dark); font-size: 1.1em; }
+        .box-card .price { color: var(--primary); font-weight: 800; font-size: 1.1em; }
+
+        /* GOODIES GRID */
+        .goodies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .goodie-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-light); border: 1px solid #eee; padding: 12px 15px; border-radius: 12px; transition: border-color 0.3s; }
+        .goodie-item:hover { border-color: var(--secondary); }
+        .goodie-info h5 { margin: 0 0 3px 0; font-size: 0.95em; color: var(--text-dark); }
+        .goodie-info span { font-size: 0.85em; color: var(--primary); font-weight: 700; }
+        .goodie-qty { display: flex; align-items: center; gap: 8px; }
+        .goodie-btn { background: white; border: 1px solid #ccc; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--secondary); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .goodie-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
+        .goodie-count { font-weight: 600; font-size: 0.95em; min-width: 15px; text-align: center; }
+
+        /* PERSONALIZATION NOTE */
+        .note-box { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 1em; margin-top: 10px; resize: vertical; min-height: 90px; }
+        .note-box:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(201, 75, 75, 0.1); }
+
+        /* SUMMARY & SUBMIT */
+        .builder-summary-card { background: linear-gradient(135deg, var(--secondary), #2d3436); color: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        .summary-total { font-size: 2em; font-weight: 800; color: var(--gold); margin: 15px 0; }
+        .add-custom-btn { background: linear-gradient(135deg, #f6d365, #fda085); color: #111; border: none; padding: 16px 40px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 800; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.4); transition: transform 0.3s ease; }
+        .add-custom-btn:hover { transform: scale(1.05); }
+
+        /* CART UI STYLES */
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
+        .floating-cart:hover { transform: scale(1.1); }
+        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
+        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+        .cart-panel.active { right: 0; }
+        .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { margin: 0; font-size: 1.3em; display: flex; align-items: center; gap: 10px;}
+        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; }
+        .cart-items { flex-grow: 1; padding: 20px; overflow-y: auto; background: var(--bg-light); }
+        .cart-footer { padding: 25px 20px; background: white; border-top: 1px solid #eee; box-shadow: 0 -5px 15px rgba(0,0,0,0.03); }
+        .cart-total { font-size: 1.4em; font-weight: 800; color: var(--text-dark); margin-bottom: 15px; display: flex; justify-content: space-between;}
+        .checkout-btn { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 16px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 600; border-radius: 12px; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px;}
+        .checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
+        .cart-item-row { display: flex; align-items: center; gap: 15px; background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { margin: 0 0 5px 0; font-size: 0.95em; color: var(--text-dark); font-weight: 600; line-height: 1.2;}
+        .cart-item-price { color: var(--primary); font-weight: 700; font-size: 0.9em; }
+        .qty-controls { display: flex; align-items: center; gap: 10px; background: #f5f6fa; border-radius: 20px; padding: 5px; }
+        .qty-btn { background: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;}
+
+        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; border-top: 5px solid var(--primary); font-family: 'Poppins', sans-serif; }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 220px; text-align: left; }
+        .footer-col h3 { color: var(--gold); font-size: 1.3em; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col p { color: #bbb; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #bbb; text-decoration: none; transition: color 0.3s ease; font-size: 0.95em; }
+        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
+        .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
+            .desktop-call-btn { display: none !important; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.jpg" alt="Giftastic Logo">
+            <h1>Giftastic</h1>
+        </a>
+        <div class="nav-right-controls">
+            <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+        <div class="nav-links" id="navMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
+            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary);">✨ Build Hamper</a>
+            <a href="index.html#about" onclick="toggleMenu()">About Us</a>
+            <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
+        </div>
+    </nav>
+
+    <!-- FLOATING CART BUTTON -->
+    <div class="floating-cart" onclick="toggleCart()">
+        🎁
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>🎁 Your Hamper Box</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">💬 Confirm & Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h2>Build Your Own <span>Hamper Box</span></h2>
+        <p>Pick your box size, pack it with your favorite goodies, and we'll craft it with love!</p>
+    </div>
+
+    <div class="builder-container">
+        
+        <!-- STEP 1: CHOOSE BOX SIZE -->
+        <div class="builder-step">
+            <h3><span>1</span> Choose Your Box Size</h3>
+            <div class="box-options">
+                <div class="box-card selected" onclick="selectBox('Small Elegant Cardboard Box', 300, this)">
+                    <h4>Small Box</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant Cardboard Box</p>
+                    <div class="price">₹300</div>
+                </div>
+                <div class="box-card" onclick="selectBox('Medium Elegant Cardboard Box', 450, this)">
+                    <h4>Medium Box</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Elegant Cardboard Box</p>
+                    <div class="price">₹450</div>
+                </div>
+                <div class="box-card" onclick="selectBox('Large Trolley Bag Box', 850, this)">
+                    <h4>Large Trolley Bag</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Spacious Trolley Box</p>
+                    <div class="price">₹850</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: ADD GOODIES -->
+        <div class="builder-step">
+            <h3><span>2</span> Add Goodies & Treats</h3>
+            <div class="goodies-grid" id="goodiesGrid">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+
+        <!-- STEP 3: PERSONAL NOTE -->
+        <div class="builder-step">
+            <h3><span>3</span> Custom Note & Message</h3>
+            <p style="font-size:0.9em; color:var(--text-light); margin-top:0;">Want to include a special handwritten message for your recipient? Type it below:</p>
+            <textarea class="note-box" id="customNote" placeholder="Write your personalized greeting message here..."></textarea>
+        </div>
+
+        <!-- SUMMARY & BUTTON -->
+        <div class="builder-summary-card">
+            <h3 style="margin:0; color:white; font-size:1.3em;">Your Custom Hamper Total</h3>
+            <div class="summary-total">₹<span id="customTotal">300</span></div>
+            <button class="add-custom-btn" onclick="addCustomHamperToCart()">🎁 Add Custom Hamper to Box</button>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated gift hampers for every reason and season. Making your loved ones feel truly special, one box at a time.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">💬</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">📸</a>
+                    <a href="tel:+918296654218" title="Call Us">📞</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Hampers</a></li>
+                    <li><a href="seasonal.html">Onam Specials</a></li>
+                    <li><a href="create.html">Build Hamper</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="shipping.html">Shipping Policy</a></li>
+                    <li><a href="returns.html">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p>📞 +91 8296654218</p>
+                <p>📍 Ships Pan-India</p>
+                <p>⏰ Mon - Sat, 9AM to 8PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- BUILDER LOGIC SCRIPT -->
+    <script>
+        // Goodies list available for custom packing
+        const goodies = [
+            { id: 1, name: "KitKat Chocolate", price: 50 },
+            { id: 2, name: "Ferrero Rocher (4pcs)", price: 150 },
+            { id: 3, name: "Mini Panda Lamp", price: 450 },
+            { id: 4, name: "Bella Vita Perfume", price: 350 },
+            { id: 5, name: "Polaroid Photo Print", price: 12 },
+            { id: 6, name: "Customized Coffee Mug", price: 449 },
+            { id: 7, name: "Personalised Name Wallet", price: 249 },
+            { id: 8, name: "Ring Photo Album", price: 149 },
+            { id: 9, name: "Teddy Bear", price: 299 },
+            { id: 10, name: "Artificial Rose Flower", price: 99 }
+        ];
+
+        let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
+        let selectedGoodies = {}; // format: { "KitKat Chocolate": { price: 50, qty: 2 } }
+
+        // Initialize Goodies UI
+        function renderGoodies() {
+            const grid = document.getElementById('goodiesGrid');
+            grid.innerHTML = '';
+            goodies.forEach(item => {
+                let qty = selectedGoodies[item.name] ? selectedGoodies[item.name].qty : 0;
+                grid.innerHTML += `
+                    <div class="goodie-item">
+                        <div class="goodie-info">
+                            <h5>${item.name}</h5>
+                            <span>₹${item.price}</span>
+                        </div>
+                        <div class="goodie-qty">
+                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, -1)">-</button>
+                            <span class="goodie-count" id="qty-${item.id}">${qty}</span>
+                            <button class="goodie-btn" onclick="updateGoodie('${item.name}', ${item.price}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function selectBox(name, price, element) {
+            selectedBox = { name: name, price: price };
+            document.querySelectorAll('.box-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            calculateTotal();
+        }
+
+        function updateGoodie(name, price, change) {
+            if (!selectedGoodies[name]) {
+                if (change > 0) {
+                    selectedGoodies[name] = { price: price, qty: change };
+                }
+            } else {
+                selectedGoodies[name].qty += change;
+                if (selectedGoodies[name].qty <= 0) {
+                    delete selectedGoodies[name];
+                }
+            }
+            renderGoodies();
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let total = selectedBox.price;
+            for (let item in selectedGoodies) {
+                total += selectedGoodies[item].price * selectedGoodies[item].qty;
+            }
+            document.getElementById('customTotal').innerText = total;
+            return total;
+        }
+
+        // Cart and Storage Management (Shared across site)
+        let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('giftastic_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            if(cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-size:1.1em;">Your hamper box is empty! 🎁</p>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+                let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
+
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span style="font-weight:600; font-size:0.9em;">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartCount.innerText = count;
+            cartTotal.innerText = total;
+        }
+
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartPanel').classList.toggle('active');
+        }
+
+        // Add Custom Hamper as single item to cart
+        function addCustomHamperToCart() {
+            let total = calculateTotal();
+            let note = document.getElementById('customNote').value.trim();
+            
+            // Build description of contents
+            let description = `Box: ${selectedBox.name}`;
+            let goodiesList = [];
+            for (let item in selectedGoodies) {
+                goodiesList.push(`${selectedGoodies[item].qty}x ${item}`);
+            }
+            if (goodiesList.length > 0) {
+                description += ` | Items: ${goodiesList.join(', ')}`;
+            }
+            if (note !== "") {
+                description += ` | Note: "${note}"`;
+            }
+
+            // Push to cart
+            cart.push({
+                name: `✨ Custom Hamper (${selectedBox.name})`,
+                price: total,
+                image: 'logo.jpg',
+                quantity: 1,
+                details: description
+            });
+
+            saveCart();
+            updateCartUI();
+            
+            // Open cart drawer and give feedback
+            document.getElementById('cartPanel').classList.add('active');
+            alert("Your custom hamper has been added to your Hamper Box! 🎁");
+        }
+
+        function checkoutWhatsapp() {
+            if(cart.length === 0) {
+                alert("Please add some items to your Hamper Box first!");
+                return;
+            }
+            
+            let message = "Hi Archana! 🌟 I would like to place an order from Giftastic101.in.\n\n*Here is my Hamper Box:*\n";
+            let total = 0;
+            
+            cart.forEach(item => {
+                message += `🎁 ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                if(item.details) {
+                    message += `   *(${item.details})*\n`;
+                }
+                total += item.price * item.quantity;
+            });
+            
+            message += `\n*Total Amount: ₹${total}*\n\nPlease let me know how I can pay the 40% advance to confirm my order!`;
+            
+            let encodedMessage = encodeURIComponent(message);
+            window.open('https://wa.me/918296654218?text=' + encodedMessage, '_blank');
+        }
+
+        function toggleMenu() { 
+            const navMenu = document.getElementById('navMenu'); 
+            navMenu.classList.toggle('active'); 
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderGoodies();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
