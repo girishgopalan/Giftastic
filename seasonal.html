@@ -40,30 +40,34 @@
         .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
+        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        .mobile-call-btn { display: none; } 
+        .nav-call-btn { background: linear-gradient(135deg, #00b09b, #96c93d); color: white !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3); transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
+        .nav-call-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5); }
 
-        .page-header { text-align: center; padding: 60px 20px 20px 20px; background: linear-gradient(135deg, rgba(75, 19, 79, 0.1), rgba(241, 196, 15, 0.1)); }
-        .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--secondary); }
+        /* INCREASED TOP PADDING TO FIX OVERLAPPING TEXT */
+        .page-header { text-align: center; padding: 100px 20px 40px 20px; background: linear-gradient(135deg, rgba(75, 19, 79, 0.1), rgba(241, 196, 15, 0.1)); }
+        .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--secondary); line-height: 1.2; }
         .page-header h2 span { color: #e38200; }
-        .page-header p { font-size: 1.1em; color: var(--text-light); margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .page-header p { font-size: 1.1em; color: var(--text-light); margin-top: 15px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; transition: transform 0.3s ease; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; justify-content: center; }
+        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; transition: transform 0.3s ease; max-width: 450px; margin: 0 auto; width: 100%;}
         .product-card:hover { transform: translateY(-8px); }
         
         .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; }
-        .prod-real-img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+        .prod-real-img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.5s ease; }
         .img-wrapper:hover .prod-real-img { transform: scale(1.08); }
 
         .preview-badge { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); color: var(--secondary); padding: 8px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 700; opacity: 0; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: none; }
         .img-wrapper:hover .preview-badge { bottom: 15px; opacity: 1; }
         
-        .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
-        .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+        .product-title { font-size: 1.4em; font-weight: 600; margin: 20px 0 5px 0; padding: 0 15px;}
+        .product-price { color: var(--primary); font-weight: 800; font-size: 1.2em; margin-bottom: 20px; }
         
-        /* NEW BUTTON STYLES */
-        .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
+        .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
         .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
 
         /* CART UI STYLES */
@@ -93,7 +97,7 @@
         .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
         .cta-section h3 { color: var(--primary); font-size: 1.8em; margin: 0; }
 
-        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; border-top: 5px solid var(--primary); }
+        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; border-top: 5px solid var(--primary); font-family: 'Poppins', sans-serif; }
         .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 220px; text-align: left; }
         .footer-col h3 { color: var(--gold); font-size: 1.3em; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
@@ -118,6 +122,8 @@
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
+            .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
+            .desktop-call-btn { display: none !important; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
             .modal-layout { flex-direction: column; overflow-y: auto; }
@@ -132,13 +138,16 @@
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-right-controls">
+            <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
-            <a href="tel:+918296654218" class="nav-call-btn" onclick="toggleMenu()" style="background: linear-gradient(135deg, #00b09b, #96c93d); color: white; padding: 8px 20px; border-radius: 20px; text-decoration: none;">📞 Call Now</a>
+            <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
         </div>
     </nav>
 
@@ -173,15 +182,29 @@
 
     <div class="container">
         <div class="product-grid">
+            
+            <!-- PRODUCT 1: FOR HER -->
             <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Special Hamper', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings']))">
-                    <img src="onam1.jpeg" alt="Onam Special Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400?text=Onam+Hamper';">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Her', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Her']))">
+                    <img src="Onam%20Hamper%20-%20Her.jpeg" alt="Onam Hamper - Her" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Her.jpg';">
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
-                <div class="product-title">Onam Special Hamper</div>
+                <div class="product-title">Onam Hamper - Her</div>
                 <div class="product-price">₹1499</div>
-                <button class="product-btn" onclick="addToHamper('Onam Special Hamper', 1499, 'onam1.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Her', 1499, 'Onam%20Hamper%20-%20Her.jpeg')">Add to Hamper 🎁</button>
             </div>
+
+            <!-- PRODUCT 2: FOR HIM -->
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Onam Hamper - Him', ['Traditional elements', 'Sweets & Snacks', 'Customized greetings for Him']))">
+                    <img src="Onam%20Hamper%20-%20Him.jpeg" alt="Onam Hamper - Him" class="prod-real-img" onerror="this.onerror=null; this.src='Onam%20Hamper%20-%20Him.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Onam Hamper - Him</div>
+                <div class="product-price">₹1499</div>
+                <button class="product-btn" onclick="addToHamper('Onam Hamper - Him', 1499, 'Onam%20Hamper%20-%20Him.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
         </div>
     </div>
 
