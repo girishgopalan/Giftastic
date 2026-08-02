@@ -268,20 +268,26 @@
     <script>
         // Goodies list available for custom packing
         const goodies = [
-            { id: 1, name: "KitKat Chocolate", price: 50 },
-            { id: 2, name: "Ferrero Rocher (4pcs)", price: 150 },
-            { id: 3, name: "Mini Panda Lamp", price: 450 },
-            { id: 4, name: "Bella Vita Perfume", price: 350 },
-            { id: 5, name: "Polaroid Photo Print", price: 12 },
-            { id: 6, name: "Customized Coffee Mug", price: 449 },
-            { id: 7, name: "Personalised Name Wallet", price: 249 },
-            { id: 8, name: "Ring Photo Album", price: 149 },
-            { id: 9, name: "Teddy Bear", price: 299 },
-            { id: 10, name: "Artificial Rose Flower", price: 99 }
+            { id: 1, name: "KitKat Chocolate", price: 20 },
+            { id: 2, name: "Dairy Milk", price: 20 },
+            { id: 3, name: "Ferrero Rocher (4pcs)", price: 150 },
+            { id: 4, name: "Mini Panda Lamp", price: 450 },
+            { id: 5, name: "Bella Vita Perfume", price: 399 },
+            { id: 6, name: "Polaroid Photo Print", price: 12 },
+            { id: 7, name: "Photo Frame - 5x6", price: 299 },
+            { id: 8, name: "Photo Frame - 4x4", price: 149 },
+            { id: 9, name: "Customized Coffee Mug", price: 449 },
+            { id: 10, name: "Personalised Name Wallet", price: 249 },
+            { id: 11, name: "Ring Photo Album", price: 149 },
+            { id: 12, name: "Teddy Bear", price: 299 },
+            { id: 13, name: "Artificial Rose Flower", price: 99 },
+            { id: 14, name: "Mens Shirt", price: 780 },
+            { id: 15, name: "Mens Watch", price: 999 },
+            { id: 16, name: "Womens Watch", price: 999 }
         ];
 
         let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
-        let selectedGoodies = {}; // format: { "KitKat Chocolate": { price: 50, qty: 2 } }
+        let selectedGoodies = {}; // format: { "KitKat Chocolate": { price: 20, qty: 2 } }
 
         // Initialize Goodies UI
         function renderGoodies() {
