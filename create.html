@@ -52,7 +52,7 @@
         .builder-container { max-width: 900px; margin: 20px auto 60px auto; padding: 0 20px; }
         
         .builder-step { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 5px solid var(--secondary); }
-        .builder-step h3 { margin-top: 0; color: var(--secondary); font-size: 1.4em; display: flex; align-items: center; gap: 10px; }
+        .builder-step h3 { margin: 0; color: var(--secondary); font-size: 1.4em; display: flex; align-items: center; gap: 10px; }
         .builder-step h3 span { background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8em; }
 
         /* BOX SELECTION GRID */
@@ -74,87 +74,58 @@
         .goodie-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
         .goodie-count { font-weight: 600; font-size: 0.95em; min-width: 15px; text-align: center; }
 
-        /* PHOTOREALISTIC VIRTUAL BOX PREVIEW */
+        /* REALISTIC IMAGE VIRTUAL BOX PREVIEW */
         .virtual-preview-section { margin-top: 45px; display: flex; flex-direction: column; align-items: center; }
         .virtual-preview-title { text-align: center; color: var(--secondary); font-size: 1.2em; font-weight: 700; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         
         .virtual-box { 
-            background: url('Empty%20Box.jpeg') no-repeat center center; /* Connects to your uploaded image */
+            background: url('Empty%20Box.jpeg') no-repeat center center; 
             background-size: cover; 
             border-radius: 10px; 
             width: 100%;
-            max-width: 550px; /* Controls how large the box gets */
-            aspect-ratio: 1 / 1; /* Keeps the box perfectly square to match your image */
-            padding: 34% 12% 15% 12%; /* Pushes the items down past the lid into the wooden interior */
+            max-width: 550px; 
+            aspect-ratio: 1 / 1; 
+            padding: 34% 10% 15% 10%; 
             display: flex; 
             flex-wrap: wrap; 
             align-content: flex-start; 
             justify-content: center; 
-            gap: 12px; 
+            gap: 15px; 
             position: relative; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
             transition: all 0.3s ease; 
         }
 
-        /* Upgraded Empty State */
-        .empty-state { 
-            text-align: center; 
-            animation: fadeIn 0.5s ease; 
-            background: rgba(255, 255, 255, 0.85); 
-            padding: 15px 25px; 
-            border-radius: 15px; 
-            backdrop-filter: blur(5px); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            border: 1px solid rgba(255,255,255,0.5); 
-            margin: auto;
-        }
+        /* Empty State */
+        .empty-state { text-align: center; animation: fadeIn 0.5s ease; background: rgba(255, 255, 255, 0.85); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); margin: auto; }
         
-        /* Item Tags Styling */
-        .virtual-item { 
-            background: rgba(255, 255, 255, 0.95); 
-            border: 1px solid #eaeaea; 
-            color: var(--text-dark); 
-            padding: 8px 16px; 
-            border-radius: 12px; 
-            font-weight: 600; 
-            font-size: 0.9em; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            position: relative; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        /* New Product Image Cards inside the Box */
+        .virtual-pic-card {
+            width: 85px;
+            height: 85px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            position: relative;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.8);
         }
         
-        /* The "Tossed in the box" angled effect */
-        .virtual-item:nth-child(even) { transform: rotate(2deg); }
-        .virtual-item:nth-child(odd) { transform: rotate(-2deg); }
+        .virtual-pic-card:nth-child(even) { transform: rotate(5deg); }
+        .virtual-pic-card:nth-child(odd) { transform: rotate(-5deg); }
+        .virtual-pic-card:hover { transform: translateY(-8px) scale(1.15) rotate(0deg); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.3); border-color: var(--gold); }
         
-        /* Hover interaction */
-        .virtual-item:hover { transform: translateY(-5px) scale(1.02) rotate(0deg); box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-color: var(--gold); z-index: 2; }
+        .virtual-pic-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         
-        .virtual-item-emoji { font-size: 1.3em; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        
-        .virtual-item-qty { 
-            position: absolute; 
-            top: -8px; 
-            right: -8px; 
-            background: var(--primary); 
-            color: white; 
-            font-size: 0.75em; 
-            font-weight: 800; 
-            width: 22px; 
-            height: 22px; 
-            border-radius: 50%; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            border: 2px solid white; 
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2); 
-            animation: scaleIn 0.3s ease; 
-        }
+        /* This handles what shows up if the real image hasn't been uploaded yet */
+        .virtual-pic-fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-align: center; }
+        .virtual-pic-fallback span:first-child { font-size: 1.8em; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); }
+        .virtual-pic-fallback span:last-child { font-size: 0.55em; font-weight: 700; line-height: 1.1; margin-top: 4px; color: var(--secondary); }
+
+        .virtual-pic-qty { position: absolute; top: -8px; right: -8px; background: var(--primary); color: white; font-size: 0.75em; font-weight: 800; width: 24px; height: 24px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid white; box-shadow: 0 3px 8px rgba(0,0,0,0.3); animation: scaleIn 0.3s ease; }
 
         @keyframes popIn { 0% { transform: scale(0.5) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
         @keyframes scaleIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
@@ -165,7 +136,7 @@
         .note-box:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(201, 75, 75, 0.1); }
 
         /* SUMMARY & SUBMIT */
-        .builder-summary-card { background: linear-gradient(135deg, var(--secondary), #2d3436); color: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        .builder-summary-card { background: linear-gradient(135deg, var(--secondary), #2d3436); color: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-top: 20px; }
         .summary-total { font-size: 2em; font-weight: 800; color: var(--gold); margin: 15px 0; }
         .add-custom-btn { background: linear-gradient(135deg, #f6d365, #fda085); color: #111; border: none; padding: 16px 40px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 800; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.4); transition: transform 0.3s ease; }
         .add-custom-btn:hover { transform: scale(1.05); }
@@ -300,7 +271,6 @@
                     <span style="font-size: 1.2em;">🎁</span> Inside Your: <span id="virtualBoxName" style="color: var(--text-dark);">Small Elegant Cardboard Box</span>
                 </div>
                 
-                <!-- This box now uses your uploaded image as the background! -->
                 <div class="virtual-box" id="virtualBoxContainer">
                     <!-- Dynamic Box Content Goes Here -->
                 </div>
@@ -431,7 +401,7 @@
             renderVirtualBox(); 
         }
 
-        // DRAW THE ITEMS INSIDE THE UPLOADED BOX IMAGE
+        // SMART IMAGE LOADER FOR VIRTUAL BOX
         function renderVirtualBox() {
             const vBox = document.getElementById('virtualBoxContainer');
             vBox.innerHTML = ''; 
@@ -440,12 +410,19 @@
             for (let item in selectedGoodies) {
                 isEmpty = false;
                 let data = selectedGoodies[item];
+                let encodedImg = encodeURIComponent(item) + '.jpeg'; // Assumes image is named "Item Name.jpeg"
                 
                 vBox.innerHTML += `
-                    <div class="virtual-item" title="${data.qty}x ${item}">
-                        <span class="virtual-item-emoji">${data.emoji}</span>
-                        <span>${item}</span>
-                        <div class="virtual-item-qty">${data.qty}</div>
+                    <div class="virtual-pic-card" title="${data.qty}x ${item}">
+                        <img src="${encodedImg}" class="virtual-pic-img" alt="${item}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        
+                        <!-- Fallback if the real image is not found -->
+                        <div class="virtual-pic-fallback" style="display:none;">
+                            <span>${data.emoji}</span>
+                            <span>${item}</span>
+                        </div>
+
+                        <div class="virtual-pic-qty">${data.qty}</div>
                     </div>
                 `;
             }
