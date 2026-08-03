@@ -74,46 +74,58 @@
         .goodie-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
         .goodie-count { font-weight: 600; font-size: 0.95em; min-width: 15px; text-align: center; }
 
-        /* UPGRADED PREMIUM VIRTUAL BOX PREVIEW */
-        .virtual-preview-section { margin-top: 45px; }
+        /* PHOTOREALISTIC VIRTUAL BOX PREVIEW */
+        .virtual-preview-section { margin-top: 45px; display: flex; flex-direction: column; align-items: center; }
         .virtual-preview-title { text-align: center; color: var(--secondary); font-size: 1.2em; font-weight: 700; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         
         .virtual-box { 
-            background: #fcfbf9; /* Soft, warm box interior */
-            border: 10px solid #f0ebe1; /* Thick box walls */
-            border-radius: 20px; 
-            min-height: 220px; 
-            padding: 35px 25px; 
+            background: url('Empty%20Box.jpeg') no-repeat center center; /* Connects to your uploaded image */
+            background-size: cover; 
+            border-radius: 10px; 
+            width: 100%;
+            max-width: 550px; /* Controls how large the box gets */
+            aspect-ratio: 1 / 1; /* Keeps the box perfectly square to match your image */
+            padding: 34% 12% 15% 12%; /* Pushes the items down past the lid into the wooden interior */
             display: flex; 
             flex-wrap: wrap; 
-            align-content: center; /* Centered by default for empty state */
+            align-content: flex-start; 
             justify-content: center; 
-            gap: 18px; 
+            gap: 12px; 
             position: relative; 
-            box-shadow: inset 0 10px 25px rgba(0,0,0,0.06), 0 15px 35px rgba(0,0,0,0.05); /* Inner depth shadow */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
             transition: all 0.3s ease; 
         }
 
-        /* Empty State Styling */
-        .empty-state { text-align: center; color: #a4b0be; animation: fadeIn 0.5s ease; }
-        .empty-icon { font-size: 3.5em; opacity: 0.6; margin-bottom: 5px; display: block; filter: grayscale(50%); }
+        /* Upgraded Empty State */
+        .empty-state { 
+            text-align: center; 
+            animation: fadeIn 0.5s ease; 
+            background: rgba(255, 255, 255, 0.85); 
+            padding: 15px 25px; 
+            border-radius: 15px; 
+            backdrop-filter: blur(5px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(255,255,255,0.5); 
+            margin: auto;
+        }
         
         /* Item Tags Styling */
         .virtual-item { 
-            background: white; 
+            background: rgba(255, 255, 255, 0.95); 
             border: 1px solid #eaeaea; 
             color: var(--text-dark); 
-            padding: 10px 20px; 
+            padding: 8px 16px; 
             border-radius: 12px; 
             font-weight: 600; 
-            font-size: 0.95em; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.06); 
+            font-size: 0.9em; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
             display: flex; 
             align-items: center; 
-            gap: 10px; 
+            gap: 8px; 
             animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             position: relative; 
             transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            backdrop-filter: blur(4px);
         }
         
         /* The "Tossed in the box" angled effect */
@@ -121,20 +133,20 @@
         .virtual-item:nth-child(odd) { transform: rotate(-2deg); }
         
         /* Hover interaction */
-        .virtual-item:hover { transform: translateY(-5px) scale(1.02) rotate(0deg); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--gold); z-index: 2; }
+        .virtual-item:hover { transform: translateY(-5px) scale(1.02) rotate(0deg); box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-color: var(--gold); z-index: 2; }
         
-        .virtual-item-emoji { font-size: 1.5em; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+        .virtual-item-emoji { font-size: 1.3em; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
         
         .virtual-item-qty { 
             position: absolute; 
-            top: -10px; 
-            right: -10px; 
-            background: var(--secondary); 
+            top: -8px; 
+            right: -8px; 
+            background: var(--primary); 
             color: white; 
-            font-size: 0.8em; 
+            font-size: 0.75em; 
             font-weight: 800; 
-            width: 26px; 
-            height: 26px; 
+            width: 22px; 
+            height: 22px; 
             border-radius: 50%; 
             display: flex; 
             justify-content: center; 
@@ -282,11 +294,13 @@
                 <!-- Injected via JS -->
             </div>
 
-            <!-- THE UPGRADED VIRTUAL BOX PREVIEW -->
+            <!-- THE PHOTOREALISTIC VIRTUAL BOX PREVIEW -->
             <div class="virtual-preview-section">
                 <div class="virtual-preview-title">
                     <span style="font-size: 1.2em;">🎁</span> Inside Your: <span id="virtualBoxName" style="color: var(--text-dark);">Small Elegant Cardboard Box</span>
                 </div>
+                
+                <!-- This box now uses your uploaded image as the background! -->
                 <div class="virtual-box" id="virtualBoxContainer">
                     <!-- Dynamic Box Content Goes Here -->
                 </div>
@@ -417,7 +431,7 @@
             renderVirtualBox(); 
         }
 
-        // NEW: Draw the clustered items inside the Virtual Box with better empty state
+        // DRAW THE ITEMS INSIDE THE UPLOADED BOX IMAGE
         function renderVirtualBox() {
             const vBox = document.getElementById('virtualBoxContainer');
             vBox.innerHTML = ''; 
@@ -439,8 +453,8 @@
             if (isEmpty) {
                 vBox.innerHTML = `
                     <div class="empty-state">
-                        <span class="empty-icon">📦</span>
-                        <p style="margin:0; font-weight:500;">Your box is empty!<br><span style="font-size:0.9em; font-weight:400; color:#b2bec3;">Tap the '+' buttons above to pack your hamper.</span></p>
+                        <p style="margin:0; font-weight:600; color: var(--secondary); font-size:1.1em;">Your box is empty!</p>
+                        <p style="margin:5px 0 0 0; font-size:0.85em; font-weight:500; color:#555;">Tap the '+' buttons above to pack your hamper.</p>
                     </div>
                 `;
                 vBox.style.alignContent = 'center';
