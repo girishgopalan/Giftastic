@@ -52,29 +52,23 @@
         .onam-floating-badge { position: absolute; top: 22%; right: 4vw; background: linear-gradient(135deg, #f1c40f 0%, #e38200 100%); color: white; padding: 15px 30px; border-radius: 50px; font-weight: 800; font-size: 1.3em; text-decoration: none; box-shadow: 0 10px 25px rgba(227, 130, 0, 0.5); border: 3px solid white; transform: rotate(12deg); z-index: 10; animation: floatBadge 3s ease-in-out infinite; transition: all 0.3s ease; }
         .onam-floating-badge:hover { transform: scale(1.1) rotate(0deg); box-shadow: 0 15px 35px rgba(227, 130, 0, 0.7); }
         @keyframes floatBadge { 0% { transform: translateY(0px) rotate(12deg); } 50% { transform: translateY(-15px) rotate(12deg); } 100% { transform: translateY(0px) rotate(12deg); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .hero h2 { font-size: clamp(2.8em, 6vw, 4.8em); margin: 0 0 15px 0; font-weight: 800; text-shadow: 0 5px 20px rgba(0,0,0,0.4); line-height: 1.1; letter-spacing: -1px; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-        .hero p { font-size: clamp(1.1em, 2vw, 1.3em); max-width: 650px; margin: 0 auto 40px auto; opacity: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; }
-        .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards; }
+        
+        .hero h2 { font-size: clamp(2.8em, 6vw, 4.8em); margin: 0 0 15px 0; font-weight: 800; text-shadow: 0 5px 20px rgba(0,0,0,0.4); line-height: 1.1; letter-spacing: -1px; }
+        .hero p { font-size: clamp(1.1em, 2vw, 1.3em); max-width: 650px; margin: 0 auto 40px auto; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         
         .hero-btn { padding: 16px 32px; text-decoration: none; font-weight: 600; border-radius: 50px; font-size: 1.05em; display: flex; align-items: center; gap: 8px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .btn-shop { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #111; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.5); border: 2px solid transparent; transform: scale(1.05); }
         .btn-shop:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(246, 211, 101, 0.7); }
         
-        /* 🔥 NEW FUN BUTTON STYLING 🔥 */
         .btn-build { background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%); color: white !important; box-shadow: 0 10px 25px rgba(201, 75, 75, 0.4); border: 2px solid transparent; transform: scale(1.05); animation: funPulse 2s infinite; }
         .btn-build:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 15px 35px rgba(201, 75, 75, 0.7); animation: none; }
-        @keyframes funPulse { 
-            0% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0.6); } 
-            70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(201, 75, 75, 0); } 
-            100% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0); } 
-        }
+        @keyframes funPulse { 0% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0.6); } 70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(201, 75, 75, 0); } 100% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0); } }
 
         .btn-call { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); color: white; box-shadow: 0 10px 25px rgba(150, 201, 61, 0.4); border: 2px solid transparent; transform: scale(1.05); }
         .btn-call:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(150, 201, 61, 0.6); }
         .btn-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .btn-whatsapp:hover { background: rgba(37, 211, 102, 0.9); border-color: #25D366; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
-        .btn-instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); border-color: transparent; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(220, 39, 67, 0.4); }
 
         .features { display: flex; justify-content: center; gap: 30px; padding: 25px 20px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.03); flex-wrap: wrap; }
         .feature-item { text-align: center; font-weight: 600; color: var(--secondary); font-size: clamp(0.9em, 1.5vw, 1.1em); }
@@ -121,6 +115,69 @@
         .cart-item-price { color: var(--primary); font-weight: 700; font-size: 0.9em; }
         .qty-controls { display: flex; align-items: center; gap: 10px; background: #f5f6fa; border-radius: 20px; padding: 5px; }
         .qty-btn { background: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;}
+
+        /* MATCHMAKER QUIZ STYLES */
+        .floating-matchmaker { position: fixed; top: 50%; right: -5px; transform: translateY(-50%); background: linear-gradient(135deg, var(--gold), #f39c12); color: var(--secondary); font-weight: 800; padding: 15px 20px 15px 25px; border-radius: 30px 0 0 30px; cursor: pointer; box-shadow: -5px 10px 25px rgba(0,0,0,0.15); z-index: 900; transition: all 0.3s ease; animation: pulseWand 2.5s infinite; border: 3px solid white; border-right: none; display: flex; align-items: center; gap: 10px; font-size: 1.1em; }
+        .floating-matchmaker:hover { right: 0; padding-left: 30px; animation: none; background: linear-gradient(135deg, #f39c12, var(--gold)); }
+        @keyframes pulseWand { 0% { box-shadow: -5px 10px 25px rgba(241, 196, 15, 0.3); } 50% { box-shadow: -5px 10px 40px rgba(241, 196, 15, 0.7); } 100% { box-shadow: -5px 10px 25px rgba(241, 196, 15, 0.3); } }
+
+        .mm-modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+        .mm-content { background: var(--bg-light); width: 90%; max-width: 600px; border-radius: 25px; padding: 40px; text-align: center; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.5); animation: mmZoom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes mmZoom { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        .mm-close { position: absolute; top: 20px; right: 25px; font-size: 2em; cursor: pointer; color: var(--text-light); transition: color 0.2s; }
+        .mm-close:hover { color: var(--primary); }
+        
+        .mm-header h2 { color: var(--secondary); font-size: 2em; margin-top: 0; margin-bottom: 10px; }
+        .mm-header h2 span { color: var(--primary); }
+        .mm-progress-bg { background: #eee; height: 8px; border-radius: 10px; width: 80%; margin: 0 auto 30px auto; overflow: hidden; }
+        .mm-progress-bar { background: var(--gold); height: 100%; width: 0%; transition: width 0.4s ease; }
+        
+        .mm-step { display: none; animation: fadeIn 0.4s ease; }
+        .mm-step.active { display: block; }
+        .mm-step h3 { font-size: 1.4em; color: var(--text-dark); margin-bottom: 25px; }
+        
+        .mm-options { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; }
+        .mm-option-btn { background: white; border: 2px solid #eaeaea; color: var(--text-dark); padding: 16px 20px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 600; border-radius: 15px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
+        .mm-option-btn:hover { border-color: var(--primary); background: rgba(201, 75, 75, 0.05); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.15); }
+
+        .mm-loader { font-size: 4em; animation: spinWand 1.5s linear infinite; margin-bottom: 20px; display: inline-block; }
+        @keyframes spinWand { 100% { transform: rotate(360deg); } }
+
+        /* THE LIVE ASSEMBLY VIRTUAL BOX STYLES */
+        .mm-result-card { background: white; border-radius: 20px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0 auto 25px auto; max-width: 450px; border: 2px solid var(--gold); }
+        
+        .mm-virtual-box { 
+            background: url('Empty%20Box.jpeg') no-repeat center center; 
+            background-size: cover; 
+            border-radius: 10px; 
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            padding: 34% 10% 15% 10%; 
+            display: flex; 
+            flex-wrap: wrap; 
+            align-content: flex-start; 
+            justify-content: center; 
+            gap: 10px; 
+            position: relative; 
+            box-shadow: inset 0 10px 25px rgba(0,0,0,0.15); 
+            margin-bottom: 15px;
+        }
+
+        .virtual-pic-card { width: 70px; height: 70px; background: rgba(255, 255, 255, 0.95); padding: 4px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); position: relative; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transition: transform 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.8); }
+        .virtual-pic-card:nth-child(even) { transform: rotate(6deg); }
+        .virtual-pic-card:nth-child(odd) { transform: rotate(-6deg); }
+        .virtual-pic-card:hover { transform: translateY(-5px) scale(1.15) rotate(0deg); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.3); border-color: var(--gold); }
+        .virtual-pic-img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+        .virtual-pic-fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-align: center; }
+        .virtual-pic-fallback span:first-child { font-size: 1.4em; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); }
+        .virtual-pic-fallback span:last-child { font-size: 0.5em; font-weight: 700; line-height: 1.1; margin-top: 4px; color: var(--secondary); }
+        .virtual-pic-qty { position: absolute; top: -6px; right: -6px; background: var(--primary); color: white; font-size: 0.7em; font-weight: 800; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid white; box-shadow: 0 3px 8px rgba(0,0,0,0.3); animation: scaleIn 0.3s ease; }
+
+        .mm-result-title { font-size: 1.3em; color: var(--secondary); font-weight: 800; margin: 0 0 5px 0; }
+        .mm-result-price { color: var(--primary); font-size: 1.2em; font-weight: 700; margin-bottom: 15px; }
+        .mm-restart-btn { background: none; border: none; color: var(--text-light); text-decoration: underline; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.9em; }
+        .mm-restart-btn:hover { color: var(--primary); }
 
         /* OTHER SECTIONS (Testimonials, Video, FAQs, Footer) */
         .testimonials { background-color: white; padding: 80px 20px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
@@ -174,7 +231,7 @@
         .walking-girl { position: fixed; bottom: 10px; left: -150px; width: 100px; z-index: 999; pointer-events: none; animation: walkAcross 20s linear infinite; }
         @keyframes walkAcross { 0% { left: -150px; transform: scaleX(1); } 45% { left: 110vw; transform: scaleX(1); } 50% { left: 110vw; transform: scaleX(-1); } 95% { left: -150px; transform: scaleX(-1); } 100% { left: -150px; transform: scaleX(1); } }
 
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+        .modal-img-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
         .modal-layout { display: flex; background: #1a1a1a; border-radius: 20px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 20px 50px rgba(0,0,0,0.7); animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
         .modal-img-container { flex: 1.2; background: #000; display: flex; align-items: center; justify-content: center; }
         .modal-content { width: 100%; height: 100%; object-fit: contain; }
@@ -190,7 +247,7 @@
             .menu-toggle { display: block; }
             .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
             .desktop-call-btn { display: none !important; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: none; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
             .split-section { flex-direction: column; text-align: center; }
             .walking-girl { width: 75px; } 
@@ -199,6 +256,7 @@
             .modal-img-container { height: 40vh; flex: none; }
             .modal-details { flex: none; padding: 25px 20px; }
             .close-modal { top: 10px; right: 10px; }
+            .floating-matchmaker { padding: 12px 15px; font-size: 1em; right: -5px; }
         }
     </style>
 </head>
@@ -237,15 +295,18 @@
         <span class="cart-count" id="cartCount">0</span>
     </div>
 
+    <!-- FLOATING MATCHMAKER BUTTON -->
+    <div class="floating-matchmaker" onclick="openMatchmaker()">
+        🪄 Gift Matchmaker
+    </div>
+
     <!-- SLIDING CART PANEL -->
     <div class="cart-panel" id="cartPanel">
         <div class="cart-header">
             <h3>🎁 Your Hamper Box</h3>
             <span class="close-cart" onclick="toggleCart()">&times;</span>
         </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Items injected by JavaScript -->
-        </div>
+        <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
@@ -263,11 +324,9 @@
         
         <div class="hero-actions">
             <a href="shop.html" class="hero-btn btn-shop">🛍️ Explore Collection</a>
-            <!-- THE NEW FUN BUTTON -->
             <a href="create.html" class="hero-btn btn-build">✨ Build Your Own Hamper 🎁</a>
             <a href="tel:+918296654218" class="hero-btn btn-call">📞 Call Now</a>
             <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-glass btn-whatsapp">💬 Chat on WhatsApp</a>
-            <a href="https://www.instagram.com/giftastic101" target="_blank" class="hero-btn btn-glass btn-instagram">📸 Follow on Instagram</a>
         </div>
     </header>
 
@@ -281,7 +340,6 @@
         
         <h2 class="section-title">Our <span>Best Sellers</span></h2>
         <div class="product-grid">
-            
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails(`Gentleman's Choice`, ['Premium men\'s accessories', 'Customized styling items']))">
                     <img src="Gentleman%27s%20Choice.jpeg" alt="Gentleman's Choice" class="prod-real-img" onerror="this.onerror=null; this.src='Gentleman%27s%20Choice.jpg';">
@@ -325,7 +383,6 @@
 
         <h2 class="section-title">Our <span>Unique Products</span></h2>
         <div class="product-grid">
-            
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Personalised Name Wallet', ['High-quality leather wallet', 'Custom name engraving']))">
                     <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='Name%20Wallet.jpg';">
@@ -365,57 +422,7 @@
                 <div class="product-price">₹599</div>
                 <button class="product-btn" onclick="addToHamper('For Him Combo 2', 599, 'For%20Him%20Combo%202.jpeg')">Add to Hamper 🎁</button>
             </div>
-
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Customized Cup', ['Premium ceramic mug', 'Custom photo printing']))">
-                    <img src="Customized%20Cup.jpeg" alt="Customized Cup" class="prod-real-img" onerror="this.onerror=null; this.src='Customized%20Cup.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Customized Cup</div>
-                <div class="product-price">₹449</div>
-                <button class="product-btn" onclick="addToHamper('Customized Cup', 449, 'Customized%20Cup.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Kinder Bloom', ['Kinder Joy chocolates', 'Beautiful floral arrangement']))">
-                    <img src="Kinder%20Bloom.jpeg" alt="Kinder Bloom" class="prod-real-img" onerror="this.onerror=null; this.src='Kinder%20Bloom.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Kinder Bloom</div>
-                <div class="product-price">₹799</div>
-                <button class="product-btn" onclick="addToHamper('Kinder Bloom', 799, 'Kinder%20Bloom.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Ring Album', ['Compact photo album', 'Premium ring binding']))">
-                    <img src="Ring%20Album.jpeg" alt="Ring Album" class="prod-real-img" onerror="this.onerror=null; this.src='Ring%20Album.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Ring Album</div>
-                <div class="product-price">₹149</div>
-                <button class="product-btn" onclick="addToHamper('Ring Album', 149, 'Ring%20Album.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
-                    <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='Polaroid%20Photos.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Polaroid Photos</div>
-                <div class="product-price">₹12 / pc</div>
-                <button class="product-btn" onclick="addToHamper('Polaroid Photos', 12, 'Polaroid%20Photos.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Sketch Wallet', ['High-quality leather wallet', 'Custom portrait sketch inside']))">
-                    <img src="The%20Sketch%20Wallet.jpeg" alt="The Sketch Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Sketch%20Wallet.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">The Sketch Wallet</div>
-                <div class="product-price">₹299</div>
-                <button class="product-btn" onclick="addToHamper('The Sketch Wallet', 299, 'The%20Sketch%20Wallet.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
+            
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Tower Cake', ['Beautifully designed cake', 'Over 20 KitKat chocolates', 'Ferrero Rocher chocolates']))">
                     <img src="The%20Tower%20Cake.jpeg" alt="The Tower Cake" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Tower%20Cake.jpg';">
@@ -425,7 +432,6 @@
                 <div class="product-price">₹1599</div>
                 <button class="product-btn" onclick="addToHamper('The Tower Cake', 1599, 'The%20Tower%20Cake.jpeg')">Add to Hamper 🎁</button>
             </div>
-
         </div>
     </div>
 
@@ -468,43 +474,6 @@
         </div>
     </div>
 
-    <div class="faq-section">
-        <h2>Frequently Asked <span>Questions</span></h2>
-        <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question">
-                Do I need to pay an advance to confirm my order?
-                <span class="faq-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                Yes, to begin crafting your personalized hamper, we require an advance payment of 40% of the total order cost. Once the advance is received, our team will immediately start working on your beautiful gift!
-            </div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question">
-                Can I customize the items inside a hamper?
-                <span class="faq-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                Absolutely! Every hamper can be fully customized to match your specific wishes and budget. There are no limitations—we are here to bring your perfect gifting vision to life.
-            </div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-question">
-                How do I track my order?
-                <span class="faq-icon">+</span>
-            </div>
-            <div class="faq-answer">
-                As soon as your custom gift is dispatched, we will share the tracking details and proof of dispatch with you. You can easily track your package's journey directly through our courier partner's official website.
-            </div>
-        </div>
-    </div>
-
-    <div class="cta-section">
-        <h2>Let's Make Something Special</h2>
-        <p>Give us a call directly to start your custom order!</p>
-        <h3>📞 +91 8296654218</h3>
-    </div>
-
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
@@ -523,7 +492,6 @@
                     <li><a href="shop.html">Shop Hampers</a></li>
                     <li><a href="seasonal.html">Onam Specials</a></li>
                     <li><a href="create.html">Build Hamper</a></li>
-                    <li><a href="#about">About Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -551,7 +519,7 @@
 
     <img src="girl.gif" class="walking-girl" alt="Happy Shopper" onerror="this.style.display='none'">
 
-    <div id="imageModal" class="modal" onclick="closeModal(event)">
+    <div id="imageModal" class="modal-img-overlay" onclick="closeModal(event)">
         <div class="modal-layout">
             <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
             <div class="modal-img-container">
@@ -563,21 +531,92 @@
         </div>
     </div>
 
-    <!-- LOCAL STORAGE CART SYSTEM (JAVASCRIPT) -->
+    <!-- 🪄 THE MATCHMAKER QUIZ MODAL 🪄 -->
+    <div id="matchmakerModal" class="mm-modal">
+        <div class="mm-content">
+            <span class="mm-close" onclick="closeMatchmaker()">&times;</span>
+            
+            <div class="mm-header">
+                <h2>Gift <span>Matchmaker</span> 🪄</h2>
+                <div class="mm-progress-bg">
+                    <div class="mm-progress-bar" id="mmProgress"></div>
+                </div>
+            </div>
+
+            <!-- STEP 1 -->
+            <div class="mm-step active" id="mmStep1">
+                <h3>Who is this gift for?</h3>
+                <div class="mm-options">
+                    <button class="mm-option-btn" onclick="answerStep(1, 'him')">🧑 Him</button>
+                    <button class="mm-option-btn" onclick="answerStep(1, 'her')">👩 Her</button>
+                    <button class="mm-option-btn" onclick="answerStep(1, 'couple')">👩‍❤️‍👨 Couple</button>
+                    <button class="mm-option-btn" onclick="answerStep(1, 'kids')">🧒 Kids / Teens</button>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="mm-step" id="mmStep2">
+                <h3>What's the vibe?</h3>
+                <div class="mm-options">
+                    <button class="mm-option-btn" onclick="answerStep(2, 'romantic')">❤️ Romantic</button>
+                    <button class="mm-option-btn" onclick="answerStep(2, 'fun')">🤪 Fun & Quirky</button>
+                    <button class="mm-option-btn" onclick="answerStep(2, 'professional')">💼 Professional</button>
+                    <button class="mm-option-btn" onclick="answerStep(2, 'friends')">🤝 Friends</button>
+                    <button class="mm-option-btn" onclick="answerStep(2, 'kids')">🧸 Playful / Kids</button>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="mm-step" id="mmStep3">
+                <h3>What's your budget?</h3>
+                <div class="mm-options">
+                    <button class="mm-option-btn" onclick="answerStep(3, 'under1000')">💰 Under ₹1000</button>
+                    <button class="mm-option-btn" onclick="answerStep(3, 'mid')">💸 ₹1000 - ₹2000</button>
+                    <button class="mm-option-btn" onclick="answerStep(3, 'premium')">💎 Premium (₹2000+)</button>
+                </div>
+            </div>
+
+            <!-- LOADING -->
+            <div class="mm-step" id="mmLoading">
+                <div class="mm-loader">🪄</div>
+                <h3>Calculating the perfect match...</h3>
+            </div>
+
+            <!-- RESULT: THE LIVE ASSEMBLY BOX -->
+            <div class="mm-step" id="mmResult">
+                <h3 style="margin-bottom: 15px;">We found the perfect gift!</h3>
+                <div class="mm-result-card">
+                    
+                    <!-- The Empty Box Background -->
+                    <div class="mm-virtual-box" id="mmVirtualBoxContainer">
+                        <!-- Items will dynamically drop in here! -->
+                    </div>
+
+                    <h4 id="mmResultTitle" class="mm-result-title">Hamper Name</h4>
+                    <div id="mmResultPrice" class="mm-result-price">₹0</div>
+                    <button class="product-btn" id="mmAddToCartBtn" style="width: 100%; margin-bottom: 10px;">Add to Hamper 🎁</button>
+                </div>
+                <button class="mm-restart-btn" onclick="resetMatchmaker()">↺ Take Quiz Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
     <script>
+        // ------------------ CART LOGIC ------------------
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
         function addToHamper(name, price, image) {
             let existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name: name, price: price, image: image, quantity: 1 });
-            }
+            if (existingItem) { existingItem.quantity += 1; } 
+            else { cart.push({ name: name, price: price, image: image, quantity: 1 }); }
             saveCart(); updateCartUI();
             let cartBtn = document.querySelector('.floating-cart');
             cartBtn.style.transform = 'scale(1.2)';
             setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
             document.getElementById('cartPanel').classList.add('active');
+            
+            // If added from matchmaker, close it
+            document.getElementById('matchmakerModal').style.display = 'none';
         }
         function saveCart() { localStorage.setItem('giftastic_cart', JSON.stringify(cart)); }
         function updateCartUI() {
@@ -626,13 +665,123 @@
         }
         document.addEventListener('DOMContentLoaded', updateCartUI);
 
-        function toggleFaq(element) { element.classList.toggle('active'); }
-        function formatDetails(title, itemsList) { let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`; itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; }); html += `</ul></div>`; return html; }
-        function formatReviewCaption() { return `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>Real Customer Review</h3><p style='color: white; font-size: 1.05em; line-height: 1.8;'>⭐⭐⭐⭐⭐<br>We love hearing from happy customers! Tap the 'X' to close this view.</p></div>`; }
-        function toggleMusic() { const audio = document.getElementById('bgMusic'); const text = document.getElementById('musicText'); const icon = document.getElementById('musicIcon'); if (audio.paused) { audio.play(); text.innerText = "Pause"; icon.innerText = "⏸️"; } else { audio.pause(); text.innerText = "Play Music"; icon.innerText = "🎵"; } }
-        function toggleMenu() { const navMenu = document.getElementById('navMenu'); navMenu.classList.toggle('active'); }
+        // ------------------ UI & MODAL LOGIC ------------------
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
         function openModal(imgSrc, formattedHtml) { const modal = document.getElementById("imageModal"); const modalImg = document.getElementById("modalImage"); const caption = document.getElementById("modalCaption"); modal.style.display = "flex"; modalImg.src = imgSrc; caption.innerHTML = formattedHtml; document.body.style.overflow = "hidden"; }
         function closeModal(event, forceClose = false) { if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { document.getElementById("imageModal").style.display = "none"; document.body.style.overflow = "auto"; } }
+        function toggleMusic() { const audio = document.getElementById('bgMusic'); const text = document.getElementById('musicText'); const icon = document.getElementById('musicIcon'); if (audio.paused) { audio.play(); text.innerText = "Pause"; icon.innerText = "⏸️"; } else { audio.pause(); text.innerText = "Play Music"; icon.innerText = "🎵"; } }
+        function formatDetails(title, itemsList) { let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`; itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; }); html += `</ul></div>`; return html; }
+        function formatReviewCaption() { return `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>Real Customer Review</h3><p style='color: white; font-size: 1.05em; line-height: 1.8;'>⭐⭐⭐⭐⭐<br>We love hearing from happy customers! Tap the 'X' to close this view.</p></div>`; }
+
+        // ------------------ 🪄 LIVE ASSEMBLY MATCHMAKER LOGIC 🪄 ------------------
+        let userAnswers = { who: '', vibe: '', budget: '' };
+        
+        // Product Database with scoring tags AND specific box contents to drop in
+        const matchmakerDb = [
+            { name: "Gentleman's Choice", price: 2299, image: "Gentleman%27s%20Choice.jpeg", tags: ["him", "professional", "premium"], items: [{name: "Mens Watch", emoji: "⌚", qty: 1}, {name: "Mens Shirt", emoji: "👔", qty: 1}, {name: "Personalised Name Wallet", emoji: "👛", qty: 1}] },
+            { name: "The Glow Box", price: 659, image: "The%20Glow%20Box.jpeg", tags: ["her", "him", "couple", "romantic", "friends", "under1000"], items: [{name: "Photo Frame - 4x4", emoji: "🖼️", qty: 1}, {name: "Mini Panda Lamp", emoji: "🐼", qty: 1}, {name: "KitKat Chocolate", emoji: "🍫", qty: 5}] },
+            { name: "SweetWear", price: 1499, image: "SweetWear.jpeg", tags: ["him", "professional", "mid"], items: [{name: "Mens Shirt", emoji: "👔", qty: 1}, {name: "KitKat Chocolate", emoji: "🍫", qty: 3}, {name: "Dairy Milk", emoji: "🍫", qty: 2}] },
+            { name: "The Watch Hamper", price: 1799, image: "The%20Watch%20Hamper.jpeg", tags: ["him", "professional", "friends", "mid"], items: [{name: "Mens Watch", emoji: "⌚", qty: 1}, {name: "Ferrero Rocher (4pcs)", emoji: "🍬", qty: 2}] },
+            { name: "Personalised Name Wallet", price: 249, image: "Name%20Wallet.jpeg", tags: ["him", "professional", "friends", "under1000"], items: [{name: "Personalised Name Wallet", emoji: "👛", qty: 1}] },
+            { name: "For Him Combo 1", price: 789, image: "For%20Him%20Combo%201.jpeg", tags: ["him", "professional", "friends", "under1000"], items: [{name: "Personalised Name Wallet", emoji: "👛", qty: 1}, {name: "Customized Coffee Mug", emoji: "☕", qty: 1}] },
+            { name: "BuenoBox", price: 2799, image: "BuenoBox.jpeg", tags: ["her", "couple", "romantic", "fun", "premium"], items: [{name: "Mini Panda Lamp", emoji: "🐼", qty: 1}, {name: "KitKat Chocolate", emoji: "🍫", qty: 2}, {name: "Bella Vita Perfume", emoji: "✨", qty: 1}] },
+            { name: "Kinder Bloom", price: 799, image: "Kinder%20Bloom.jpeg", tags: ["kids", "her", "fun", "friends", "under1000"], items: [{name: "Artificial Rose Flower", emoji: "🌹", qty: 3}, {name: "Dairy Milk", emoji: "🍫", qty: 5}] },
+            { name: "The Panda Hamper", price: 2399, image: "The%20Panda%20Hamper.jpeg", tags: ["kids", "her", "fun", "premium"], items: [{name: "Mini Panda Lamp", emoji: "🐼", qty: 1}, {name: "Photo Frame - 5x6", emoji: "🖼️", qty: 1}, {name: "KitKat Chocolate", emoji: "🍫", qty: 3}] },
+            { name: "Cuddle & Charm Box", price: 2039, image: "Cuddle%26Charm%20Box.jpeg", tags: ["her", "romantic", "fun", "premium"], items: [{name: "Teddy Bear", emoji: "🧸", qty: 1}, {name: "Mini Panda Lamp", emoji: "🐼", qty: 1}, {name: "Bella Vita Perfume", emoji: "✨", qty: 1}] },
+            { name: "The Tower Cake", price: 1599, image: "The%20Tower%20Cake.jpeg", tags: ["couple", "romantic", "fun", "kids", "mid"], items: [{name: "KitKat Chocolate", emoji: "🍫", qty: 15}, {name: "Ferrero Rocher (4pcs)", emoji: "🍬", qty: 2}] }
+        ];
+
+        function openMatchmaker() {
+            document.getElementById('matchmakerModal').style.display = 'flex';
+            resetMatchmaker();
+        }
+
+        function closeMatchmaker() {
+            document.getElementById('matchmakerModal').style.display = 'none';
+        }
+
+        function resetMatchmaker() {
+            userAnswers = { who: '', vibe: '', budget: '' };
+            showStep(1);
+            document.getElementById('mmProgress').style.width = '10%';
+            document.getElementById('mmVirtualBoxContainer').innerHTML = ''; // Clear box
+        }
+
+        function showStep(stepNum) {
+            document.querySelectorAll('.mm-step').forEach(step => step.classList.remove('active'));
+            if(stepNum <= 3) {
+                document.getElementById(`mmStep${stepNum}`).classList.add('active');
+            } else if (stepNum === 4) {
+                document.getElementById('mmLoading').classList.add('active');
+                setTimeout(calculateMatch, 1800); 
+            } else {
+                document.getElementById('mmResult').classList.add('active');
+            }
+        }
+
+        function answerStep(step, answer) {
+            if (step === 1) userAnswers.who = answer;
+            if (step === 2) userAnswers.vibe = answer;
+            if (step === 3) userAnswers.budget = answer;
+
+            let progress = (step / 3) * 100;
+            document.getElementById('mmProgress').style.width = progress + '%';
+            
+            showStep(step + 1);
+        }
+
+        function calculateMatch() {
+            let bestMatch = matchmakerDb[0]; 
+            let highestScore = -1;
+
+            matchmakerDb.forEach(hamper => {
+                let score = 0;
+                if (hamper.tags.includes(userAnswers.who)) score += 3;
+                if (hamper.tags.includes(userAnswers.vibe)) score += 2;
+                if (hamper.tags.includes(userAnswers.budget)) score += 2;
+                score += Math.random(); 
+
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestMatch = hamper;
+                }
+            });
+
+            document.getElementById('mmResultTitle').innerText = bestMatch.name;
+            document.getElementById('mmResultPrice').innerText = `₹${bestMatch.price}`;
+            
+            document.getElementById('mmAddToCartBtn').onclick = function() {
+                addToHamper(bestMatch.name, bestMatch.price, bestMatch.image);
+            };
+
+            showStep(5);
+            
+            // THE MAGIC TRICK: Drop items into the empty box one by one!
+            renderMatchmakerBox(bestMatch.items);
+        }
+
+        function renderMatchmakerBox(items) {
+            const vBox = document.getElementById('mmVirtualBoxContainer');
+            vBox.innerHTML = ''; 
+            
+            let delay = 0;
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    let encodedImg = encodeURIComponent(item.name) + '.jpeg';
+                    vBox.innerHTML += `
+                        <div class="virtual-pic-card" title="${item.qty}x ${item.name}">
+                            <img src="${encodedImg}" class="virtual-pic-img" alt="${item.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="virtual-pic-fallback" style="display:none;">
+                                <span>${item.emoji}</span>
+                                <span>${item.name}</span>
+                            </div>
+                            <div class="virtual-pic-qty">${item.qty}</div>
+                        </div>
+                    `;
+                }, delay);
+                delay += 350; // Wait 350ms before dropping the next item!
+            });
+        }
     </script>
 </body>
 </html>
