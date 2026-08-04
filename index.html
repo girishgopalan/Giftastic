@@ -56,9 +56,20 @@
         .hero h2 { font-size: clamp(2.8em, 6vw, 4.8em); margin: 0 0 15px 0; font-weight: 800; text-shadow: 0 5px 20px rgba(0,0,0,0.4); line-height: 1.1; letter-spacing: -1px; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         .hero p { font-size: clamp(1.1em, 2vw, 1.3em); max-width: 650px; margin: 0 auto 40px auto; opacity: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; }
         .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards; }
+        
         .hero-btn { padding: 16px 32px; text-decoration: none; font-weight: 600; border-radius: 50px; font-size: 1.05em; display: flex; align-items: center; gap: 8px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .btn-shop { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #111; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.5); border: 2px solid transparent; transform: scale(1.05); }
         .btn-shop:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(246, 211, 101, 0.7); }
+        
+        /* 🔥 NEW FUN BUTTON STYLING 🔥 */
+        .btn-build { background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%); color: white !important; box-shadow: 0 10px 25px rgba(201, 75, 75, 0.4); border: 2px solid transparent; transform: scale(1.05); animation: funPulse 2s infinite; }
+        .btn-build:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 15px 35px rgba(201, 75, 75, 0.7); animation: none; }
+        @keyframes funPulse { 
+            0% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0.6); } 
+            70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(201, 75, 75, 0); } 
+            100% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0); } 
+        }
+
         .btn-call { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); color: white; box-shadow: 0 10px 25px rgba(150, 201, 61, 0.4); border: 2px solid transparent; transform: scale(1.05); }
         .btn-call:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(150, 201, 61, 0.6); }
         .btn-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
@@ -89,10 +100,10 @@
         .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
         .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
 
+        /* CART UI STYLES */
         .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
         .floating-cart:hover { transform: scale(1.1); }
         .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
-        
         .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
         .cart-panel.active { right: 0; }
         .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
@@ -250,10 +261,10 @@
         <h2>The Perfect Surprise,<br>Every Time.</h2>
         <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
         
-        <!-- FIXED HERO ACTIONS -->
         <div class="hero-actions">
             <a href="shop.html" class="hero-btn btn-shop">🛍️ Explore Collection</a>
-            <a href="create.html" class="hero-btn" style="background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%); color: white; box-shadow: 0 10px 25px rgba(201, 75, 75, 0.4); border: 2px solid transparent;">✨ Build Your Own</a>
+            <!-- THE NEW FUN BUTTON -->
+            <a href="create.html" class="hero-btn btn-build">✨ Build Your Own Hamper 🎁</a>
             <a href="tel:+918296654218" class="hero-btn btn-call">📞 Call Now</a>
             <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-glass btn-whatsapp">💬 Chat on WhatsApp</a>
             <a href="https://www.instagram.com/giftastic101" target="_blank" class="hero-btn btn-glass btn-instagram">📸 Follow on Instagram</a>
