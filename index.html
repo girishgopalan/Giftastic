@@ -69,6 +69,7 @@
         .btn-call:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(150, 201, 61, 0.6); }
         .btn-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .btn-whatsapp:hover { background: rgba(37, 211, 102, 0.9); border-color: #25D366; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
+        .btn-instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); border-color: transparent; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(220, 39, 67, 0.4); }
 
         .features { display: flex; justify-content: center; gap: 30px; padding: 25px 20px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.03); flex-wrap: wrap; }
         .feature-item { text-align: center; font-weight: 600; color: var(--secondary); font-size: clamp(0.9em, 1.5vw, 1.1em); }
@@ -239,9 +240,7 @@
             <h3>🎁 Your Hamper Box</h3>
             <span class="close-cart" onclick="toggleCart()">&times;</span>
         </div>
-        <div class="cart-items" id="cartItems">
-            <!-- Items injected by JavaScript -->
-        </div>
+        <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
@@ -318,17 +317,8 @@
 
         <h2 class="section-title">Our <span>Unique Products</span></h2>
         <div class="product-grid">
-            <!-- NEW PRODUCT: Key Chain Album -->
-            <div class="product-card">
-                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Key Chain Album', ['Mini photo album keychain', 'Compact and cute keepsake']))">
-                    <img src="Key%20Chain%20Album.jpeg" alt="Key Chain Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
-                </div>
-                <div class="product-title">Key Chain Album</div>
-                <div class="product-price">₹269</div>
-                <button class="product-btn" onclick="addToHamper('Key Chain Album', 269, 'Key%20Chain%20Album.jpeg')">Add to Hamper 🎁</button>
-            </div>
-
+            
+            <!-- ALL UNIQUE PRODUCTS FULLY RESTORED! -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Personalised Name Wallet', ['High-quality leather wallet', 'Custom name engraving']))">
                     <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='Name%20Wallet.jpg';">
@@ -345,8 +335,8 @@
                     <span class="preview-badge">🔍 Click to Preview</span>
                 </div>
                 <div class="product-title">Fridge Magnet</div>
-                <div class="product-price">₹269</div>
-                <button class="product-btn" onclick="addToHamper('Fridge Magnet', 269, 'Fridge%20Magnet.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToHamper('Fridge Magnet', 199, 'Fridge%20Magnet.jpeg')">Add to Hamper 🎁</button>
             </div>
 
             <div class="product-card">
@@ -368,6 +358,56 @@
                 <div class="product-price">₹599</div>
                 <button class="product-btn" onclick="addToHamper('For Him Combo 2', 599, 'For%20Him%20Combo%202.jpeg')">Add to Hamper 🎁</button>
             </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Customized Cup', ['Premium ceramic mug', 'Custom photo printing']))">
+                    <img src="Customized%20Cup.jpeg" alt="Customized Cup" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Customized Cup</div>
+                <div class="product-price">₹449</div>
+                <button class="product-btn" onclick="addToHamper('Customized Cup', 449, 'Customized%20Cup.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Kinder Bloom', ['Kinder Joy chocolates', 'Beautiful floral arrangement']))">
+                    <img src="Kinder%20Bloom.jpeg" alt="Kinder Bloom" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Kinder Bloom</div>
+                <div class="product-price">₹799</div>
+                <button class="product-btn" onclick="addToHamper('Kinder Bloom', 799, 'Kinder%20Bloom.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Ring Album', ['Compact photo album', 'Premium ring binding']))">
+                    <img src="Ring%20Album.jpeg" alt="Ring Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Ring Album</div>
+                <div class="product-price">₹149</div>
+                <button class="product-btn" onclick="addToHamper('Ring Album', 149, 'Ring%20Album.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
+                    <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Polaroid Photos</div>
+                <div class="product-price">₹12 / pc</div>
+                <button class="product-btn" onclick="addToHamper('Polaroid Photos', 12, 'Polaroid%20Photos.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Sketch Wallet', ['High-quality leather wallet', 'Custom portrait sketch inside']))">
+                    <img src="The%20Sketch%20Wallet.jpeg" alt="The Sketch Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">The Sketch Wallet</div>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToHamper('The Sketch Wallet', 299, 'The%20Sketch%20Wallet.jpeg')">Add to Hamper 🎁</button>
+            </div>
             
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Tower Cake', ['Beautifully designed cake', 'Over 20 KitKat chocolates', 'Ferrero Rocher chocolates']))">
@@ -377,6 +417,16 @@
                 <div class="product-title">The Tower Cake</div>
                 <div class="product-price">₹1599</div>
                 <button class="product-btn" onclick="addToHamper('The Tower Cake', 1599, 'The%20Tower%20Cake.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Key Chain Album', ['Mini photo album keychain', 'Compact and cute keepsake']))">
+                    <img src="Key%20Chain%20Album.jpeg" alt="Key Chain Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Key Chain Album</div>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToHamper('Key Chain Album', 199, 'Key%20Chain%20Album.jpeg')">Add to Hamper 🎁</button>
             </div>
         </div>
     </div>
