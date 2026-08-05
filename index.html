@@ -318,6 +318,17 @@
 
         <h2 class="section-title">Our <span>Unique Products</span></h2>
         <div class="product-grid">
+            <!-- NEW PRODUCT: Key Chain Album -->
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Key Chain Album', ['Mini photo album keychain', 'Compact and cute keepsake']))">
+                    <img src="Key%20Chain%20Album.jpeg" alt="Key Chain Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">🔍 Click to Preview</span>
+                </div>
+                <div class="product-title">Key Chain Album</div>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToHamper('Key Chain Album', 199, 'Key%20Chain%20Album.jpeg')">Add to Hamper 🎁</button>
+            </div>
+
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Personalised Name Wallet', ['High-quality leather wallet', 'Custom name engraving']))">
                     <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='Name%20Wallet.jpg';">
