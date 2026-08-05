@@ -155,7 +155,7 @@
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
         .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
         .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; font-weight: 300; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -179,8 +179,8 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
-            <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop All</a>
+            <a href="seasonal.html" onclick="toggleMenu()">Onam Specials</a>
             <a href="create.html" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">✨ Build Hamper</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
@@ -288,16 +288,9 @@
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop Hampers</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
                     <li><a href="seasonal.html">Onam Specials</a></li>
                     <li><a href="create.html">Build Hamper</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Customer Service</h3>
-                <ul class="footer-links">
-                    <li><a href="shipping.html">Shipping Policy</a></li>
-                    <li><a href="returns.html">Return Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -314,7 +307,6 @@
 
     <!-- BUILDER LOGIC SCRIPT -->
     <script>
-        // FULLY RESTORED AND UPDATED GOODIES LIST
         const goodies = [
             { id: 1, name: "KitKat Chocolate", price: 20, emoji: "🍫" },
             { id: 2, name: "Dairy Milk", price: 20, emoji: "🍫" },
@@ -333,7 +325,8 @@
             { id: 15, name: "Mens Watch", price: 999, emoji: "⌚" },
             { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" },
             { id: 17, name: "Key Chain Album", price: 199, emoji: "🗝️" },
-            { id: 18, name: "Kinder Bloom", price: 799, emoji: "🌸" }
+            { id: 18, name: "Kinder Bloom", price: 799, emoji: "🌸" },
+            { id: 19, name: "Mens Belt", price: 299, emoji: "💼" }
         ];
 
         let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
