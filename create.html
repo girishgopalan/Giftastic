@@ -52,7 +52,7 @@
         .builder-container { max-width: 900px; margin: 20px auto 60px auto; padding: 0 20px; }
         
         .builder-step { background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-top: 5px solid var(--secondary); }
-        .builder-step h3 { margin: 0; color: var(--secondary); font-size: 1.4em; display: flex; align-items: center; gap: 10px; }
+        .builder-step h3 { margin-top: 0; color: var(--secondary); font-size: 1.4em; display: flex; align-items: center; gap: 10px; }
         .builder-step h3 span { background: var(--secondary); color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8em; }
 
         /* BOX SELECTION GRID */
@@ -96,46 +96,26 @@
             transition: all 0.3s ease; 
         }
 
-        /* Empty State */
         .empty-state { text-align: center; animation: fadeIn 0.5s ease; background: rgba(255, 255, 255, 0.85); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.5); margin: auto; }
         
-        /* New Product Image Cards inside the Box */
-        .virtual-pic-card {
-            width: 85px;
-            height: 85px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 4px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            position: relative;
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.8);
-        }
-        
+        .virtual-pic-card { width: 85px; height: 85px; background: rgba(255, 255, 255, 0.95); padding: 4px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); position: relative; animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transition: transform 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.8); }
         .virtual-pic-card:nth-child(even) { transform: rotate(5deg); }
         .virtual-pic-card:nth-child(odd) { transform: rotate(-5deg); }
         .virtual-pic-card:hover { transform: translateY(-8px) scale(1.15) rotate(0deg); z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.3); border-color: var(--gold); }
-        
         .virtual-pic-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         
-        /* This handles what shows up if the real image hasn't been uploaded yet */
         .virtual-pic-fallback { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; text-align: center; }
         .virtual-pic-fallback span:first-child { font-size: 1.8em; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1)); }
         .virtual-pic-fallback span:last-child { font-size: 0.55em; font-weight: 700; line-height: 1.1; margin-top: 4px; color: var(--secondary); }
-
         .virtual-pic-qty { position: absolute; top: -8px; right: -8px; background: var(--primary); color: white; font-size: 0.75em; font-weight: 800; width: 24px; height: 24px; border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 2px solid white; box-shadow: 0 3px 8px rgba(0,0,0,0.3); animation: scaleIn 0.3s ease; }
 
         @keyframes popIn { 0% { transform: scale(0.5) translateY(20px); opacity: 0; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
         @keyframes scaleIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
         @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-        /* PERSONALIZATION NOTE */
         .note-box { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 1em; margin-top: 10px; resize: vertical; min-height: 90px; }
         .note-box:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(201, 75, 75, 0.1); }
 
-        /* SUMMARY & SUBMIT */
         .builder-summary-card { background: linear-gradient(135deg, var(--secondary), #2d3436); color: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-top: 20px; }
         .summary-total { font-size: 2em; font-weight: 800; color: var(--gold); margin: 15px 0; }
         .add-custom-btn { background: linear-gradient(135deg, #f6d365, #fda085); color: #111; border: none; padding: 16px 40px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 800; border-radius: 30px; cursor: pointer; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.4); transition: transform 0.3s ease; }
@@ -201,7 +181,7 @@
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
-            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary);">✨ Build Hamper</a>
+            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">✨ Build Hamper</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
         </div>
@@ -334,23 +314,26 @@
 
     <!-- BUILDER LOGIC SCRIPT -->
     <script>
+        // FULLY RESTORED AND UPDATED GOODIES LIST
         const goodies = [
             { id: 1, name: "KitKat Chocolate", price: 20, emoji: "🍫" },
             { id: 2, name: "Dairy Milk", price: 20, emoji: "🍫" },
             { id: 3, name: "Ferrero Rocher (4pcs)", price: 150, emoji: "🍬" },
             { id: 4, name: "Mini Panda Lamp", price: 450, emoji: "🐼" },
             { id: 5, name: "Bella Vita Perfume", price: 399, emoji: "✨" },
-            { id: 6, name: "Polaroid Photo Print", price: 12, emoji: "📸" },
+            { id: 6, name: "Polaroid Photos", price: 12, emoji: "📸" },
             { id: 7, name: "Photo Frame - 5x6", price: 299, emoji: "🖼️" },
             { id: 8, name: "Photo Frame - 4x4", price: 149, emoji: "🖼️" },
-            { id: 9, name: "Customized Coffee Mug", price: 449, emoji: "☕" },
+            { id: 9, name: "Customized Cup", price: 449, emoji: "☕" },
             { id: 10, name: "Personalised Name Wallet", price: 249, emoji: "👛" },
-            { id: 11, name: "Ring Photo Album", price: 149, emoji: "📔" },
+            { id: 11, name: "Ring Album", price: 149, emoji: "📔" },
             { id: 12, name: "Teddy Bear", price: 299, emoji: "🧸" },
             { id: 13, name: "Artificial Rose Flower", price: 99, emoji: "🌹" },
             { id: 14, name: "Mens Shirt", price: 780, emoji: "👔" },
             { id: 15, name: "Mens Watch", price: 999, emoji: "⌚" },
-            { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" }
+            { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" },
+            { id: 17, name: "Key Chain Album", price: 199, emoji: "🗝️" },
+            { id: 18, name: "Kinder Bloom", price: 799, emoji: "🌸" }
         ];
 
         let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
@@ -401,7 +384,6 @@
             renderVirtualBox(); 
         }
 
-        // SMART IMAGE LOADER FOR VIRTUAL BOX
         function renderVirtualBox() {
             const vBox = document.getElementById('virtualBoxContainer');
             vBox.innerHTML = ''; 
@@ -410,13 +392,12 @@
             for (let item in selectedGoodies) {
                 isEmpty = false;
                 let data = selectedGoodies[item];
-                let encodedImg = encodeURIComponent(item) + '.jpeg'; // Assumes image is named "Item Name.jpeg"
+                let encodedImg = encodeURIComponent(item) + '.jpeg'; 
                 
                 vBox.innerHTML += `
                     <div class="virtual-pic-card" title="${data.qty}x ${item}">
                         <img src="${encodedImg}" class="virtual-pic-img" alt="${item}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         
-                        <!-- Fallback if the real image is not found -->
                         <div class="virtual-pic-fallback" style="display:none;">
                             <span>${data.emoji}</span>
                             <span>${item}</span>
