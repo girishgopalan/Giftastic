@@ -12,201 +12,191 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giftastic by Archana | Customised Gift Hampers</title>
+    <title>Giftastic by Archana | Premium Curated Hampers</title>
     
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* PREMIUM COLOR PALETTE */
         :root {
-            --primary: #c94b4b;
-            --secondary: #4b134f;
-            --gold: #f1c40f;
-            --bg-light: #fdfbfb;
-            --text-dark: #2d3436;
-            --text-light: #636e72;
+            --primary: #9e6462; /* Elegant muted rose/burgundy */
+            --primary-dark: #7a4d4c;
+            --secondary: #2c3539; /* Deep charcoal */
+            --gold: #c5a059; /* Soft champagne gold */
+            --bg-light: #faf8f5; /* Premium off-white/cream */
+            --bg-white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #777777;
         }
         
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
         
-        .announcement { background: linear-gradient(90deg, #4b134f, #c94b4b, #4b134f); background-size: 200% 200%; animation: gradientShift 5s ease infinite; color: white; text-align: center; padding: 10px; font-size: 0.85em; letter-spacing: 1px; font-weight: 500; }
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        /* SLEEK ANNOUNCEMENT BAR */
+        .announcement { background-color: var(--secondary); color: var(--bg-light); text-align: center; padding: 10px; font-size: 0.75em; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; }
 
-        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; }
-        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--secondary); }
-        .nav-brand img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
-        .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s ease; }
+        /* MINIMALIST NAVIGATION */
+        nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--secondary); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #eaeaea; }
+        .nav-brand h1 { margin: 0; font-size: 1.3em; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95em; transition: color 0.3s ease; }
         .nav-links a:hover { color: var(--primary); }
-        .menu-toggle { display: none; font-size: 1.8em; cursor: pointer; color: var(--secondary); }
+        .menu-toggle { display: none; font-size: 1.5em; cursor: pointer; color: var(--secondary); }
         .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        
+        /* ELEGANT BUTTONS */
+        .btn-outline { border: 1px solid var(--secondary); color: var(--secondary); padding: 10px 24px; border-radius: 4px; font-weight: 500; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; }
+        .btn-outline:hover { background: var(--secondary); color: white; }
+        .btn-solid { background: var(--primary); color: white !important; padding: 10px 24px; border-radius: 4px; font-weight: 500; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; border: 1px solid var(--primary); }
+        .btn-solid:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
         .mobile-call-btn { display: none; } 
-        .nav-call-btn { background: linear-gradient(135deg, #00b09b, #96c93d); color: white !important; padding: 8px 20px; border-radius: 20px; box-shadow: 0 4px 15px rgba(150, 201, 61, 0.3); transition: all 0.3s ease; text-decoration: none; font-weight: 600; }
-        .nav-call-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(150, 201, 61, 0.5); }
 
-        .hero { position: relative; background: linear-gradient(135deg, rgba(75, 19, 79, 0.75), rgba(201, 75, 75, 0.65)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2040&auto=format&fit=crop') center/cover; background-attachment: fixed; color: white; text-align: center; padding: clamp(80px, 15vw, 150px) 20px; overflow: hidden; }
-        .onam-floating-badge { position: absolute; top: 22%; right: 4vw; background: linear-gradient(135deg, #f1c40f 0%, #e38200 100%); color: white; padding: 15px 30px; border-radius: 50px; font-weight: 800; font-size: 1.3em; text-decoration: none; box-shadow: 0 10px 25px rgba(227, 130, 0, 0.5); border: 3px solid white; transform: rotate(12deg); z-index: 10; animation: floatBadge 3s ease-in-out infinite; transition: all 0.3s ease; }
-        .onam-floating-badge:hover { transform: scale(1.1) rotate(0deg); box-shadow: 0 15px 35px rgba(227, 130, 0, 0.7); }
-        @keyframes floatBadge { 0% { transform: translateY(0px) rotate(12deg); } 50% { transform: translateY(-15px) rotate(12deg); } 100% { transform: translateY(0px) rotate(12deg); } }
+        /* HERO SECTION - EDITORIAL LOOK */
+        .hero { position: relative; background: linear-gradient(rgba(44, 53, 57, 0.7), rgba(44, 53, 57, 0.8)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=2040&auto=format&fit=crop') center/cover; background-attachment: fixed; color: white; text-align: center; padding: clamp(100px, 15vw, 180px) 20px; overflow: hidden; }
         
-        .hero h2 { font-size: clamp(2.8em, 6vw, 4.8em); margin: 0 0 15px 0; font-weight: 800; text-shadow: 0 5px 20px rgba(0,0,0,0.4); line-height: 1.1; letter-spacing: -1px; }
-        .hero p { font-size: clamp(1.1em, 2vw, 1.3em); max-width: 650px; margin: 0 auto 40px auto; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .hero-subtitle { font-size: 0.9em; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; display: block; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .hero h2 { font-size: clamp(2.5em, 5vw, 4.2em); margin: 0 0 20px 0; font-weight: 400; line-height: 1.2; letter-spacing: -1px; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards; opacity: 0; }
+        .hero p { font-size: clamp(1em, 2vw, 1.15em); max-width: 600px; margin: 0 auto 45px auto; opacity: 0; font-weight: 300; color: #e0e0e0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; }
         
-        .hero-btn { padding: 16px 32px; text-decoration: none; font-weight: 600; border-radius: 50px; font-size: 1.05em; display: flex; align-items: center; gap: 8px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .btn-shop { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #111; box-shadow: 0 10px 25px rgba(246, 211, 101, 0.5); border: 2px solid transparent; transform: scale(1.05); }
-        .btn-shop:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(246, 211, 101, 0.7); }
-        
-        .btn-build { background: linear-gradient(135deg, #c94b4b 0%, #4b134f 100%); color: white !important; box-shadow: 0 10px 25px rgba(201, 75, 75, 0.4); border: 2px solid transparent; transform: scale(1.05); animation: funPulse 2s infinite; }
-        .btn-build:hover { transform: scale(1.1) rotate(-2deg); box-shadow: 0 15px 35px rgba(201, 75, 75, 0.7); animation: none; }
-        @keyframes funPulse { 0% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0.6); } 70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(201, 75, 75, 0); } 100% { transform: scale(1.05); box-shadow: 0 0 0 0 rgba(201, 75, 75, 0); } }
+        .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; }
+        .hero-btn { padding: 14px 35px; text-decoration: none; font-weight: 500; border-radius: 4px; font-size: 1em; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+        .btn-primary-hero { background: var(--gold); color: var(--secondary); border: 1px solid var(--gold); }
+        .btn-primary-hero:hover { background: #b38f4d; border-color: #b38f4d; transform: translateY(-2px); }
+        .btn-glass-hero { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; }
+        .btn-glass-hero:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
 
-        .btn-call { background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%); color: white; box-shadow: 0 10px 25px rgba(150, 201, 61, 0.4); border: 2px solid transparent; transform: scale(1.05); }
-        .btn-call:hover { transform: scale(1.1); box-shadow: 0 15px 35px rgba(150, 201, 61, 0.6); }
-        .btn-glass { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .btn-whatsapp:hover { background: rgba(37, 211, 102, 0.9); border-color: #25D366; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); }
-        .btn-instagram:hover { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); border-color: transparent; transform: translateY(-5px); box-shadow: 0 10px 25px rgba(220, 39, 67, 0.4); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .features { display: flex; justify-content: center; gap: 30px; padding: 25px 20px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.03); flex-wrap: wrap; }
-        .feature-item { text-align: center; font-weight: 600; color: var(--secondary); font-size: clamp(0.9em, 1.5vw, 1.1em); }
+        /* TRUST BADGES */
+        .features { display: flex; justify-content: center; gap: 40px; padding: 30px 20px; background: var(--bg-white); border-bottom: 1px solid #eaeaea; flex-wrap: wrap; }
+        .feature-item { text-align: center; font-weight: 400; color: var(--text-light); font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+        .feature-item::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: var(--gold); border-radius: 50%; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
-        .section-title { text-align: center; font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 40px; color: var(--text-dark); margin-top: 40px; }
-        .section-title span { color: var(--primary); }
+        /* SECTION HEADERS */
+        .container { max-width: 1250px; margin: 0 auto; padding: 80px 20px; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-subtitle { font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; margin-bottom: 10px; display: block; }
+        .section-title { font-size: clamp(2em, 3vw, 2.8em); margin: 0; color: var(--secondary); font-weight: 400; letter-spacing: -0.5px; }
 
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; padding-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        /* REFINED PRODUCT CARDS */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .product-card { background: var(--bg-white); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; padding-bottom: 30px; transition: transform 0.4s ease, box-shadow 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
         
-        .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; }
-        .prod-real-img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s ease; }
-        .img-wrapper:hover .prod-real-img { transform: scale(1.08); }
+        .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; background: #f5f5f5; }
+        .prod-real-img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.7s ease; }
+        .img-wrapper:hover .prod-real-img { transform: scale(1.05); }
 
-        .preview-badge { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); color: var(--secondary); padding: 8px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 700; opacity: 0; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); pointer-events: none; }
-        .img-wrapper:hover .preview-badge { bottom: 15px; opacity: 1; }
+        .preview-badge { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(255, 255, 255, 0.95); color: var(--secondary); padding: 8px 20px; border-radius: 4px; font-size: 0.8em; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: all 0.3s ease; pointer-events: none; }
+        .img-wrapper:hover .preview-badge { transform: translateX(-50%) translateY(0); opacity: 1; }
         
-        .product-title { font-size: 1.2em; font-weight: 600; margin: 15px 0 5px 0; padding: 0 15px;}
-        .product-price { color: var(--primary); font-weight: 800; font-size: 1.1em; margin-bottom: 15px; }
+        .product-title { font-size: 1.1em; font-weight: 500; margin: 25px 0 8px 0; padding: 0 15px; color: var(--secondary); }
+        .product-price { color: var(--primary); font-weight: 600; font-size: 1.1em; margin-bottom: 20px; }
         
-        .product-btn { background: var(--secondary); color: white; border: none; padding: 12px 28px; border-radius: 25px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 0.95em; cursor: pointer; transition: all 0.3s ease; display: inline-block; box-shadow: 0 5px 15px rgba(75, 19, 79, 0.2); }
-        .product-btn:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201, 75, 75, 0.3); }
+        .product-btn { background: transparent; color: var(--secondary); border: 1px solid #ddd; padding: 10px 30px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease; display: inline-block; }
+        .product-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); }
 
-        /* CART UI STYLES */
-        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--secondary); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.25); z-index: 1000; transition: transform 0.3s ease; border: 3px solid white; }
-        .floating-cart:hover { transform: scale(1.1); }
-        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.4em; font-weight: 800; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
-        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+        /* FLOATING CART - ELEGANT */
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--bg-white); color: var(--secondary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; transition: transform 0.3s ease; border: 1px solid #eaeaea; }
+        .floating-cart:hover { transform: translateY(-5px); }
+        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.45em; font-weight: 600; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        
+        /* CART DRAWER */
+        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--bg-white); box-shadow: -10px 0 30px rgba(0,0,0,0.05); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
         .cart-panel.active { right: 0; }
-        .cart-header { padding: 20px; background: var(--secondary); color: white; display: flex; justify-content: space-between; align-items: center; }
-        .cart-header h3 { margin: 0; font-size: 1.3em; display: flex; align-items: center; gap: 10px;}
-        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; }
-        .cart-items { flex-grow: 1; padding: 20px; overflow-y: auto; background: var(--bg-light); }
-        .cart-footer { padding: 25px 20px; background: white; border-top: 1px solid #eee; box-shadow: 0 -5px 15px rgba(0,0,0,0.03); }
-        .cart-total { font-size: 1.4em; font-weight: 800; color: var(--text-dark); margin-bottom: 15px; display: flex; justify-content: space-between;}
-        .checkout-btn { width: 100%; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 16px; font-size: 1.1em; font-family: 'Poppins', sans-serif; font-weight: 600; border-radius: 12px; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 10px;}
-        .checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4); }
-        .cart-item-row { display: flex; align-items: center; gap: 15px; background: white; padding: 15px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .cart-item-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .cart-header { padding: 25px; background: var(--bg-white); border-bottom: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { margin: 0; font-size: 1.1em; font-weight: 600; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
+        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; color: var(--text-light); font-weight: 300; }
+        .cart-items { flex-grow: 1; padding: 25px; overflow-y: auto; background: var(--bg-light); }
+        .cart-footer { padding: 25px; background: var(--bg-white); border-top: 1px solid #eaeaea; }
+        .cart-total { font-size: 1.2em; font-weight: 600; color: var(--secondary); margin-bottom: 20px; display: flex; justify-content: space-between;}
+        
+        .checkout-btn { width: 100%; background: var(--secondary); color: white; border: none; padding: 16px; font-size: 1em; font-family: 'Poppins', sans-serif; font-weight: 500; border-radius: 4px; cursor: pointer; transition: background 0.3s ease; letter-spacing: 1px; }
+        .checkout-btn:hover { background: #1a1f22; }
+        
+        .cart-item-row { display: flex; align-items: center; gap: 15px; background: var(--bg-white); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eaeaea; }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 4px; object-fit: cover; }
         .cart-item-details { flex-grow: 1; }
-        .cart-item-title { margin: 0 0 5px 0; font-size: 0.95em; color: var(--text-dark); font-weight: 600; line-height: 1.2;}
-        .cart-item-price { color: var(--primary); font-weight: 700; font-size: 0.9em; }
-        .qty-controls { display: flex; align-items: center; gap: 10px; background: #f5f6fa; border-radius: 20px; padding: 5px; }
-        .qty-btn { background: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-weight: bold; color: var(--secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;}
+        .cart-item-title { margin: 0 0 5px 0; font-size: 0.9em; color: var(--secondary); font-weight: 500; line-height: 1.3;}
+        .cart-item-price { color: var(--text-light); font-size: 0.85em; }
+        .qty-controls { display: flex; align-items: center; gap: 12px; }
+        .qty-btn { background: transparent; border: none; cursor: pointer; font-weight: 400; color: var(--text-light); font-size: 1.2em; padding: 0 5px; }
+        .qty-btn:hover { color: var(--primary); }
 
-        /* OTHER SECTIONS (Testimonials, Video, FAQs, Footer) */
-        .testimonials { background-color: white; padding: 80px 20px; margin-top: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        /* TESTIMONIALS */
+        .testimonials { background-color: var(--bg-light); padding: 80px 20px; border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .testimonial-card { background: var(--bg-light); padding: 15px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; border-bottom: 4px solid var(--primary); }
-        .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
-        .review-img-wrapper { cursor: zoom-in; overflow: hidden; border-radius: 12px; width: 100%; height: 350px; background: #eee; display: flex; align-items: center; justify-content: center; }
-        .review-img-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
-        .review-img-wrapper:hover img { transform: scale(1.05); }
+        .testimonial-card { background: var(--bg-white); padding: 20px; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); text-align: center; transition: transform 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .review-img-wrapper { cursor: zoom-in; overflow: hidden; border-radius: 4px; width: 100%; height: 350px; background: #f5f5f5; }
+        .review-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .review-img-wrapper:hover img { transform: scale(1.03); }
 
-        .split-section { display: flex; align-items: center; justify-content: space-between; gap: 40px; background: white; padding: clamp(30px, 5vw, 60px); border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 60px; }
+        /* ABOUT SPLIT SECTION */
+        .split-section { display: flex; align-items: center; justify-content: space-between; gap: 60px; margin-top: 40px; }
         .split-content { flex: 1; min-width: 300px; }
-        .split-content h3 { font-size: clamp(1.8em, 3vw, 2.2em); color: var(--secondary); margin-top: 0; }
-        .split-content p { line-height: 1.8; color: var(--text-light); margin-bottom: 20px; font-size: 1.05em; }
+        .split-content h3 { font-size: clamp(1.8em, 3vw, 2.2em); color: var(--secondary); font-weight: 400; margin-top: 0; }
+        .split-content p { line-height: 1.8; color: var(--text-light); margin-bottom: 20px; font-size: 1em; font-weight: 300; }
         .video-wrapper { flex: 1; display: flex; justify-content: center; width: 100%; }
-        .video-container { width: 100%; max-width: 320px; aspect-ratio: 9 / 16; background-color: #000; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3); border: 6px solid #fdfbfb; overflow: hidden; }
+        .video-container { width: 100%; max-width: 320px; aspect-ratio: 9 / 16; background-color: #000; border-radius: 8px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); overflow: hidden; }
         video { width: 100%; height: 100%; object-fit: cover; }
 
+        /* FAQ SECTION */
         .faq-section { max-width: 800px; margin: 80px auto 40px auto; padding: 0 20px; }
-        .faq-section h2 { text-align: center; color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin-bottom: 40px; }
-        .faq-section h2 span { color: var(--primary); }
-        .faq-item { background: white; border-radius: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); overflow: hidden; transition: all 0.3s ease; }
-        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--text-dark); font-size: 1.1em; background: white; transition: background 0.3s ease; }
-        .faq-question:hover { background: #fafafa; color: var(--primary); }
-        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-light); line-height: 1.6; }
-        .faq-item.active .faq-answer { padding: 0 25px 20px 25px; max-height: 250px; }
-        .faq-icon { font-size: 1.2em; color: var(--gold); transition: transform 0.3s ease; font-weight: 800;}
+        .faq-item { border-bottom: 1px solid #eaeaea; margin-bottom: 0; }
+        .faq-question { padding: 25px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--secondary); font-size: 1.05em; transition: color 0.3s ease; }
+        .faq-question:hover { color: var(--primary); }
+        .faq-answer { padding: 0 0 25px 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-light); line-height: 1.6; font-weight: 300; opacity: 0; }
+        .faq-item.active .faq-answer { max-height: 250px; opacity: 1; }
+        .faq-icon { font-size: 1.2em; color: var(--text-light); transition: transform 0.3s ease; font-weight: 300; }
         .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--primary); }
 
-        .cta-section { text-align: center; padding: 60px 20px; background: white; margin-top: 40px; }
-        .cta-section h2 { color: var(--secondary); font-size: clamp(2em, 4vw, 2.5em); margin: 0 0 10px 0; font-weight: 800; }
-        .cta-section p { color: var(--text-light); font-size: 1.1em; margin-bottom: 20px; }
-        .cta-section h3 { color: var(--primary); font-size: 1.8em; margin: 0; }
-
-        .site-footer { background: #1a1a1a; color: #fff; padding: 60px 5% 30px; font-family: 'Poppins', sans-serif; border-top: 5px solid var(--primary); }
-        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-col { flex: 1; min-width: 220px; text-align: left; }
-        .footer-col h3 { color: var(--gold); font-size: 1.3em; margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col p { color: #bbb; font-size: 0.95em; line-height: 1.6; margin-bottom: 15px; }
+        /* FOOTER */
+        .site-footer { background: var(--secondary); color: #e0e0e0; padding: 80px 5% 30px; font-family: 'Poppins', sans-serif; }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 200px; }
+        .footer-col h3 { color: var(--bg-white); font-size: 1em; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-col p { font-size: 0.9em; line-height: 1.8; font-weight: 300; color: #a0a0a0; }
         .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #bbb; text-decoration: none; transition: color 0.3s ease; font-size: 0.95em; }
-        .footer-links a:hover { color: var(--primary); padding-left: 5px; }
-        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
-        .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: #a0a0a0; text-decoration: none; transition: color 0.3s ease; font-size: 0.9em; font-weight: 300; }
+        .footer-links a:hover { color: var(--bg-white); }
+        .social-icons { display: flex; gap: 15px; margin-top: 25px; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #4a555c; border-radius: 50%; color: #a0a0a0; text-decoration: none; transition: all 0.3s ease; }
+        .social-icons a:hover { background: var(--bg-white); color: var(--secondary); border-color: var(--bg-white); }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 60px; border-top: 1px solid #3a444b; color: #777; font-size: 0.85em; font-weight: 300; }
 
-        .floating-music-btn { position: fixed; bottom: 30px; left: 30px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); color: var(--secondary); border: 2px solid var(--primary); border-radius: 50px; padding: 12px 24px; font-size: 1em; font-weight: 600; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.15); z-index: 1000; display: flex; align-items: center; gap: 8px; transition: transform 0.3s ease; }
-        .floating-music-btn:hover { transform: scale(1.05); }
-        .walking-girl { position: fixed; bottom: 10px; left: -150px; width: 100px; z-index: 999; pointer-events: none; animation: walkAcross 20s linear infinite; }
-        @keyframes walkAcross { 0% { left: -150px; transform: scaleX(1); } 45% { left: 110vw; transform: scaleX(1); } 50% { left: 110vw; transform: scaleX(-1); } 95% { left: -150px; transform: scaleX(-1); } 100% { left: -150px; transform: scaleX(1); } }
-
-        .modal-img-overlay { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
-        .modal-layout { display: flex; background: #1a1a1a; border-radius: 20px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 20px 50px rgba(0,0,0,0.7); animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
-        .modal-img-container { flex: 1.2; background: #000; display: flex; align-items: center; justify-content: center; }
+        /* MODAL */
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+        .modal-layout { display: flex; background: var(--bg-white); border-radius: 8px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid #eaeaea; position: relative; }
+        .modal-img-container { flex: 1.2; background: #f9f9f9; display: flex; align-items: center; justify-content: center; }
         .modal-content { width: 100%; height: 100%; object-fit: contain; }
-        .modal-details { flex: 1; padding: 40px 30px; overflow-y: auto; background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%); }
-        .close-modal { position: absolute; top: 15px; right: 25px; color: #f1f1f1; font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.3s; z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .close-modal:hover { color: var(--gold); background: rgba(0,0,0,0.8);}
-        #modalCaption { width: 100%; }
+        .modal-details { flex: 1; padding: 50px 40px; overflow-y: auto; }
+        .close-modal { position: absolute; top: 20px; right: 25px; color: var(--text-light); font-size: 30px; font-weight: 300; cursor: pointer; transition: color 0.3s; z-index: 10; }
+        .close-modal:hover { color: var(--secondary); }
 
-        @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-        @media (max-width: 900px) {
-            .onam-floating-badge { position: relative; top: auto; right: auto; display: inline-block; margin-bottom: 30px; transform: rotate(0deg); animation: none; }
-        }
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
-            .mobile-call-btn { display: inline-block; padding: 6px 14px; font-size: 0.9em; }
+            .mobile-call-btn { display: inline-block; padding: 8px 16px; font-size: 0.85em; }
             .desktop-call-btn { display: none !important; }
-            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); flex-direction: column; padding: 20px 0; gap: 15px; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-white); flex-direction: column; padding: 30px 0; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: none; }
             .nav-links.active { display: flex; }
-            .split-section { flex-direction: column; text-align: center; }
-            .walking-girl { width: 75px; } 
-            .floating-music-btn { left: 15px; bottom: 15px; padding: 8px 16px; font-size: 0.9em; }
+            .split-section { flex-direction: column; text-align: center; gap: 40px; }
             .modal-layout { flex-direction: column; overflow-y: auto; }
             .modal-img-container { height: 40vh; flex: none; }
-            .modal-details { flex: none; padding: 25px 20px; }
-            .close-modal { top: 10px; right: 10px; }
+            .modal-details { flex: none; padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-
     <div class="announcement">
-        Curated gift hampers for every reason and season
+        Complimentary Pan-India Shipping on Selected Hampers
     </div>
 
     <nav>
@@ -215,255 +205,259 @@
             <h1>Giftastic</h1>
         </a>
         <div class="nav-right-controls">
-            <a href="tel:+918296654218" class="nav-call-btn mobile-call-btn">📞 Call</a>
+            <a href="tel:+918296654218" class="btn-solid mobile-call-btn">Call Now</a>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
-            <a href="shop.html" onclick="toggleMenu()">Shop Hampers</a>
-            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">✨ Build Hamper</a>
-            <a href="#about" onclick="toggleMenu()">About Us</a>
-            <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: var(--gold);">Onam Edit</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop Collection</a>
+            <a href="create.html" onclick="toggleMenu()">Curate Hamper</a>
+            <a href="#about" onclick="toggleMenu()">Our Story</a>
+            <a href="tel:+918296654218" class="btn-solid desktop-call-btn" onclick="toggleMenu()">Call Now</a>
         </div>
     </nav>
 
-    <!-- FLOATING CART BUTTON -->
     <div class="floating-cart" onclick="toggleCart()">
-        🎁
+        <span style="font-size: 0.8em; margin-bottom: 2px;">🛍️</span>
         <span class="cart-count" id="cartCount">0</span>
     </div>
 
-    <!-- SLIDING CART PANEL -->
     <div class="cart-panel" id="cartPanel">
         <div class="cart-header">
-            <h3>🎁 Your Hamper Box</h3>
+            <h3>Your Selection</h3>
             <span class="close-cart" onclick="toggleCart()">&times;</span>
         </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span>Total:</span>
+                <span>Subtotal</span>
                 <span>₹<span id="cartTotal">0</span></span>
             </div>
-            <button class="checkout-btn" onclick="checkoutWhatsapp()">💬 Confirm & Order via WhatsApp</button>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">Complete Order via WhatsApp</button>
         </div>
     </div>
 
     <header class="hero">
-        <a href="seasonal.html" class="onam-floating-badge">🌸 Onam Specials!</a>
-        
-        <h2>The Perfect Surprise,<br>Every Time.</h2>
-        <p>India's finest curated gift hampers for every reason and season. Make your loved ones feel truly special today.</p>
+        <span class="hero-subtitle">The Art of Gifting</span>
+        <h2>Elevate Every Occasion.</h2>
+        <p>India's finest curated luxury hampers, thoughtfully designed to make your loved ones feel truly extraordinary.</p>
         
         <div class="hero-actions">
-            <a href="shop.html" class="hero-btn btn-shop">🛍️ Explore Collection</a>
-            <a href="create.html" class="hero-btn btn-build">✨ Build Your Own Hamper 🎁</a>
-            <a href="tel:+918296654218" class="hero-btn btn-call">📞 Call Now</a>
-            <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-glass btn-whatsapp">💬 Chat on WhatsApp</a>
+            <a href="shop.html" class="hero-btn btn-primary-hero">Explore Collection</a>
+            <a href="create.html" class="hero-btn btn-glass-hero">Curate Your Own</a>
         </div>
     </header>
 
     <div class="features">
-        <div class="feature-item">🎁 Customised Hampers</div>
-        <div class="feature-item">🚚 Shipping Pan India</div>
-        <div class="feature-item">⭐ Premium Quality</div>
+        <div class="feature-item">Bespoke Curation</div>
+        <div class="feature-item">Pan-India Delivery</div>
+        <div class="feature-item">Premium Craftsmanship</div>
     </div>
 
     <div class="container">
-        
-        <h2 class="section-title">Our <span>Best Sellers</span></h2>
+        <div class="section-header">
+            <span class="section-subtitle">Signature Selection</span>
+            <h2 class="section-title">The Bestsellers</h2>
+        </div>
+
         <div class="product-grid">
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails(`Gentleman's Choice`, ['Premium men\'s accessories', 'Customized styling items']))">
-                    <img src="Gentleman%27s%20Choice.jpeg" alt="Gentleman's Choice" class="prod-real-img" onerror="this.onerror=null; this.src='Gentleman%27s%20Choice.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="Gentleman%27s%20Choice.jpeg" alt="Gentleman's Choice" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Gentleman's Choice</div>
-                <div class="product-price">₹2299</div>
-                <button class="product-btn" onclick="addToHamper('Gentleman\'s Choice', 2299, 'Gentleman%27s%20Choice.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹2,299</div>
+                <button class="product-btn" onclick="addToHamper('Gentleman\'s Choice', 2299, 'Gentleman%27s%20Choice.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Glow Box', ['1 Photo frame (4x4)', 'Ring album (10 photos)', '15 Munch chocolates', '5 Sneakers chocolates', '5 KitKat chocolates', 'Mini panda lamp']))">
-                    <img src="The%20Glow%20Box.jpeg" alt="The Glow Box" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Glow%20Box.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="The%20Glow%20Box.jpeg" alt="The Glow Box" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">The Glow Box</div>
                 <div class="product-price">₹659</div>
-                <button class="product-btn" onclick="addToHamper('The Glow Box', 659, 'The%20Glow%20Box.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('The Glow Box', 659, 'The%20Glow%20Box.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('SweetWear', ['Shirt hamper', 'Shirt', 'Chocolates']))">
-                    <img src="SweetWear.jpeg" alt="SweetWear" class="prod-real-img" onerror="this.onerror=null; this.src='SweetWear.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="SweetWear.jpeg" alt="SweetWear" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">SweetWear</div>
-                <div class="product-price">₹1499</div>
-                <button class="product-btn" onclick="addToHamper('SweetWear', 1499, 'SweetWear.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹1,499</div>
+                <button class="product-btn" onclick="addToHamper('SweetWear', 1499, 'SweetWear.jpeg')">Add to Cart</button>
             </div>
             
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Watch Hamper', ['Premium Men\'s Watch', 'Beautiful packaging']))">
-                    <img src="The%20Watch%20Hamper.jpeg" alt="The Watch Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Watch%20Hamper.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="The%20Watch%20Hamper.jpeg" alt="The Watch Hamper" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">The Watch Hamper</div>
-                <div class="product-price">₹1799</div>
-                <button class="product-btn" onclick="addToHamper('The Watch Hamper', 1799, 'The%20Watch%20Hamper.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹1,799</div>
+                <button class="product-btn" onclick="addToHamper('The Watch Hamper', 1799, 'The%20Watch%20Hamper.jpeg')">Add to Cart</button>
             </div>
         </div>
 
-        <h2 class="section-title">Our <span>Unique Products</span></h2>
+        <div class="section-header" style="margin-top: 60px;">
+            <span class="section-subtitle">Exquisite Details</span>
+            <h2 class="section-title">Unique Curations</h2>
+        </div>
+
         <div class="product-grid">
-            
-            <!-- ALL UNIQUE PRODUCTS FULLY RESTORED! -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Personalised Name Wallet', ['High-quality leather wallet', 'Custom name engraving']))">
-                    <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='Name%20Wallet.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Personalised Name Wallet</div>
                 <div class="product-price">₹249</div>
-                <button class="product-btn" onclick="addToHamper('Personalised Name Wallet', 249, 'Name%20Wallet.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Personalised Name Wallet', 249, 'Name%20Wallet.jpeg')">Add to Cart</button>
             </div>
             
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Fridge Magnet', ['Custom photo magnet', 'Durable acrylic finish']))">
-                    <img src="Fridge%20Magnet.jpeg" alt="Fridge Magnet" class="prod-real-img" onerror="this.onerror=null; this.src='Fridge%20Magnet.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="Fridge%20Magnet.jpeg" alt="Fridge Magnet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Fridge Magnet</div>
                 <div class="product-price">₹199</div>
-                <button class="product-btn" onclick="addToHamper('Fridge Magnet', 199, 'Fridge%20Magnet.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Fridge Magnet', 199, 'Fridge%20Magnet.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('For Him Combo 1', ['Personalized wallet', 'Premium pen', 'Custom key chain', '500 ml thermal bottle']))">
-                    <img src="For%20Him%20Combo%201.jpeg" alt="For Him Combo 1" class="prod-real-img" onerror="this.onerror=null; this.src='For%20Him%20Combo%201.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="For%20Him%20Combo%201.jpeg" alt="For Him Combo 1" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">For Him Combo 1</div>
                 <div class="product-price">₹789</div>
-                <button class="product-btn" onclick="addToHamper('For Him Combo 1', 789, 'For%20Him%20Combo%201.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('For Him Combo 1', 789, 'For%20Him%20Combo%201.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('For Him Combo 2', ['Personalized wallet', 'Spectacle cover', 'Custom key chain']))">
-                    <img src="For%20Him%20Combo%202.jpeg" alt="For Him Combo 2" class="prod-real-img" onerror="this.onerror=null; this.src='For%20Him%20Combo%202.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="For%20Him%20Combo%202.jpeg" alt="For Him Combo 2" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">For Him Combo 2</div>
                 <div class="product-price">₹599</div>
-                <button class="product-btn" onclick="addToHamper('For Him Combo 2', 599, 'For%20Him%20Combo%202.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('For Him Combo 2', 599, 'For%20Him%20Combo%202.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Customized Cup', ['Premium ceramic mug', 'Custom photo printing']))">
                     <img src="Customized%20Cup.jpeg" alt="Customized Cup" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Customized Cup</div>
                 <div class="product-price">₹449</div>
-                <button class="product-btn" onclick="addToHamper('Customized Cup', 449, 'Customized%20Cup.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Customized Cup', 449, 'Customized%20Cup.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Kinder Bloom', ['Kinder Joy chocolates', 'Beautiful floral arrangement']))">
                     <img src="Kinder%20Bloom.jpeg" alt="Kinder Bloom" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Kinder Bloom</div>
                 <div class="product-price">₹799</div>
-                <button class="product-btn" onclick="addToHamper('Kinder Bloom', 799, 'Kinder%20Bloom.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Kinder Bloom', 799, 'Kinder%20Bloom.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Ring Album', ['Compact photo album', 'Premium ring binding']))">
                     <img src="Ring%20Album.jpeg" alt="Ring Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Ring Album</div>
                 <div class="product-price">₹149</div>
-                <button class="product-btn" onclick="addToHamper('Ring Album', 149, 'Ring%20Album.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Ring Album', 149, 'Ring%20Album.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Polaroid Photos', ['₹12 per piece', 'All Climate Proof finish']))">
                     <img src="Polaroid%20Photos.jpeg" alt="Polaroid Photos" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Polaroid Photos</div>
                 <div class="product-price">₹12 / pc</div>
-                <button class="product-btn" onclick="addToHamper('Polaroid Photos', 12, 'Polaroid%20Photos.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Polaroid Photos', 12, 'Polaroid%20Photos.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Sketch Wallet', ['High-quality leather wallet', 'Custom portrait sketch inside']))">
                     <img src="The%20Sketch%20Wallet.jpeg" alt="The Sketch Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">The Sketch Wallet</div>
                 <div class="product-price">₹299</div>
-                <button class="product-btn" onclick="addToHamper('The Sketch Wallet', 299, 'The%20Sketch%20Wallet.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('The Sketch Wallet', 299, 'The%20Sketch%20Wallet.jpeg')">Add to Cart</button>
             </div>
             
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Tower Cake', ['Beautifully designed cake', 'Over 20 KitKat chocolates', 'Ferrero Rocher chocolates']))">
-                    <img src="The%20Tower%20Cake.jpeg" alt="The Tower Cake" class="prod-real-img" onerror="this.onerror=null; this.src='The%20Tower%20Cake.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <img src="The%20Tower%20Cake.jpeg" alt="The Tower Cake" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">The Tower Cake</div>
-                <div class="product-price">₹1599</div>
-                <button class="product-btn" onclick="addToHamper('The Tower Cake', 1599, 'The%20Tower%20Cake.jpeg')">Add to Hamper 🎁</button>
+                <div class="product-price">₹1,599</div>
+                <button class="product-btn" onclick="addToHamper('The Tower Cake', 1599, 'The%20Tower%20Cake.jpeg')">Add to Cart</button>
             </div>
 
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Key Chain Album', ['Mini photo album keychain', 'Compact and cute keepsake']))">
                     <img src="Key%20Chain%20Album.jpeg" alt="Key Chain Album" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
-                    <span class="preview-badge">🔍 Click to Preview</span>
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <div class="product-title">Key Chain Album</div>
                 <div class="product-price">₹199</div>
-                <button class="product-btn" onclick="addToHamper('Key Chain Album', 199, 'Key%20Chain%20Album.jpeg')">Add to Hamper 🎁</button>
+                <button class="product-btn" onclick="addToHamper('Key Chain Album', 199, 'Key%20Chain%20Album.jpeg')">Add to Cart</button>
             </div>
         </div>
     </div>
 
     <div class="testimonials">
-        <h2 class="section-title" style="margin-top: 0;">What Our <span>Customers Say</span></h2>
+        <div class="section-header">
+            <span class="section-subtitle">Client Diaries</span>
+            <h2 class="section-title">Words of Love</h2>
+        </div>
         <div class="testimonial-grid">
             <div class="testimonial-card">
                 <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
-                    <img src="review1.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review1.jpeg';">
+                    <img src="review1.jpeg" alt="Customer Review" onerror="this.onerror=null; this.src='logo.jpg';">
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
-                    <img src="review2.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review2.jpeg';">
+                    <img src="review2.jpeg" alt="Customer Review" onerror="this.onerror=null; this.src='logo.jpg';">
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="review-img-wrapper" onclick="openModal(this.querySelector('img').src, formatReviewCaption())">
-                    <img src="review3.jpeg" alt="Instagram Customer Review" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x500?text=Upload+review3.jpeg';">
+                    <img src="review3.jpeg" alt="Customer Review" onerror="this.onerror=null; this.src='logo.jpg';">
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="split-section" id="about" style="margin-top: 20px;">
+        <div class="split-section" id="about">
             <div class="split-content">
-                <h3>Welcome to Giftastic</h3>
-                <p><strong>Your own customised gifting stop for all occasions!</strong> India is a land of festivals and traditions. Here, celebrating little joys has been a reason to be surrounded by loved ones.</p>
-                <p>When you do not know what kind of gift you want to give to someone, just hop onto Giftastic and we have your back! We enjoy creating hampers with utmost care and just love for you all. We hope these gift hampers are worth the smiles of your loved ones.</p>
+                <span class="section-subtitle">Our Story</span>
+                <h3>The Art of Giving</h3>
+                <p>India is a land of festivals and traditions, where celebrating little joys is a reason to gather with loved ones. At Giftastic, we believe that every gift should tell a story.</p>
+                <p>When you seek something beyond the ordinary, we meticulously craft bespoke hampers designed to leave a lasting impression. From hand-selected treats to personalized keepsakes, we curate joy for every reason and season.</p>
+                <a href="create.html" class="btn-outline" style="margin-top: 15px; display: inline-block;">Start Curating</a>
             </div>
             <div class="video-wrapper">
                 <div class="video-container">
                     <video controls autoplay loop muted playsinline>
                         <source src="my-video.mp4?v=2" type="video/mp4">
-                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
@@ -471,75 +465,71 @@
     </div>
 
     <div class="faq-section">
-        <h2>Frequently Asked <span>Questions</span></h2>
+        <div class="section-header">
+            <span class="section-subtitle">Support</span>
+            <h2 class="section-title">Common Inquiries</h2>
+        </div>
         <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
                 Do I need to pay an advance to confirm my order?
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                Yes, to begin crafting your personalized hamper, we require an advance payment of 40% of the total order cost. Once the advance is received, our team will immediately start working on your beautiful gift!
+                Yes, to begin crafting your personalized hamper, we require an advance payment of 40% of the total order value. This allows our artisans to commence work on your bespoke gift immediately.
             </div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-                Can I customize the items inside a hamper?
+                Is it possible to fully customize the contents?
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                Absolutely! Every hamper can be fully customized to match your specific wishes and budget. There are no limitations—we are here to bring your perfect gifting vision to life.
+                Absolutely. Every hamper can be meticulously tailored to align with your specific preferences and budget. We invite you to use our 'Curate Hamper' tool to build your ideal arrangement.
             </div>
         </div>
         <div class="faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
-                How do I track my order?
+                How do I track my shipment?
                 <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-                As soon as your custom gift is dispatched, we will share the tracking details and proof of dispatch with you. You can easily track your package's journey directly through our courier partner's official website.
+                Upon dispatch, we will provide you with comprehensive tracking credentials. You can monitor your package's journey seamlessly via our premium courier partner's portal.
             </div>
         </div>
-    </div>
-
-    <div class="cta-section">
-        <h2>Let's Make Something Special</h2>
-        <p>Give us a call directly to start your custom order!</p>
-        <h3>📞 +91 8296654218</h3>
     </div>
 
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-col">
                 <h3>Giftastic</h3>
-                <p>India's finest curated gift hampers for every reason and season. Making your loved ones feel truly special, one box at a time.</p>
+                <p>India's finest curated luxury hampers, thoughtfully designed to make your loved ones feel truly extraordinary.</p>
                 <div class="social-icons">
-                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">💬</a>
-                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">📸</a>
-                    <a href="tel:+918296654218" title="Call Us">📞</a>
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">W</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">Ig</a>
                 </div>
             </div>
             <div class="footer-col">
-                <h3>Quick Links</h3>
+                <h3>Collections</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop Hampers</a></li>
-                    <li><a href="seasonal.html">Onam Specials</a></li>
-                    <li><a href="create.html">Build Hamper</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
+                    <li><a href="seasonal.html">The Onam Edit</a></li>
+                    <li><a href="create.html">Curate Your Own</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Customer Service</h3>
+                <h3>Client Care</h3>
                 <ul class="footer-links">
-                    <li><a href="shipping.html">Shipping Policy</a></li>
-                    <li><a href="returns.html">Return Policy</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="shipping.html">Shipping Details</a></li>
+                    <li><a href="returns.html">Returns & Exchanges</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p>📞 +91 8296654218</p>
-                <p>📍 Ships Pan-India</p>
-                <p>⏰ Mon - Sat, 9AM to 8PM</p>
+                <h3>Contact</h3>
+                <p>+91 8296654218</p>
+                <p>Pan-India Delivery</p>
+                <p>Mon - Sat, 9:00 to 20:00</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -547,13 +537,8 @@
         </div>
     </footer>
 
-    <button class="floating-music-btn" id="musicToggle" onclick="toggleMusic()">
-        <span id="musicIcon">🎵</span> <span id="musicText">Play Music</span>
-    </button>
-
-    <img src="girl.gif" class="walking-girl" alt="Happy Shopper" onerror="this.style.display='none'">
-
-    <div id="imageModal" class="modal-img-overlay" onclick="closeModal(event)">
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
         <div class="modal-layout">
             <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
             <div class="modal-img-container">
@@ -565,20 +550,14 @@
         </div>
     </div>
 
-    <!-- LOCAL STORAGE CART SYSTEM (JAVASCRIPT) -->
+    <!-- JAVASCRIPT -->
     <script>
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
         function addToHamper(name, price, image) {
             let existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ name: name, price: price, image: image, quantity: 1 });
-            }
+            if (existingItem) { existingItem.quantity += 1; } 
+            else { cart.push({ name: name, price: price, image: image, quantity: 1 }); }
             saveCart(); updateCartUI();
-            let cartBtn = document.querySelector('.floating-cart');
-            cartBtn.style.transform = 'scale(1.2)';
-            setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
             document.getElementById('cartPanel').classList.add('active');
         }
         function saveCart() { localStorage.setItem('giftastic_cart', JSON.stringify(cart)); }
@@ -588,7 +567,7 @@
             const cartTotal = document.getElementById('cartTotal');
             cartItemsContainer.innerHTML = '';
             let total = 0; let count = 0;
-            if(cart.length === 0) { cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-size:1.1em;">Your hamper box is empty! 🎁</p>'; }
+            if(cart.length === 0) { cartItemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:40px; font-weight:300;">Your selection is empty.</p>'; }
             cart.forEach((item, index) => {
                 total += item.price * item.quantity; count += item.quantity;
                 let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
@@ -601,7 +580,7 @@
                         </div>
                         <div class="qty-controls">
                             <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
-                            <span style="font-weight:600; font-size:0.9em;">${item.quantity}</span>
+                            <span style="font-weight:500; font-size:0.9em; color:var(--secondary);">${item.quantity}</span>
                             <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
                         </div>
                     </div>`;
@@ -615,23 +594,22 @@
         }
         function toggleCart() { document.getElementById('cartPanel').classList.toggle('active'); }
         function checkoutWhatsapp() {
-            if(cart.length === 0) { alert("Please add some items to your Hamper Box first!"); return; }
-            let message = "Hi Archana! 🌟 I would like to place an order from Giftastic101.in.\n\n*Here is my Hamper Box:*\n";
+            if(cart.length === 0) { alert("Please add items to your selection first."); return; }
+            let message = "Hello Archana, I would like to place a bespoke order from Giftastic101.in.\n\n*My Selection:*\n";
             let total = 0;
             cart.forEach(item => {
-                message += `🎁 ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
-                if(item.details) { message += `   *(${item.details})*\n`; }
+                message += `▪ ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                if(item.details) { message += `   (${item.details})\n`; }
                 total += item.price * item.quantity;
             });
-            message += `\n*Total Amount: ₹${total}*\n\nPlease let me know how I can pay the 40% advance to confirm my order!`;
+            message += `\n*Total Estimate: ₹${total}*\n\nPlease guide me regarding the 40% advance payment to confirm.`;
             window.open('https://wa.me/918296654218?text=' + encodeURIComponent(message), '_blank');
         }
         document.addEventListener('DOMContentLoaded', updateCartUI);
 
         function toggleFaq(element) { element.classList.toggle('active'); }
-        function formatDetails(title, itemsList) { let html = `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>${title}</h3><p style='color: #eee; font-size: 0.95em; margin-bottom: 15px; font-style: italic;'>Product Details:</p><ul style='color: white; font-size: 1.05em; line-height: 1.8; list-style-type: none; padding-left: 0; margin: 0;'>`; itemsList.forEach(item => { html += `<li style='margin-bottom: 10px; display: flex; align-items: flex-start;'><span style='color: var(--primary); margin-right: 12px; font-size: 1.2em;'>🎁</span> <span>${item}</span></li>`; }); html += `</ul></div>`; return html; }
-        function formatReviewCaption() { return `<div style='text-align: left;'><h3 style='color: var(--gold); margin-top: 0; margin-bottom: 15px; font-size: 1.8em; border-bottom: 2px solid var(--primary); padding-bottom: 10px;'>Real Customer Review</h3><p style='color: white; font-size: 1.05em; line-height: 1.8;'>⭐⭐⭐⭐⭐<br>We love hearing from happy customers! Tap the 'X' to close this view.</p></div>`; }
-        function toggleMusic() { const audio = document.getElementById('bgMusic'); const text = document.getElementById('musicText'); const icon = document.getElementById('musicIcon'); if (audio.paused) { audio.play(); text.innerText = "Pause"; icon.innerText = "⏸️"; } else { audio.pause(); text.innerText = "Play Music"; icon.innerText = "🎵"; } }
+        function formatDetails(title, itemsList) { let html = `<div style='text-align: left;'><span style='font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;'>Curated Contents</span><h3 style='color: var(--secondary); margin-top: 0; margin-bottom: 25px; font-size: 2em; font-weight:400; border-bottom: 1px solid #eaeaea; padding-bottom: 20px;'>${title}</h3><ul style='color: var(--text-light); font-size: 1em; line-height: 2; list-style-type: none; padding-left: 0; margin: 0; font-weight:300;'>`; itemsList.forEach(item => { html += `<li style='margin-bottom: 12px; display: flex; align-items: flex-start;'><span style='color: var(--gold); margin-right: 12px; font-size: 0.8em; margin-top:4px;'>◆</span> <span>${item}</span></li>`; }); html += `</ul></div>`; return html; }
+        function formatReviewCaption() { return `<div style='text-align: left;'><span style='font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;'>Client Feedback</span><h3 style='color: var(--secondary); margin-top: 0; margin-bottom: 20px; font-size: 2em; font-weight:400; border-bottom: 1px solid #eaeaea; padding-bottom: 20px;'>Verified Review</h3><p style='color: var(--gold); font-size: 1.2em; margin-bottom: 10px;'>★★★★★</p><p style='color: var(--text-light); font-size: 1em; line-height: 1.8; font-weight:300;'>We cherish hearing from our delighted clientele. Close this window to continue browsing.</p></div>`; }
         function toggleMenu() { const navMenu = document.getElementById('navMenu'); navMenu.classList.toggle('active'); }
         function openModal(imgSrc, formattedHtml) { const modal = document.getElementById("imageModal"); const modalImg = document.getElementById("modalImage"); const caption = document.getElementById("modalCaption"); modal.style.display = "flex"; modalImg.src = imgSrc; caption.innerHTML = formattedHtml; document.body.style.overflow = "hidden"; }
         function closeModal(event, forceClose = false) { if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { document.getElementById("imageModal").style.display = "none"; document.body.style.overflow = "auto"; } }
