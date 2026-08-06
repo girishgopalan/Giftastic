@@ -155,7 +155,7 @@
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
         .social-icons a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; text-decoration: none; transition: all 0.3s ease; font-size: 1.2em; }
         .social-icons a:hover { background: var(--primary); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; font-weight: 300; }
+        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); color: #777; font-size: 0.9em; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: block; }
@@ -180,7 +180,7 @@
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
             <a href="shop.html" onclick="toggleMenu()">Shop All</a>
-            <a href="seasonal.html" onclick="toggleMenu()">Onam Specials</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: #e38200; font-weight: 800;">🌸 Onam Specials</a>
             <a href="create.html" onclick="toggleMenu()" style="color: var(--primary); font-weight: 700;">✨ Build Hamper</a>
             <a href="index.html#about" onclick="toggleMenu()">About Us</a>
             <a href="tel:+918296654218" class="nav-call-btn desktop-call-btn" onclick="toggleMenu()">📞 Call Now</a>
@@ -324,9 +324,11 @@
             { id: 14, name: "Mens Shirt", price: 780, emoji: "👔" },
             { id: 15, name: "Mens Watch", price: 999, emoji: "⌚" },
             { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" },
-            { id: 17, name: "Key Chain Album", price: 199, emoji: "🗝️" },
+            { id: 17, name: "Key Chain Album", price: 279, emoji: "🗝️" },
             { id: 18, name: "Kinder Bloom", price: 799, emoji: "🌸" },
-            { id: 19, name: "Mens Belt", price: 299, emoji: "💼" }
+            { id: 19, name: "Mens Belt", price: 299, emoji: "💼" },
+            { id: 20, name: "Ladies Kurti Set", price: 1599, emoji: "👗" },
+            { id: 21, name: "Sun Glasses", price: 1499, emoji: "🕶️" }
         ];
 
         let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
