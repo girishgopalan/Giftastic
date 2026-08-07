@@ -470,6 +470,15 @@
     <!-- BUILDER LOGIC SCRIPT -->
     <script>
         // -------------------------
+        // GLOBAL HELPER: CURATION FEE
+        // -------------------------
+        function getCurationFee(boxPrice) {
+            if (boxPrice >= 850) return 500;
+            if (boxPrice >= 450) return 350;
+            return 200;
+        }
+
+        // -------------------------
         // ALL AVAILABLE PRODUCTS
         // -------------------------
         const goodies = [
@@ -534,7 +543,8 @@
                       conciergeData.budget === 'mid' ? { name: "Medium Elegant Cardboard Box", price: 450 } : 
                       { name: "Small Elegant Cardboard Box", price: 300 };
             
-            let currentTotal = box.price;
+            let curationFee = getCurationFee(box.price);
+            let currentTotal = box.price + curationFee; 
             let finalItems = [];
             let visualCount = 0; 
 
@@ -565,7 +575,6 @@
             document.getElementById('conResultTitle').innerText = "✨ The " + themeName + " Collection";
             document.getElementById('conResultPrice').innerText = `₹${currentTotal}`;
             
-            // Set dynamic narrative reasons based on selection
             let narrative = "";
             if(conciergeData.vibe === 'romantic') narrative = "Handpicked with soft details, floral essences, or sweets to deliver a warm, heartwarming sensation.";
             else if(conciergeData.vibe === 'professional') narrative = "Carefully organized with minimalist lines and functional premium items for an unforgettable clean corporate presence.";
@@ -597,8 +606,19 @@
                 `;
             });
 
+            // ADD ARTISAN FEE TO BREAKDOWN
+            breakdownContainer.innerHTML += `
+                <div class="breakdown-item" style="background: rgba(197, 160, 89, 0.05); border: 1px dashed var(--gold);">
+                    <div class="breakdown-item-left">
+                        <span>✨</span>
+                        <span>Artisan Curation & Styling</span>
+                    </div>
+                    <span class="breakdown-item-price">₹${curationFee}</span>
+                </div>
+            `;
+
             document.getElementById('conAddBtn').onclick = function() {
-                let description = `Box: ${box.name} | Items: ` + finalItems.map(i => `${i.qty}x ${i.name}`).join(', ');
+                let description = `Box: ${box.name} | Styling Fee: ₹${curationFee} | Items: ` + finalItems.map(i => `${i.qty}x ${i.name}`).join(', ');
                 cart.push({
                     name: `✨ Custom ${themeName} Curation`,
                     price: currentTotal,
@@ -745,6 +765,18 @@
                 `;
             }
 
+            // ADD ARTISAN FEE TO BREAKDOWN
+            let curationFee = getCurationFee(selectedBox.price);
+            manualBreakdown.innerHTML += `
+                <div class="breakdown-item" style="background: rgba(197, 160, 89, 0.05); border: 1px dashed var(--gold);">
+                    <div class="breakdown-item-left">
+                        <span>✨</span>
+                        <span>Artisan Curation & Styling</span>
+                    </div>
+                    <span class="breakdown-item-price">₹${curationFee}</span>
+                </div>
+            `;
+
             if (isEmpty) {
                 vBox.innerHTML = `
                     <div class="empty-state">
@@ -759,7 +791,7 @@
         }
 
         function calculateTotal() {
-            let total = selectedBox.price;
+            let total = selectedBox.price + getCurationFee(selectedBox.price);
             for (let item in selectedGoodies) {
                 total += selectedGoodies[item].price * selectedGoodies[item].qty;
             }
@@ -820,8 +852,9 @@
         function addCustomHamperToCart() {
             let total = calculateTotal();
             let note = document.getElementById('customNote').value.trim();
+            let curationFee = getCurationFee(selectedBox.price);
             
-            let description = `Box: ${selectedBox.name}`;
+            let description = `Box: ${selectedBox.name} | Styling Fee: ₹${curationFee}`;
             let goodiesList = [];
             for (let item in selectedGoodies) { goodiesList.push(`${selectedGoodies[item].qty}x ${item}`); }
             if (goodiesList.length > 0) { description += ` | Items: ${goodiesList.join(', ')}`; }
