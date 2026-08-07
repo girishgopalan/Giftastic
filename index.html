@@ -315,6 +315,16 @@
         </div>
 
         <div class="product-grid">
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Mens Shirt', ['Premium quality fabric', 'Elegant daily wear design']))">
+                    <img src="Mens%20Shirt.jpeg" alt="Mens Shirt" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Mens Shirt</div>
+                <div class="product-price">₹779</div>
+                <button class="product-btn" onclick="addToHamper('Mens Shirt', 779, 'Mens%20Shirt.jpeg')">Add to Cart</button>
+            </div>
             
             <!-- ALL NEW AND EXISTING PRODUCTS ADDED HERE -->
 
