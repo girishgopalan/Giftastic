@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYMRJE47WB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -218,4 +219,646 @@
             <h1>Giftastic</h1>
         </a>
         <div class="nav-right-controls">
-            <a href="tel:+91829665421
+            <a href="tel:+918296654218" class="btn-solid mobile-call-btn">Call Now</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+        <div class="nav-links" id="navMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop Collection</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: var(--gold);">Onam Edit</a>
+            <a href="create.html" onclick="toggleMenu()" style="color: var(--primary);">Curate Hamper</a>
+            <a href="index.html#about" onclick="toggleMenu()">Our Story</a>
+            <a href="tel:+918296654218" class="btn-solid desktop-call-btn" onclick="toggleMenu()">Call Now</a>
+        </div>
+    </nav>
+
+    <!-- FLOATING CART BUTTON -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <span style="font-size: 0.8em; margin-bottom: 2px;">🛍️</span>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">Complete Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <span style="font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;">Personalized Service</span>
+        <h2>Curate Your Own <span>Hamper</span></h2>
+        <p>Pick your box, select your premium items, and allow us to craft the perfect presentation.</p>
+    </div>
+
+    <div class="builder-container">
+
+        <!-- 🌟 THE GIFT EXPERT WIDGET (DYNAMIC SPLIT VIEW ALGORITHM) 🌟 -->
+        <div class="concierge-section" id="conciergeCard">
+            <!-- HOST HEADER -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <img src="concierge-host.jpeg" alt="Boutique Concierge" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold);" onerror="this.src='logo.jpg';">
+                <div style="text-align: left;">
+                    <h4 style="margin: 0; color: var(--secondary); font-size: 1.1em; font-weight: 600;">Giftastic Expert</h4>
+                    <span style="font-size: 0.8em; color: var(--primary); letter-spacing: 1px; text-transform: uppercase;">Personal Gift Advisor</span>
+                </div>
+            </div>
+
+            <!-- STEP 1: WHO -->
+            <div class="con-step active" id="conStep1">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"Hello! Not sure what to pick? Let me help you build the perfect gift. First, who is this for?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('who', 'him')">For Him</button>
+                    <button class="con-btn" onclick="answerConcierge('who', 'her')">For Her</button>
+                    <button class="con-btn" onclick="answerConcierge('who', 'couple')">The Couple / Neutral</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: VIBE -->
+            <div class="con-step" id="conStep2" style="display:none;">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"Wonderful! What kind of vibe or feeling are you going for?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'romantic')">Romantic & Intimate</button>
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'professional')">Sleek & Professional</button>
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'fun')">Playful & Vibrant</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: BUDGET -->
+            <div class="con-step" id="conStep3" style="display:none;">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"And finally, what is your budget for this hamper?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('budget', 'under1000')">Under ₹1,000</button>
+                    <button class="con-btn" onclick="answerConcierge('budget', 'mid')">₹1,000 – ₹2,000</button>
+                    <button class="con-btn" onclick="answerConcierge('budget', 'premium')">Luxury (₹2,000+)</button>
+                </div>
+            </div>
+
+            <!-- SCANNING LOADER -->
+            <div class="con-step" id="conLoading" style="display:none; padding: 30px 0;">
+                <div style="font-size: 2.5em; animation: spinLoader 1.5s linear infinite; margin-bottom: 15px; display: inline-block; color: var(--gold);">◆</div>
+                <p style="font-size: 1.1em; color: var(--secondary); font-weight: 300;">Scanning our collection to pack your perfect gift hamper...</p>
+            </div>
+
+            <!-- RESULT STYLIZED SPLIT VIEW -->
+            <div class="con-step" id="conResult" style="display:none;">
+                <div class="result-split-container">
+                    
+                    <!-- LEFT CONTAINER: PHOTOREALISTIC BOX PREVIEW -->
+                    <div class="result-left-preview">
+                        <div id="conVirtualBox" style="background: url('Empty%20Box.jpeg') no-repeat center center; background-size: cover; border-radius: 8px; width: 100%; aspect-ratio: 1/1; padding: 34% 10% 15% 10%; display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: center; gap: 10px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);">
+                            <!-- Items dropped dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- RIGHT CONTAINER: STYLIZED BREAKDOWN LIST -->
+                    <div class="result-right-details">
+                        <div>
+                            <span id="conVibeBadge" style="background: rgba(197, 160, 89, 0.15); color: var(--gold); font-size: 0.75em; font-weight: 600; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 10px;">VIBE MATCH</span>
+                            <h4 id="conResultTitle" style="color: var(--secondary); font-size: 1.4em; font-weight: 600; margin: 0 0 5px 0;">Hamper Title</h4>
+                            <p id="conVibeReason" style="font-size: 0.85em; color: var(--text-light); margin: 0 0 20px 0; font-style: italic;">Hand-curated to bring out a luxurious sense of warmth and professional charm.</p>
+                            
+                            <div class="info-breakdown-title">Included Elements</div>
+                            <div class="breakdown-list" id="conBreakdownList">
+                                <!-- Detailed items injected dynamically -->
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #ddd; padding-top: 15px; margin-bottom: 20px;">
+                                <span style="font-weight: 500; color: var(--secondary); font-size: 0.95em;">Total Bundle Value</span>
+                                <span id="conResultPrice" style="color: var(--primary); font-weight: 700; font-size: 1.4em;">₹0</span>
+                            </div>
+                            
+                            <button class="btn-solid" id="conAddBtn" style="width: 100%; padding: 14px; cursor: pointer; border: none; font-size: 1em; letter-spacing: 0.5px;">Add Curation to Cart</button>
+                            <div style="text-align: center; margin-top: 15px;">
+                                <button onclick="resetConcierge()" style="background: none; border: none; color: var(--text-light); text-decoration: underline; cursor: pointer; font-size: 0.85em; font-family: 'Poppins', sans-serif;">↺ Restart Gift Finder</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- END EXPERT WIDGET -->
+
+        <div class="divider-text">Or Build It Manually</div>
+        
+        <!-- STEP 1: CHOOSE BOX SIZE -->
+        <div class="builder-step">
+            <h3><span>1</span> Choose Your Box</h3>
+            <div class="box-options">
+                <div class="box-card selected" onclick="selectBox('Small Elegant Cardboard Box', 300, this)">
+                    <h4>Small Box</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Premium Cardboard</p>
+                    <div class="price">₹300</div>
+                </div>
+                <div class="box-card" onclick="selectBox('Medium Elegant Cardboard Box', 450, this)">
+                    <h4>Medium Box</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Premium Cardboard</p>
+                    <div class="price">₹450</div>
+                </div>
+                <div class="box-card" onclick="selectBox('Large Trolley Bag Box', 850, this)">
+                    <h4>Large Trolley Bag</h4>
+                    <p style="font-size:0.85em; color:var(--text-light); margin:5px 0;">Spacious Presentation</p>
+                    <div class="price">₹850</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2: ADD GOODIES -->
+        <div class="builder-step">
+            <h3><span>2</span> Select Premium Items</h3>
+            <div class="goodies-grid" id="goodiesGrid">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- MANUAL SPLIT PREVIEW BOX WITH EXPLANATORY SIDE BAR -->
+            <div class="virtual-preview-section">
+                <div class="virtual-preview-title">
+                    <span style="font-size: 1.2em;">🎁</span> Live Preview: <span id="virtualBoxName" style="color: var(--secondary); font-weight: 600;">Small Elegant Cardboard Box</span>
+                </div>
+                
+                <div class="result-split-container" style="width: 100%; margin-top: 10px;">
+                    <!-- LEFT PREVIEW BOX -->
+                    <div class="result-left-preview" style="max-width: 460px;">
+                        <div class="virtual-box" id="virtualBoxContainer">
+                            <!-- Dynamic Box Content -->
+                        </div>
+                    </div>
+
+                    <!-- RIGHT STYLIZED EXPLANATION PANEL -->
+                    <div class="result-right-details" style="background: #ffffff; border-color: var(--border-color);">
+                        <div>
+                            <div class="info-breakdown-title">Hamper Configuration</div>
+                            <div class="breakdown-list" id="manualBreakdownList">
+                                <!-- Manual breakdown list -->
+                            </div>
+                        </div>
+                        <div style="border-top: 1px dashed var(--border-color); padding-top: 15px; font-size: 0.85em; color: var(--text-light); display: flex; gap: 8px;">
+                            <span>ℹ️</span> <span>Items are beautifully wrapped in dynamic layers inside the box with custom crinkle shreds.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3: PERSONAL NOTE -->
+        <div class="builder-step">
+            <h3><span>3</span> Add a Personal Message</h3>
+            <p style="font-size:0.9em; color:var(--text-light); margin-top:0;">Include a special sentiment. We will handwrite this message on a premium card.</p>
+            <textarea class="note-box" id="customNote" placeholder="Write your personalized greeting message here..."></textarea>
+        </div>
+
+        <!-- SUMMARY & BUTTON -->
+        <div class="builder-summary-card">
+            <h3 style="margin:0; color:var(--bg-white); font-size:1.1em; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Estimated Value</h3>
+            <div class="summary-total">₹<span id="customTotal">300</span></div>
+            <button class="add-custom-btn" onclick="addCustomHamperToCart()">Add Hamper to Cart</button>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated luxury hampers, thoughtfully designed to make your loved ones feel truly extraordinary.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">W</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">Ig</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Collections</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
+                    <li><a href="seasonal.html">The Onam Edit</a></li>
+                    <li><a href="create.html">Curate Your Own</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Client Care</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#about">Our Story</a></li>
+                    <li><a href="shipping.html">Shipping Details</a></li>
+                    <li><a href="returns.html">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>+91 8296654218</p>
+                <p>Pan-India Delivery</p>
+                <p>Mon - Sat, 9:00 to 20:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- BUILDER LOGIC SCRIPT -->
+    <script>
+        // -------------------------
+        // ALL AVAILABLE PRODUCTS
+        // -------------------------
+        const goodies = [
+            { id: 1, name: "KitKat Chocolate", price: 20, emoji: "🍫" },
+            { id: 2, name: "Dairy Milk", price: 20, emoji: "🍫" },
+            { id: 3, name: "Ferrero Rocher (4pcs)", price: 150, emoji: "🍬" },
+            { id: 4, name: "Mini Panda Lamp", price: 450, emoji: "🐼" },
+            { id: 5, name: "Bella Vita Perfume", price: 399, emoji: "✨" },
+            { id: 6, name: "Polaroid Photos", price: 12, emoji: "📸" },
+            { id: 7, name: "Photo Frame - 5x6", price: 299, emoji: "🖼️" },
+            { id: 8, name: "Photo Frame - 4x4", price: 149, emoji: "🖼️" },
+            { id: 9, name: "Customized Cup", price: 449, emoji: "☕" },
+            { id: 10, name: "Personalised Name Wallet", price: 249, emoji: "👛" },
+            { id: 11, name: "Ring Album", price: 149, emoji: "📔" },
+            { id: 12, name: "Teddy Bear", price: 299, emoji: "🧸" },
+            { id: 13, name: "Artificial Rose Flower", price: 20, emoji: "🌹" },
+            { id: 14, name: "Mens Shirt", price: 780, emoji: "👔" },
+            { id: 15, name: "Mens Watch", price: 999, emoji: "⌚" },
+            { id: 16, name: "Womens Watch", price: 999, emoji: "⌚" },
+            { id: 17, name: "Key Chain Album", price: 279, emoji: "🗝️" },
+            { id: 18, name: "Kinder Bloom", price: 799, emoji: "🌸" },
+            { id: 19, name: "Mens Belt", price: 299, emoji: "💼" },
+            { id: 20, name: "Ladies Kurti Set", price: 1599, emoji: "👗" },
+            { id: 21, name: "Sun Glasses", price: 1499, emoji: "🕶️" },
+            { id: 22, name: "Mini Flower bouquet", price: 149, emoji: "💐" },
+            { id: 23, name: "Affordable men's watches", price: 499, emoji: "🕰️" },
+            { id: 24, name: "Bar pendant", price: 299, emoji: "💎" },
+            { id: 25, name: "Heart Magic Cup", price: 449, emoji: "💖" },
+            { id: 26, name: "Picture bottle", price: 549, emoji: "🍾" },
+            { id: 27, name: "Birthday Anniversary Table Top", price: 649, emoji: "🎂" },
+            { id: 28, name: "My 1st year Frame", price: 519, emoji: "👶" },
+            { id: 29, name: "Heart Key Chain", price: 299, emoji: "🩷" }
+        ];
+
+        // -------------------------
+        // EXPERT DYNAMIC ALGORITHM
+        // -------------------------
+        let conciergeData = { who: '', vibe: '', budget: '' };
+
+        function answerConcierge(key, value) {
+            conciergeData[key] = value;
+            if(key === 'who') {
+                document.getElementById('conStep1').style.display = 'none';
+                document.getElementById('conStep2').style.display = 'block';
+            } else if(key === 'vibe') {
+                document.getElementById('conStep2').style.display = 'none';
+                document.getElementById('conStep3').style.display = 'block';
+            } else if(key === 'budget') {
+                document.getElementById('conStep3').style.display = 'none';
+                document.getElementById('conLoading').style.display = 'block';
+                setTimeout(processConciergeResult, 2000);
+            }
+        }
+
+        function processConciergeResult() {
+            document.getElementById('conLoading').style.display = 'none';
+            
+            let maxBudget = conciergeData.budget === 'under1000' ? 950 : 
+                            conciergeData.budget === 'mid' ? 1950 : 3500;
+            
+            let box = conciergeData.budget === 'premium' ? { name: "Large Trolley Bag Box", price: 850 } : 
+                      conciergeData.budget === 'mid' ? { name: "Medium Elegant Cardboard Box", price: 450 } : 
+                      { name: "Small Elegant Cardboard Box", price: 300 };
+            
+            let currentTotal = box.price;
+            let finalItems = [];
+            let visualCount = 0; 
+
+            let smartGoodies = goodies.map(g => {
+                let isHim = ["Mens Shirt", "Mens Watch", "Affordable men's watches", "Mens Belt", "Personalised Name Wallet"].includes(g.name);
+                let isHer = ["Womens Watch", "Ladies Kurti Set", "Bar pendant", "Teddy Bear", "Artificial Rose Flower", "Mini Flower bouquet", "Kinder Bloom"].includes(g.name);
+                return { ...g, isHim, isHer };
+            });
+
+            let availableGoodies = smartGoodies.filter(g => {
+                if (conciergeData.who === 'him' && g.isHer) return false;
+                if (conciergeData.who === 'her' && g.isHim) return false;
+                return true;
+            });
+
+            availableGoodies.sort((a, b) => a.price - b.price);
+
+            availableGoodies.forEach(g => {
+                let qtyToGrab = (g.price <= 25) ? 2 : 1;
+                if (currentTotal + (g.price * qtyToGrab) <= maxBudget && visualCount + qtyToGrab <= 9) {
+                    finalItems.push({ ...g, qty: qtyToGrab });
+                    currentTotal += (g.price * qtyToGrab);
+                    visualCount += qtyToGrab;
+                }
+            });
+
+            let themeName = conciergeData.vibe.charAt(0).toUpperCase() + conciergeData.vibe.slice(1);
+            document.getElementById('conResultTitle').innerText = "✨ The " + themeName + " Collection";
+            document.getElementById('conResultPrice').innerText = `₹${currentTotal}`;
+            
+            // Set dynamic narrative reasons based on selection
+            let narrative = "";
+            if(conciergeData.vibe === 'romantic') narrative = "Handpicked with soft details, floral essences, or sweets to deliver a warm, heartwarming sensation.";
+            else if(conciergeData.vibe === 'professional') narrative = "Carefully organized with minimalist lines and functional premium items for an unforgettable clean corporate presence.";
+            else narrative = "A vibrant compilation crafted with bright colors and exciting items designed to delight and bring pure joy.";
+            document.getElementById('conVibeReason').innerText = narrative;
+
+            // 🌟 INJECT STYLIZED STYLISH RIGHT HAND BREAKDOWN LIST
+            const breakdownContainer = document.getElementById('conBreakdownList');
+            breakdownContainer.innerHTML = `
+                <div class="breakdown-item" style="border-left: 3px solid var(--gold);">
+                    <div class="breakdown-item-left">
+                        <span>📦</span>
+                        <span>${box.name}</span>
+                    </div>
+                    <span class="breakdown-item-price">₹${box.price}</span>
+                </div>
+            `;
+            
+            finalItems.forEach(item => {
+                breakdownContainer.innerHTML += `
+                    <div class="breakdown-item">
+                        <div class="breakdown-item-left">
+                            <span>${item.emoji}</span>
+                            <span>${item.name}</span>
+                            <span class="breakdown-item-qty">x${item.qty}</span>
+                        </div>
+                        <span class="breakdown-item-price">₹${item.price * item.qty}</span>
+                    </div>
+                `;
+            });
+
+            document.getElementById('conAddBtn').onclick = function() {
+                let description = `Box: ${box.name} | Items: ` + finalItems.map(i => `${i.qty}x ${i.name}`).join(', ');
+                cart.push({
+                    name: `✨ Custom ${themeName} Curation`,
+                    price: currentTotal,
+                    image: 'logo.jpg',
+                    quantity: 1,
+                    details: description
+                });
+                saveCart(); updateCartUI();
+                document.getElementById('cartPanel').classList.add('active');
+            };
+
+            // LEFT SIDE: Drop visual elements into Box
+            const vBox = document.getElementById('conVirtualBox');
+            vBox.innerHTML = '';
+            let delay = 0;
+            
+            finalItems.forEach(item => {
+                for(let i = 0; i < item.qty; i++) {
+                    setTimeout(() => {
+                        let encodedImg = encodeURIComponent(item.name) + '.jpeg'; 
+                        vBox.innerHTML += `
+                            <div class="virtual-pic-card" title="${item.name}">
+                                <img src="${encodedImg}" class="virtual-pic-img" alt="${item.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="virtual-pic-fallback" style="display:none;">
+                                    <span>${item.emoji}</span>
+                                    <span>${item.name}</span>
+                                </div>
+                            </div>
+                        `;
+                    }, delay);
+                    delay += 250; 
+                }
+            });
+
+            document.getElementById('conResult').style.display = 'block';
+        }
+
+        function resetConcierge() {
+            conciergeData = { who: '', vibe: '', budget: '' };
+            document.getElementById('conResult').style.display = 'none';
+            document.getElementById('conStep1').style.display = 'block';
+        }
+
+
+        // -------------------------
+        // MANUAL BUILDER SCRIPT
+        // -------------------------
+        let selectedBox = { name: "Small Elegant Cardboard Box", price: 300 };
+        let selectedGoodies = {}; 
+
+        function renderGoodies() {
+            const grid = document.getElementById('goodiesGrid');
+            grid.innerHTML = '';
+            goodies.forEach(item => {
+                let qty = selectedGoodies[item.name] ? selectedGoodies[item.name].qty : 0;
+                let safeName = item.name.replace(/'/g, "\\'"); 
+                grid.innerHTML += `
+                    <div class="goodie-item">
+                        <div class="goodie-info">
+                            <h5>${item.name}</h5>
+                            <span>₹${item.price}</span>
+                        </div>
+                        <div class="goodie-qty">
+                            <button class="goodie-btn" onclick="updateGoodie('${safeName}', ${item.price}, '${item.emoji}', -1)">-</button>
+                            <span class="goodie-count" id="qty-${item.id}">${qty}</span>
+                            <button class="goodie-btn" onclick="updateGoodie('${safeName}', ${item.price}, '${item.emoji}', 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function selectBox(name, price, element) {
+            selectedBox = { name: name, price: price };
+            document.querySelectorAll('.box-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            document.getElementById('virtualBoxName').innerText = name;
+            calculateTotal();
+            renderVirtualBox();
+        }
+
+        function updateGoodie(name, price, emoji, change) {
+            if (!selectedGoodies[name]) {
+                if (change > 0) {
+                    selectedGoodies[name] = { price: price, qty: change, emoji: emoji };
+                }
+            } else {
+                selectedGoodies[name].qty += change;
+                if (selectedGoodies[name].qty <= 0) {
+                    delete selectedGoodies[name];
+                }
+            }
+            renderGoodies();
+            calculateTotal();
+            renderVirtualBox(); 
+        }
+
+        function renderVirtualBox() {
+            const vBox = document.getElementById('virtualBoxContainer');
+            const manualBreakdown = document.getElementById('manualBreakdownList');
+            vBox.innerHTML = ''; 
+            
+            // Start right-side manual breakdown list
+            manualBreakdown.innerHTML = `
+                <div class="breakdown-item" style="border-left: 3px solid var(--gold);">
+                    <div class="breakdown-item-left">
+                        <span>📦</span>
+                        <span>${selectedBox.name}</span>
+                    </div>
+                    <span class="breakdown-item-price">₹${selectedBox.price}</span>
+                </div>
+            `;
+
+            let isEmpty = true;
+
+            for (let item in selectedGoodies) {
+                isEmpty = false;
+                let data = selectedGoodies[item];
+                let encodedImg = encodeURIComponent(item) + '.jpeg'; 
+                
+                // Add to visual box
+                for(let i = 0; i < data.qty; i++) {
+                    vBox.innerHTML += `
+                        <div class="virtual-pic-card" title="${item}">
+                            <img src="${encodedImg}" class="virtual-pic-img" alt="${item}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="virtual-pic-fallback" style="display:none;">
+                                <span>${data.emoji}</span>
+                                <span>${item}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Add to right-hand manual breakdown list
+                manualBreakdown.innerHTML += `
+                    <div class="breakdown-item">
+                        <div class="breakdown-item-left">
+                            <span>${data.emoji}</span>
+                            <span>${item}</span>
+                            <span class="breakdown-item-qty">x${data.qty}</span>
+                        </div>
+                        <span class="breakdown-item-price">₹${data.price * data.qty}</span>
+                    </div>
+                `;
+            }
+
+            if (isEmpty) {
+                vBox.innerHTML = `
+                    <div class="empty-state">
+                        <p style="margin:0; font-weight:500; color: var(--secondary); font-size:1.05em;">Your presentation box is empty.</p>
+                        <p style="margin:5px 0 0 0; font-size:0.85em; font-weight:400; color:var(--text-light);">Use the controls above to curate your items.</p>
+                    </div>
+                `;
+                vBox.style.alignContent = 'center';
+            } else {
+                vBox.style.alignContent = 'flex-start';
+            }
+        }
+
+        function calculateTotal() {
+            let total = selectedBox.price;
+            for (let item in selectedGoodies) {
+                total += selectedGoodies[item].price * selectedGoodies[item].qty;
+            }
+            document.getElementById('customTotal').innerText = total;
+            return total;
+        }
+
+        // CART LOGIC
+        let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
+
+        function saveCart() { localStorage.setItem('giftastic_cart', JSON.stringify(cart)); }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0; let count = 0;
+
+            if(cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-light); margin-top:40px; font-weight:300;">Your selection is empty.</p>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                count += item.quantity;
+                let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
+
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span style="font-weight:500; font-size:0.9em; color:var(--secondary);">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartCount.innerText = count;
+            cartTotal.innerText = total;
+        }
+
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) { cart.splice(index, 1); }
+            saveCart(); updateCartUI();
+        }
+
+        function toggleCart() { document.getElementById('cartPanel').classList.toggle('active'); }
+
+        function addCustomHamperToCart() {
+            let total = calculateTotal();
+            let note = document.getElementById('customNote').value.trim();
+            
+            let description = `Box: ${selectedBox.name}`;
+            let goodiesList = [];
+            for (let item in selectedGoodies) { goodiesList.push(`${selectedGoodies[item].qty}x ${item}`); }
+            if (goodiesList.length > 0) { description += ` | Items: ${goodiesList.join(', ')}`; }
+            if (note !== "") { description += ` | Note: "${note}"`; }
+
+            cart.push({
+                name: `✨ Custom Curated Hamper`,
+                price: total,
+                image: 'logo.jpg',
+                quantity: 1,
+                details: description
+            });
+
+            saveCart(); updateCartUI();
+            document.getElementById('cartPanel').classList.add('active');
+            
+            selectedGoodies = {};
+            document.getElementById('customNote').value = "";
+            renderGoodies(); renderVirtualBox(); calculateTotal();
+        }
+
+        function checkoutWhatsapp() {
+            if(cart.length === 0) { alert("Please add items to your selection first."); return; }
+            let message = "Hello Archana, I would like to place a bespoke order from Giftastic101.in.\n\n*My Selection:*\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `▪ ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                if(item.details) { message += `   (${item.details})\n`; }
+                total += item.price * item.quantity;
+            });
+            message += `\n*Total Estimate: ₹${total}*\n\nPlease guide me regarding the 40% advance payment to confirm.`;
+            window.open('https://wa.me/918296654218?text=' + encodeURIComponent(message), '_blank');
+        }
+
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+
+        document.addEventListener('DOMContentLoaded', () => { renderGoodies(); updateCartUI(); renderVirtualBox(); });
+    </script>
+</body>
+</html>
