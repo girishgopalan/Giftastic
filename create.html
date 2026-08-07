@@ -63,6 +63,18 @@
 
         .builder-container { max-width: 1000px; margin: 20px auto 80px auto; padding: 0 20px; }
         
+        /* EXPERT WIDGET STYLES */
+        .concierge-section { background: var(--bg-white); border-radius: 12px; border: 1px solid var(--gold); padding: 40px; margin-bottom: 50px; box-shadow: 0 15px 35px rgba(197, 160, 89, 0.1); position: relative; overflow: hidden; text-align: center; }
+        .con-btn { background: var(--bg-white); border: 1px solid #ddd; color: var(--secondary); padding: 12px 25px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; transition: all 0.3s ease; font-size: 0.95em; }
+        .con-btn:hover { background: var(--secondary); color: white; border-color: var(--secondary); transform: translateY(-2px); }
+        @keyframes spinLoader { 100% { transform: rotate(360deg); } }
+        
+        .divider-text { text-align: center; position: relative; margin: 40px 0; color: var(--text-light); font-weight: 500; letter-spacing: 2px; text-transform: uppercase; font-size: 0.85em; }
+        .divider-text::before, .divider-text::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: #eaeaea; }
+        .divider-text::before { left: 0; }
+        .divider-text::after { right: 0; }
+
+        /* BUILDER STYLES */
         .builder-step { background: var(--bg-white); border-radius: 8px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #eaeaea; }
         .builder-step h3 { margin-top: 0; color: var(--secondary); font-size: 1.5em; display: flex; align-items: center; gap: 15px; font-weight: 500; }
         .builder-step h3 span { background: var(--gold); color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: 700; }
@@ -228,12 +240,81 @@
     </div>
 
     <div class="page-header">
-        <span style="font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;">Bespoke Service</span>
+        <span style="font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;">Personalized Service</span>
         <h2>Curate Your Own <span>Hamper</span></h2>
         <p>Pick your box, select your premium items, and allow us to craft the perfect presentation.</p>
     </div>
 
     <div class="builder-container">
+
+        <!-- 🌟 THE GIFT EXPERT WIDGET 🌟 -->
+        <div class="concierge-section" id="conciergeCard">
+            <!-- HOST HEADER -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                <img src="concierge-host.jpeg" alt="Boutique Concierge" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold);" onerror="this.src='logo.jpg';">
+                <div style="text-align: left;">
+                    <h4 style="margin: 0; color: var(--secondary); font-size: 1.1em; font-weight: 600;">Giftastic Expert</h4>
+                    <span style="font-size: 0.8em; color: var(--primary); letter-spacing: 1px; text-transform: uppercase;">Personal Gift Advisor</span>
+                </div>
+            </div>
+
+            <!-- STEP 1: WHO -->
+            <div class="con-step active" id="conStep1">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"Hello! Not sure what to pick? Let me help you build the perfect gift. First, who is this for?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('who', 'him')">For Him</button>
+                    <button class="con-btn" onclick="answerConcierge('who', 'her')">For Her</button>
+                    <button class="con-btn" onclick="answerConcierge('who', 'couple')">The Couple</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: VIBE -->
+            <div class="con-step" id="conStep2" style="display:none;">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"Wonderful! What kind of vibe or feeling are you going for?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'romantic')">Romantic & Intimate</button>
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'professional')">Sleek & Professional</button>
+                    <button class="con-btn" onclick="answerConcierge('vibe', 'fun')">Playful & Vibrant</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: BUDGET -->
+            <div class="con-step" id="conStep3" style="display:none;">
+                <p style="font-size: 1.2em; color: var(--secondary); font-weight: 400; margin-bottom: 25px;">"And finally, what is your budget for this hamper?"</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <button class="con-btn" onclick="answerConcierge('budget', 'under1000')">Under ₹1,000</button>
+                    <button class="con-btn" onclick="answerConcierge('budget', 'mid')">₹1,000 – ₹2,000</button>
+                    <button class="con-btn" onclick="answerConcierge('budget', 'premium')">Luxury (₹2,000+)</button>
+                </div>
+            </div>
+
+            <!-- SCANNING LOADER -->
+            <div class="con-step" id="conLoading" style="display:none; padding: 30px 0;">
+                <div style="font-size: 2.5em; animation: spinLoader 1.5s linear infinite; margin-bottom: 15px; display: inline-block; color: var(--gold);">◆</div>
+                <p style="font-size: 1.1em; color: var(--secondary); font-weight: 300;">Scanning our collection to build your perfect gift hamper...</p>
+            </div>
+
+            <!-- RESULT VIEW -->
+            <div class="con-step" id="conResult" style="display:none;">
+                <p style="font-size: 1.1em; color: var(--primary); font-weight: 600; margin-bottom: 15px;">"Here is your perfectly matched gift hamper:"</p>
+                
+                <!-- EXPERT VIRTUAL BOX PREVIEW -->
+                <div id="conVirtualBox" style="background: url('Empty%20Box.jpeg') no-repeat center center; background-size: cover; border-radius: 8px; width: 100%; max-width: 400px; aspect-ratio: 1/1; margin: 0 auto 20px auto; padding: 34% 10% 15% 10%; display: flex; flex-wrap: wrap; align-content: flex-start; justify-content: center; gap: 10px; box-shadow: inset 0 10px 25px rgba(0,0,0,0.15);">
+                    <!-- Items dropped dynamically -->
+                </div>
+
+                <h4 id="conResultTitle" style="color: var(--secondary); font-size: 1.3em; font-weight: 500; margin: 0 0 5px 0;">Hamper Name</h4>
+                <div id="conResultPrice" style="color: var(--primary); font-weight: 600; font-size: 1.1em; margin-bottom: 20px;">₹0</div>
+                
+                <button class="btn-solid" id="conAddBtn" style="padding: 12px 35px; cursor: pointer; border: none;">Add Hamper to Cart</button>
+                <div style="margin-top: 15px;">
+                    <button onclick="resetConcierge()" style="background: none; border: none; color: var(--text-light); text-decoration: underline; cursor: pointer; font-size: 0.9em; font-family: 'Poppins', sans-serif;">↺ Restart Gift Finder</button>
+                </div>
+            </div>
+        </div>
+        <!-- END EXPERT WIDGET -->
+
+        <div class="divider-text">Or Build It Manually</div>
         
         <!-- STEP 1: CHOOSE BOX SIZE -->
         <div class="builder-step">
@@ -287,7 +368,7 @@
         <div class="builder-summary-card">
             <h3 style="margin:0; color:var(--bg-white); font-size:1.1em; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Estimated Value</h3>
             <div class="summary-total">₹<span id="customTotal">300</span></div>
-            <button class="add-custom-btn" onclick="addCustomHamperToCart()">Add Curation to Selection</button>
+            <button class="add-custom-btn" onclick="addCustomHamperToCart()">Add Hamper to Cart</button>
         </div>
 
     </div>
@@ -333,6 +414,82 @@
 
     <!-- BUILDER LOGIC SCRIPT -->
     <script>
+        // -------------------------
+        // EXPERT SCRIPT
+        // -------------------------
+        let conciergeData = { who: '', vibe: '', budget: '' };
+        
+        const conciergeDb = [
+            { name: "Gentleman's Choice", price: 2299, image: "Gentleman%27s%20Choice.jpeg", tags: ["him", "professional", "premium"], items: [{name: "Mens Watch", emoji: "⌚"}, {name: "Mens Shirt", emoji: "👔"}, {name: "Personalised Name Wallet", emoji: "👛"}] },
+            { name: "The Glow Box", price: 1549, image: "The%20Glow%20Box.jpeg", tags: ["her", "him", "couple", "romantic", "fun", "mid"], items: [{name: "Photo Frame", emoji: "🖼️"}, {name: "Mini Panda Lamp", emoji: "🐼"}, {name: "KitKat", emoji: "🍫"}] },
+            { name: "Cuddle & Charm Box", price: 2039, image: "Cuddle%26Charm%20Box.jpeg", tags: ["her", "romantic", "premium"], items: [{name: "Teddy Bear", emoji: "🧸"}, {name: "Mini Lamp", emoji: "🐼"}, {name: "Perfume", emoji: "✨"}] },
+            { name: "For Him Combo 1", price: 789, image: "For%20Him%20Combo%201.jpeg", tags: ["him", "professional", "under1000"], items: [{name: "Wallet", emoji: "👛"}, {name: "Coffee Mug", emoji: "☕"}] },
+            { name: "Kinder Bloom", price: 799, image: "Kinder%20Bloom.jpeg", tags: ["her", "fun", "under1000"], items: [{name: "Artificial Rose", emoji: "🌹"}, {name: "Chocolates", emoji: "🍫"}] }
+        ];
+
+        function answerConcierge(key, value) {
+            conciergeData[key] = value;
+            if(key === 'who') {
+                document.getElementById('conStep1').style.display = 'none';
+                document.getElementById('conStep2').style.display = 'block';
+            } else if(key === 'vibe') {
+                document.getElementById('conStep2').style.display = 'none';
+                document.getElementById('conStep3').style.display = 'block';
+            } else if(key === 'budget') {
+                document.getElementById('conStep3').style.display = 'none';
+                document.getElementById('conLoading').style.display = 'block';
+                setTimeout(processConciergeResult, 1800);
+            }
+        }
+
+        function processConciergeResult() {
+            document.getElementById('conLoading').style.display = 'none';
+            
+            let bestMatch = conciergeDb[0];
+            let highestScore = -1;
+            conciergeDb.forEach(hamper => {
+                let score = 0;
+                if(hamper.tags.includes(conciergeData.who)) score += 3;
+                if(hamper.tags.includes(conciergeData.vibe)) score += 2;
+                if(hamper.tags.includes(conciergeData.budget)) score += 2;
+                score += Math.random();
+                if(score > highestScore) { highestScore = score; bestMatch = hamper; }
+            });
+
+            document.getElementById('conResultTitle').innerText = bestMatch.name;
+            document.getElementById('conResultPrice').innerText = `₹${bestMatch.price}`;
+            document.getElementById('conAddBtn').onclick = function() {
+                addToHamper(bestMatch.name, bestMatch.price, bestMatch.image);
+            };
+
+            const vBox = document.getElementById('conVirtualBox');
+            vBox.innerHTML = '';
+            let delay = 0;
+            bestMatch.items.forEach(item => {
+                setTimeout(() => {
+                    vBox.innerHTML += `
+                        <div style="width: 70px; height: 70px; background: rgba(255,255,255,0.95); padding: 4px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border: 1px solid rgba(255,255,255,0.8);">
+                            <span style="font-size: 1.5em; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));">${item.emoji}</span>
+                            <span style="font-size: 0.45em; font-weight: 500; color: var(--secondary); margin-top: 2px; line-height: 1.1;">${item.name}</span>
+                        </div>
+                    `;
+                }, delay);
+                delay += 350;
+            });
+
+            document.getElementById('conResult').style.display = 'block';
+        }
+
+        function resetConcierge() {
+            conciergeData = { who: '', vibe: '', budget: '' };
+            document.getElementById('conResult').style.display = 'none';
+            document.getElementById('conStep1').style.display = 'block';
+        }
+
+
+        // -------------------------
+        // MANUAL BUILDER SCRIPT
+        // -------------------------
         const goodies = [
             { id: 1, name: "KitKat Chocolate", price: 20, emoji: "🍫" },
             { id: 2, name: "Dairy Milk", price: 20, emoji: "🍫" },
