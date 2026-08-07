@@ -262,7 +262,7 @@
 
     <div class="builder-container">
 
-        <!-- 🌟 THE GIFT EXPERT WIDGET (DYNAMIC SPLIT VIEW ALGORITHM) 🌟 -->
+        <!-- 🌟 THE GIFT EXPERT WIDGET (DYNAMIC VOLUME ALGORITHM) 🌟 -->
         <div class="concierge-section" id="conciergeCard">
             <!-- HOST HEADER -->
             <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 30px;">
@@ -536,17 +536,14 @@
         function processConciergeResult() {
             document.getElementById('conLoading').style.display = 'none';
             
-            let maxBudget = conciergeData.budget === 'under1000' ? 950 : 
-                            conciergeData.budget === 'mid' ? 1950 : 3500;
+            // 1. Establish Budget Thresholds
+            let maxBudget = conciergeData.budget === 'under1000' ? 999 : 
+                            conciergeData.budget === 'mid' ? 1999 : 4500;
             
-            let box = conciergeData.budget === 'premium' ? { name: "Large Trolley Bag Box", price: 850 } : 
-                      conciergeData.budget === 'mid' ? { name: "Medium Elegant Cardboard Box", price: 450 } : 
-                      { name: "Small Elegant Cardboard Box", price: 300 };
-            
-            let curationFee = getCurationFee(box.price);
-            let currentTotal = box.price + curationFee; 
-            let finalItems = [];
-            let visualCount = 0; 
+            // Reserve an estimated amount for the Box + Artisan Fee
+            let assumedOverhead = conciergeData.budget === 'premium' ? 1350 : 
+                                  conciergeData.budget === 'mid' ? 800 : 500; 
+            let remainingBudget = maxBudget - assumedOverhead;
 
             let smartGoodies = goodies.map(g => {
                 let isHim = ["Mens Shirt", "Mens Watch", "Affordable men's watches", "Mens Belt", "Personalised Name Wallet"].includes(g.name);
@@ -560,16 +557,57 @@
                 return true;
             });
 
-            availableGoodies.sort((a, b) => a.price - b.price);
-
+            let finalItems = [];
+            let visualCount = 0; 
+            
+            // Step 1: Pick 1 or 2 "Hero" (expensive) items first to satisfy premium budgets
+            availableGoodies.sort((a, b) => b.price - a.price);
             availableGoodies.forEach(g => {
-                let qtyToGrab = (g.price <= 25) ? 2 : 1;
-                if (currentTotal + (g.price * qtyToGrab) <= maxBudget && visualCount + qtyToGrab <= 9) {
+                if (g.price <= remainingBudget && visualCount < 2 && g.price >= 200) {
+                    finalItems.push({ ...g, qty: 1 });
+                    remainingBudget -= g.price;
+                    visualCount += 1;
+                }
+            });
+
+            // Step 2: Fill the rest of the budget with smaller add-ons
+            availableGoodies.sort((a, b) => a.price - b.price);
+            availableGoodies.forEach(g => {
+                if (finalItems.find(i => i.name === g.name)) return; // skip if already added
+                let qtyToGrab = (g.price <= 30) ? 2 : 1;
+                if ((g.price * qtyToGrab) <= remainingBudget && visualCount + qtyToGrab <= 7) {
                     finalItems.push({ ...g, qty: qtyToGrab });
-                    currentTotal += (g.price * qtyToGrab);
+                    remainingBudget -= (g.price * qtyToGrab);
                     visualCount += qtyToGrab;
                 }
             });
+
+            // Step 3: STRICT DYNAMIC SIZING (Trolley Bag ONLY for Large Items)
+            let hasLargeItem = finalItems.some(item => 
+                ["Ladies Kurti Set", "Mens Shirt", "Teddy Bear", "Kinder Bloom"].includes(item.name)
+            );
+
+            let box;
+            if (hasLargeItem) {
+                box = { name: "Large Trolley Bag Box", price: 850 };
+            } else {
+                let totalQty = finalItems.reduce((sum, item) => sum + item.qty, 0);
+                if (totalQty >= 6) {
+                    box = { name: "Medium Elegant Cardboard Box", price: 450 };
+                } else {
+                    box = { name: "Small Elegant Cardboard Box", price: 300 };
+                }
+            }
+
+            let curationFee = getCurationFee(box.price);
+            let goodiesTotal = finalItems.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            let currentTotal = goodiesTotal + box.price + curationFee;
+
+            // Fallback just in case budget was super tight and nothing was picked
+            if(finalItems.length === 0) {
+                finalItems.push({ ...goodies[0], qty: 1 });
+                currentTotal = goodies[0].price + box.price + curationFee;
+            }
 
             let themeName = conciergeData.vibe.charAt(0).toUpperCase() + conciergeData.vibe.slice(1);
             document.getElementById('conResultTitle').innerText = "✨ The " + themeName + " Collection";
