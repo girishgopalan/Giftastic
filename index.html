@@ -24,11 +24,11 @@
     <style>
         /* PREMIUM COLOR PALETTE */
         :root {
-            --primary: #9e6462; /* Elegant muted rose/burgundy */
+            --primary: #9e6462; 
             --primary-dark: #7a4d4c;
-            --secondary: #2c3539; /* Deep charcoal */
-            --gold: #c5a059; /* Soft champagne gold */
-            --bg-light: #faf8f5; /* Premium off-white/cream */
+            --secondary: #2c3539; 
+            --gold: #c5a059; 
+            --bg-light: #faf8f5; 
             --bg-white: #ffffff;
             --text-dark: #333333;
             --text-light: #777777;
@@ -315,6 +315,119 @@
         </div>
 
         <div class="product-grid">
+            
+            <!-- ALL NEW AND EXISTING PRODUCTS ADDED HERE -->
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Mens Belt', ['Premium quality belt', 'Elegant daily wear design']))">
+                    <img src="Mens%20Belt.jpeg" alt="Mens Belt" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Mens Belt</div>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToHamper('Mens Belt', 299, 'Mens%20Belt.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Ladies Kurti Set', ['Beautiful Kurti set', 'Comfortable and stylish fabric']))">
+                    <img src="Ladies%20Kurti%20Set.jpeg" alt="Ladies Kurti Set" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Ladies Kurti Set</div>
+                <div class="product-price">₹1,599</div>
+                <button class="product-btn" onclick="addToHamper('Ladies Kurti Set', 1599, 'Ladies%20Kurti%20Set.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Sun Glasses', ['Stylish sunglasses', 'Premium UV protection']))">
+                    <img src="Sun%20Glasses.jpeg" alt="Sun Glasses" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Sun Glasses</div>
+                <div class="product-price">₹1,499</div>
+                <button class="product-btn" onclick="addToHamper('Sun Glasses', 1499, 'Sun%20Glasses.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Mini Flower Bouquet', ['Beautiful mini bouquet', 'The perfect aesthetic add-on']))">
+                    <img src="Mini%20Flower%20bouquet.jpeg" alt="Mini Flower Bouquet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Mini Flower Bouquet</div>
+                <div class="product-price">₹149</div>
+                <button class="product-btn" onclick="addToHamper('Mini Flower Bouquet', 149, 'Mini%20Flower%20bouquet.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails(`Affordable Men's Watches`, ['Stylish men\'s watch', 'Classic and versatile design']))">
+                    <img src="Affordable%20men%27s%20watches.jpeg" alt="Affordable Men's Watches" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Affordable Men's Watches</div>
+                <div class="product-price">₹499</div>
+                <button class="product-btn" onclick="addToHamper(`Affordable Men's Watches`, 499, 'Affordable%20men%27s%20watches.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Bar Pendant', ['Elegant bar pendant', 'Minimalist premium jewelry']))">
+                    <img src="Bar%20pendant.jpeg" alt="Bar Pendant" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Bar Pendant</div>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToHamper('Bar Pendant', 299, 'Bar%20pendant.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Heart Magic Cup', ['Color-changing magic cup', 'Unique heart handle design']))">
+                    <img src="Heart%20Magic%20Cup.jpeg" alt="Heart Magic Cup" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Heart Magic Cup</div>
+                <div class="product-price">₹449</div>
+                <button class="product-btn" onclick="addToHamper('Heart Magic Cup', 449, 'Heart%20Magic%20Cup.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Picture Bottle', ['Personalised photo bottle', 'Beautiful LED light inside']))">
+                    <img src="Picture%20bottle.jpeg" alt="Picture Bottle" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Picture Bottle</div>
+                <div class="product-price">₹549</div>
+                <button class="product-btn" onclick="addToHamper('Picture Bottle', 549, 'Picture%20bottle.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Birthday Anniversary Table Top', ['12x12 inch premium table top', 'Personalised picture frame']))">
+                    <img src="Birthday%20Anniversary%20Table%20Top.jpeg" alt="Birthday Anniversary Table Top" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Birthday Anniversary Table Top</div>
+                <div class="product-price">₹649</div>
+                <button class="product-btn" onclick="addToHamper('Birthday Anniversary Table Top', 649, 'Birthday%20Anniversary%20Table%20Top.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('My 1st Year Frame', ['Capture baby\'s first year', '12-month photo slots']))">
+                    <img src="My%201st%20year%20Frame.jpeg" alt="My 1st Year Frame" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">My 1st Year Frame</div>
+                <div class="product-price">₹519</div>
+                <button class="product-btn" onclick="addToHamper('My 1st Year Frame', 519, 'My%201st%20year%20Frame.jpeg')">Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Heart Key Chain', ['Cute heart keychain', 'A lovely personalised touch']))">
+                    <img src="Heart%20Key%20Chain.jpeg" alt="Heart Key Chain" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                    <span class="preview-badge">View Details</span>
+                </div>
+                <div class="product-title">Heart Key Chain</div>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToHamper('Heart Key Chain', 299, 'Heart%20Key%20Chain.jpeg')">Add to Cart</button>
+            </div>
+
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Personalised Name Wallet', ['High-quality leather wallet', 'Custom name engraving']))">
                     <img src="Name%20Wallet.jpeg" alt="Personalised Name Wallet" class="prod-real-img" onerror="this.onerror=null; this.src='logo.jpg';">
