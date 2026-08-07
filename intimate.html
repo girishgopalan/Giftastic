@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYMRJE47WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DYMRJE47WB');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Midnight Edit | Intimate Luxury by Giftastic</title>
+    
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* INTIMATE DARK LUXURY COLOR PALETTE */
+        :root {
+            --bg-dark: #121212; 
+            --bg-panel: #1e1e1e;
+            --gold: #d4af37; 
+            --gold-muted: #b38f4d;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --burgundy: #5e1914;
+            --border-color: #333333;
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-dark); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+        
+        /* SLEEK VIP ANNOUNCEMENT BAR */
+        .announcement { background-color: var(--gold); color: #000; text-align: center; padding: 10px; font-size: 0.75em; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+
+        /* DARK NAVIGATION */
+        nav { background: rgba(18, 18, 18, 0.95); backdrop-filter: blur(10px); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--gold); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
+        .nav-brand h1 { margin: 0; font-size: 1.3em; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 400; font-size: 0.95em; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--gold); }
+        .menu-toggle { display: none; font-size: 1.5em; cursor: pointer; color: var(--gold); }
+        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        
+        /* ELEGANT BUTTONS */
+        .btn-solid { background: var(--gold); color: #000 !important; padding: 10px 24px; border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; border: 1px solid var(--gold); }
+        .btn-solid:hover { background: var(--gold-muted); border-color: var(--gold-muted); color: #fff !important; }
+        .mobile-call-btn { display: none; } 
+
+        /* SENSUAL HERO SECTION */
+        .hero { position: relative; background: linear-gradient(to bottom, rgba(18, 18, 18, 0.2), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=2000&auto=format&fit=crop') center/cover; color: white; text-align: center; padding: clamp(120px, 15vw, 200px) 20px 80px 20px; overflow: hidden; border-bottom: 1px solid var(--border-color); }
+        
+        .hero-subtitle { font-size: 0.9em; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; display: block; animation: fadeInUp 0.8s ease forwards; }
+        .hero h2 { font-size: clamp(2.5em, 5vw, 4.5em); margin: 0 0 20px 0; font-weight: 300; line-height: 1.2; letter-spacing: -1px; animation: fadeInUp 0.8s ease 0.1s forwards; opacity: 0; color: var(--text-main); font-family: 'Playfair Display', serif; }
+        .hero p { font-size: clamp(1em, 2vw, 1.15em); max-width: 600px; margin: 0 auto 45px auto; opacity: 0; font-weight: 300; color: var(--text-muted); animation: fadeInUp 0.8s ease 0.2s forwards; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* SECTION HEADERS */
+        .container { max-width: 1250px; margin: 0 auto; padding: 80px 20px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-subtitle { font-size: 0.8em; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; display: block; }
+        .section-title { font-size: clamp(2em, 3vw, 2.5em); margin: 0; color: var(--text-main); font-weight: 300; letter-spacing: -0.5px; }
+
+        /* DARK MODE PRODUCT CARDS */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .product-card { background: var(--bg-panel); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; padding-bottom: 35px; transition: transform 0.4s ease, box-shadow 0.4s ease; border: 1px solid var(--border-color); }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
+        
+        .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; background: #000; }
+        .prod-real-img { width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.7s ease; opacity: 0.9; }
+        .img-wrapper:hover .prod-real-img { transform: scale(1.05); opacity: 1; }
+        
+        .product-title { font-size: 1.3em; font-weight: 400; margin: 30px 0 10px 0; padding: 0 20px; color: var(--text-main); letter-spacing: 0.5px; }
+        .product-desc { font-size: 0.85em; color: var(--text-muted); padding: 0 30px; margin-bottom: 15px; font-weight: 300; line-height: 1.6; }
+        .product-price { color: var(--gold); font-weight: 600; font-size: 1.2em; margin-bottom: 25px; }
+        
+        .product-btn { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 12px 35px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
+        .product-btn:hover { background: var(--gold); color: #000; }
+
+        /* FLOATING CART - DARK MODE */
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--bg-panel); color: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 1000; transition: transform 0.3s ease; border: 1px solid var(--gold); }
+        .floating-cart:hover { transform: translateY(-5px); background: var(--gold); color: #000; }
+        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--burgundy); color: white; font-size: 0.45em; font-weight: 600; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #000; }
+        
+        /* CART DRAWER - DARK MODE */
+        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--bg-panel); box-shadow: -10px 0 50px rgba(0,0,0,0.8); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; border-left: 1px solid var(--border-color); }
+        .cart-panel.active { right: 0; }
+        .cart-header { padding: 25px; background: var(--bg-dark); border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { margin: 0; font-size: 1.1em; font-weight: 500; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; color: var(--text-muted); font-weight: 300; transition: color 0.3s; }
+        .close-cart:hover { color: var(--text-main); }
+        .cart-items { flex-grow: 1; padding: 25px; overflow-y: auto; background: var(--bg-panel); }
+        .cart-footer { padding: 25px; background: var(--bg-dark); border-top: 1px solid var(--border-color); }
+        .cart-total { font-size: 1.2em; font-weight: 400; color: var(--text-main); margin-bottom: 20px; display: flex; justify-content: space-between;}
+        .cart-total span:last-child { color: var(--gold); font-weight: 600; }
+        
+        .checkout-btn { width: 100%; background: var(--gold); color: #000; border: none; padding: 16px; font-size: 1em; font-family: 'Poppins', sans-serif; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
+        .checkout-btn:hover { background: var(--gold-muted); color: #fff; }
+        
+        .cart-item-row { display: flex; align-items: center; gap: 15px; background: var(--bg-dark); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color); }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 4px; object-fit: cover; opacity: 0.9; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { margin: 0 0 5px 0; font-size: 0.9em; color: var(--text-main); font-weight: 400; line-height: 1.3;}
+        .cart-item-price { color: var(--gold); font-size: 0.85em; font-weight: 500;}
+        .qty-controls { display: flex; align-items: center; gap: 12px; }
+        .qty-btn { background: transparent; border: none; cursor: pointer; font-weight: 400; color: var(--text-muted); font-size: 1.2em; padding: 0 5px; }
+        .qty-btn:hover { color: var(--gold); }
+
+        /* FOOTER */
+        .site-footer { background: #0a0a0a; color: var(--text-muted); padding: 80px 5% 30px; font-family: 'Poppins', sans-serif; border-top: 1px solid var(--border-color); }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 200px; }
+        .footer-col h3 { color: var(--gold); font-size: 1em; margin-bottom: 25px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-col p { font-size: 0.9em; line-height: 1.8; font-weight: 300; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; font-size: 0.9em; font-weight: 300; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 60px; border-top: 1px solid var(--border-color); font-size: 0.85em; font-weight: 300; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .mobile-call-btn { display: inline-block; padding: 8px 16px; font-size: 0.85em; }
+            .desktop-call-btn { display: none !important; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-panel); flex-direction: column; padding: 30px 0; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; border-bottom: 1px solid var(--border-color); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">
+        Strictly Confidential & Discreet Pan-India Delivery
+    </div>
+
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <!-- You can use a gold-tinted logo here if you have one -->
+            <img src="logo.jpg" alt="Giftastic Logo">
+            <h1>Giftastic</h1>
+        </a>
+        <div class="nav-right-controls">
+            <a href="tel:+918296654218" class="btn-solid mobile-call-btn">Contact Stylist</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+        <div class="nav-links" id="navMenu">
+            <a href="index.html" onclick="toggleMenu()">Main Boutique</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop All</a>
+            <a href="create.html" onclick="toggleMenu()">Build A Hamper</a>
+            <a href="intimate.html" onclick="toggleMenu()" style="color: var(--gold);">The Midnight Edit</a>
+        </div>
+    </nav>
+
+    <!-- FLOATING CART -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <span style="font-size: 0.9em; margin-bottom: 2px;">🥂</span>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Your Private Selection</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">Secure Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <header class="hero">
+        <span class="hero-subtitle">Intimate Luxury Collection</span>
+        <h2>The Midnight Edit</h2>
+        <p>Cancel your dinner reservations. Deep, sensual, and highly exclusive curations designed strictly for couples to explore behind closed doors.</p>
+        
+        <div class="hero-actions" style="margin-top: 40px;">
+            <a href="#collection" class="btn-solid" style="padding: 15px 40px; font-size: 1.05em; text-transform: uppercase; letter-spacing: 2px;">Unlock Collection</a>
+        </div>
+    </header>
+
+    <div class="container" id="collection">
+        <div class="section-header">
+            <span class="section-subtitle">Curated Experiences</span>
+            <h2 class="section-title">Couples' Hampers</h2>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <!-- Placeholder images for testing. Replace with your dark/sensual photography -->
+                    <img src="Date%20Night%20In.jpeg" alt="The Date Night In Box" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1558024920-b41e1887dc32?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">The "Date Night In" Box</h3>
+                <p class="product-desc">Everything you need for an unforgettable night at home. Includes a Satin Blindfold, Aromatic Massage Oil, Love Coupons, and Premium Chocolates.</p>
+                <div class="product-price">₹1,299</div>
+                <button class="product-btn" onclick="addToCart('The Date Night In Box', 1299, 'Date%20Night%20In.jpeg')">Add Experience</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Midnight%20Spark.jpeg" alt="The Midnight Spark Box" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1605335552392-1262d966952d?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">The "Midnight Spark" Box</h3>
+                <p class="product-desc">An exclusive curation for anniversaries. Features a Scented Massage Candle, "Midnight Conversations" Game, Bella Vita Perfume, Dark Truffles, and a Wax-Sealed Note.</p>
+                <div class="product-price">₹2,199</div>
+                <button class="product-btn" onclick="addToCart('The Midnight Spark Box', 2199, 'Midnight%20Spark.jpeg')">Add Experience</button>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 80px;">
+            <span class="section-subtitle">A La Carte</span>
+            <h2 class="section-title">Sensory Additions</h2>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Massage%20Candle.jpeg" alt="Scented Massage Candle" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Scented Massage Candle</h3>
+                <p class="product-desc">Burns as a romantic candle, melts into a warm, skin-safe sensual massage oil.</p>
+                <div class="product-price">₹399</div>
+                <button class="product-btn" onclick="addToCart('Scented Massage Candle', 399, 'Massage%20Candle.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Midnight%20Conversations.jpeg" alt="Midnight Conversations Game" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1611078813359-fb9e2c6081e6?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">"Midnight Conversations" Game</h3>
+                <p class="product-desc">A sleek deck of cards with deep, romantic, and spicy questions for couples.</p>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToCart('Midnight Conversations Game', 299, 'Midnight%20Conversations.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Massage%20Oil.jpeg" alt="Aromatic Massage Oil" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Aromatic Massage Oil</h3>
+                <p class="product-desc">A premium glass bottle of relaxing, sensual body oil for deep connection.</p>
+                <div class="product-price">₹299</div>
+                <button class="product-btn" onclick="addToCart('Aromatic Massage Oil', 299, 'Massage%20Oil.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Silk%20Blindfold.jpeg" alt="Silk Satin Blindfold" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1584980633499-1bdc5a452df3?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Silk Satin Blindfold</h3>
+                <p class="product-desc">Sleek, incredibly soft, and designed to heighten the senses and add mystery.</p>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToCart('Silk Satin Blindfold', 199, 'Silk%20Blindfold.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Bath%20Salts.jpeg" alt="Rose Petal Bath Salts" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1616118491871-33100652613c?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Rose Petal Bath Salts</h3>
+                <p class="product-desc">A glass vial of deep red salts and petals. Perfect for drawing a romantic bath together.</p>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToCart('Rose Petal Bath Salts', 199, 'Bath%20Salts.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Love%20Coupons.jpeg" alt="Love Coupons Booklet" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Love Coupons Booklet</h3>
+                <p class="product-desc">A beautiful booklet of tear-away favors and romantic gestures for your partner.</p>
+                <div class="product-price">₹149</div>
+                <button class="product-btn" onclick="addToCart('Love Coupons Booklet', 149, 'Love%20Coupons.jpeg')">Add Item</button>
+            </div>
+            
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Dark%20Truffles.jpeg" alt="Premium Dark Truffles" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1548883354-94cb0b42b10a?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Premium Dark Truffles</h3>
+                <p class="product-desc">Rich, dark, and decadent melt-in-your-mouth cocoa meant to be shared intimately.</p>
+                <div class="product-price">₹349</div>
+                <button class="product-btn" onclick="addToCart('Premium Dark Truffles', 349, 'Dark%20Truffles.jpeg')">Add Item</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated luxury hampers, thoughtfully designed to make your loved ones feel truly extraordinary.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Collections</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Main Boutique</a></li>
+                    <li><a href="create.html">Build Your Own</a></li>
+                    <li><a href="intimate.html" style="color: var(--gold);">The Midnight Edit</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Discreet Contact</h3>
+                <p>+91 8296654218</p>
+                <p>Private & Secure Packaging</p>
+                <p>Pan-India Delivery</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
+        
+        function addToCart(name, price, image) {
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) { 
+                existingItem.quantity += 1; 
+            } else { 
+                cart.push({ name: name, price: price, image: image, quantity: 1, details: "Intimate Collection" }); 
+            }
+            saveCart(); 
+            updateCartUI();
+            document.getElementById('cartPanel').classList.add('active');
+        }
+        
+        function saveCart() { localStorage.setItem('giftastic_cart', JSON.stringify(cart)); }
+        
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0; let count = 0;
+            
+            if(cart.length === 0) { 
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-muted); margin-top:40px; font-weight:300;">Your selection is empty.</p>'; 
+            }
+            
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity; count += item.quantity;
+                let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span style="font-weight:500; font-size:0.9em; color:var(--text-main);">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>`;
+            });
+            
+            cartCount.innerText = count; 
+            cartTotal.innerText = total;
+        }
+        
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) { cart.splice(index, 1); }
+            saveCart(); updateCartUI();
+        }
+        
+        function toggleCart() { document.getElementById('cartPanel').classList.toggle('active'); }
+        
+        function checkoutWhatsapp() {
+            if(cart.length === 0) { alert("Please add items to your selection first."); return; }
+            let message = "Hello Archana, I would like to place a highly discreet order from The Midnight Edit (Giftastic101.in).\n\n*My Private Selection:*\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `▪ ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                total += item.price * item.quantity;
+            });
+            message += `\n*Total Estimate: ₹${total}*\n\nPlease guide me regarding the advance payment to confirm.`;
+            window.open('https://wa.me/918296654218?text=' + encodeURIComponent(message), '_blank');
+        }
+        
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
+</body>
+</html>
