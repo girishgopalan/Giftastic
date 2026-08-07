@@ -90,6 +90,10 @@
         .prod-real-img { width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.7s ease; opacity: 0.85; }
         .img-wrapper:hover .prod-real-img { transform: scale(1.05); opacity: 1; }
         
+        /* HOVER PREVIEW BADGE */
+        .preview-badge { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(0, 0, 0, 0.8); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 4px; font-size: 0.8em; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: all 0.3s ease; pointer-events: none; }
+        .img-wrapper:hover .preview-badge { transform: translateX(-50%) translateY(0); opacity: 1; }
+        
         .product-title { font-size: 1.3em; font-weight: 400; margin: 30px 0 10px 0; padding: 0 20px; color: var(--text-main); letter-spacing: 0.5px; }
         .product-desc { font-size: 0.85em; color: var(--text-muted); padding: 0 30px; margin-bottom: 15px; font-weight: 300; line-height: 1.6; }
         .product-price { color: var(--gold); font-weight: 600; font-size: 1.2em; margin-bottom: 25px; }
@@ -126,6 +130,15 @@
         .qty-btn { background: transparent; border: none; cursor: pointer; font-weight: 400; color: var(--text-muted); font-size: 1.2em; padding: 0 5px; }
         .qty-btn:hover { color: var(--gold); }
 
+        /* MODAL - DARK THEME */
+        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.95); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+        .modal-layout { display: flex; background: var(--bg-panel); border-radius: 8px; overflow: hidden; width: 90%; max-width: 900px; max-height: 85vh; box-shadow: 0 25px 50px rgba(0,0,0,0.5); border: 1px solid var(--border-color); position: relative; }
+        .modal-img-container { flex: 1.2; background: #000; display: flex; align-items: center; justify-content: center; }
+        .modal-content { width: 100%; height: 100%; object-fit: contain; }
+        .modal-details { flex: 1; padding: 50px 40px; overflow-y: auto; color: var(--text-main); }
+        .close-modal { position: absolute; top: 20px; right: 25px; color: var(--text-muted); font-size: 30px; font-weight: 300; cursor: pointer; transition: color 0.3s; z-index: 10; }
+        .close-modal:hover { color: var(--gold); }
+
         /* FOOTER */
         .site-footer { background: #0a0a0a; color: var(--text-muted); padding: 80px 5% 30px; font-family: 'Poppins', sans-serif; border-top: 1px solid var(--border-color); }
         .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; max-width: 1200px; margin: 0 auto; }
@@ -144,6 +157,9 @@
             .desktop-call-btn { display: none !important; }
             .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-panel); flex-direction: column; padding: 30px 0; gap: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; border-bottom: 1px solid var(--border-color); }
             .nav-links.active { display: flex; }
+            .modal-layout { flex-direction: column; overflow-y: auto; }
+            .modal-img-container { height: 40vh; flex: none; }
+            .modal-details { flex: none; padding: 30px 20px; }
         }
     </style>
 </head>
@@ -211,8 +227,9 @@
         <div class="product-grid">
             <!-- PERFECTLY BALANCED DATE NIGHT IN BOX -->
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Date Night In Box', ['Satin Blindfold', 'Vanilla Massage Oil (50ml)', 'Truth or Dare Card Game', 'Scented Tealight Candles', 'Premium Black Box & Ribbon Setup']))">
                     <img src="Date%20Night%20In.jpeg" alt="The Date Night In Box" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1558024920-b41e1887dc32?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">The "Date Night In" Box</h3>
                 <p class="product-desc">A complete sensory experience. Includes a Satin Blindfold, Vanilla Massage Oil, Truth or Dare Cards, and Scented Tealight Candles, beautifully presented in a Premium Box.</p>
@@ -221,8 +238,9 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('The Midnight Spark Box', ['Scented Massage Candle', 'Midnight Conversations Game', 'Bella Vita Perfume', 'Premium Dark Truffles', 'Wax-Sealed Personal Note', 'Premium Packaging']))">
                     <img src="Midnight%20Spark.jpeg" alt="The Midnight Spark Box" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1605335552392-1262d966952d?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">The "Midnight Spark" Box</h3>
                 <p class="product-desc">An exclusive curation for anniversaries. Features a Scented Massage Candle, "Midnight Conversations" Game, Bella Vita Perfume, Dark Truffles, and a Wax-Sealed Note.</p>
@@ -238,8 +256,9 @@
 
         <div class="product-grid">
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Truth or Dare Card Game', ['Complete set of intimacy cards', 'Playful and sensual couples game']))">
                     <img src="Truth%20Or%20Dare.jpeg" alt="Truth or Dare Intimacy Card Game" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1611078813359-fb9e2c6081e6?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">"Truth or Dare" Intimacy Cards</h3>
                 <p class="product-desc">A playful, sensual card game designed to explore boundaries and break the ice on a romantic evening.</p>
@@ -248,8 +267,9 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Vanilla Massage Oil', ['50ml premium glass bottle', 'Warm vanilla scent', 'Skin-safe and deeply relaxing']))">
                     <img src="Massage%20Oil.jpeg" alt="Vanilla Massage Oil" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">Vanilla Massage Oil (50ml)</h3>
                 <p class="product-desc">A premium glass bottle of relaxing, sensual vanilla body oil for deep physical connection.</p>
@@ -258,8 +278,9 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Satin Blindfold', ['Sleek black or deep red satin', 'Incredibly soft texture', 'Adjustable fit']))">
                     <img src="Silk%20Blindfold.jpeg" alt="Satin Blindfold" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1584980633499-1bdc5a452df3?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">Satin Blindfold</h3>
                 <p class="product-desc">Sleek, incredibly soft, and designed to heighten the senses and add mystery.</p>
@@ -268,8 +289,9 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Scented Tealight Candles', ['Set of premium tealights', 'Warm romantic glow', 'Subtle, ambient fragrance']))">
                     <img src="Tealight%20Candles.jpeg" alt="Scented Tealight Candles" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">Scented Tealight Candles</h3>
                 <p class="product-desc">The perfect warm, flickering ambiance to set the lighting in the bedroom.</p>
@@ -278,8 +300,9 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Midnight Conversations Game', ['Deep question cards', 'Perfect for wine nights', 'Sleek black card design']))">
                     <img src="Midnight%20Conversations.jpeg" alt="Midnight Conversations Game" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1611078813359-fb9e2c6081e6?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">"Midnight Conversations" Game</h3>
                 <p class="product-desc">A sleek deck of cards with deep, romantic, and spicy questions for couples.</p>
@@ -288,13 +311,27 @@
             </div>
 
             <div class="product-card">
-                <div class="img-wrapper">
+                <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Rose Petal Bath Salts', ['Premium sea salts', 'Dried rose petals', 'Relaxing aromatherapy']))">
                     <img src="Bath%20Salts.jpeg" alt="Rose Petal Bath Salts" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1616118491871-33100652613c?q=80&w=800&auto=format&fit=crop';">
+                    <span class="preview-badge">View Details</span>
                 </div>
                 <h3 class="product-title">Rose Petal Bath Salts</h3>
                 <p class="product-desc">A glass vial of deep red salts and petals. Perfect for drawing a romantic bath together.</p>
                 <div class="product-price">₹199</div>
                 <button class="product-btn" onclick="addToCart('Rose Petal Bath Salts', 199, 'Bath%20Salts.jpeg')">Add Item</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP -->
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-layout">
+            <span class="close-modal" onclick="closeModal(event, true)">&times;</span>
+            <div class="modal-img-container">
+                <img class="modal-content" id="modalImage">
+            </div>
+            <div class="modal-details">
+                <div id="modalCaption"></div>
             </div>
         </div>
     </div>
@@ -327,6 +364,37 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // MODAL FUNCTIONS
+        function formatDetails(title, itemsList) { 
+            let html = `<div style='text-align: left;'>
+                <span style='font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 10px;'>Curated Contents</span>
+                <h3 style='color: var(--text-main); margin-top: 0; margin-bottom: 25px; font-size: 2em; font-weight:300; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;'>${title}</h3>
+                <ul style='color: var(--text-muted); font-size: 1em; line-height: 2; list-style-type: none; padding-left: 0; margin: 0; font-weight:300;'>`; 
+            itemsList.forEach(item => { 
+                html += `<li style='margin-bottom: 12px; display: flex; align-items: flex-start;'><span style='color: var(--gold); margin-right: 12px; font-size: 0.8em; margin-top:4px;'>◆</span> <span>${item}</span></li>`; 
+            }); 
+            html += `</ul></div>`; 
+            return html; 
+        }
+
+        function openModal(imgSrc, formattedHtml) { 
+            const modal = document.getElementById("imageModal"); 
+            const modalImg = document.getElementById("modalImage"); 
+            const caption = document.getElementById("modalCaption"); 
+            modal.style.display = "flex"; 
+            modalImg.src = imgSrc; 
+            caption.innerHTML = formattedHtml; 
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeModal(event, forceClose = false) { 
+            if (forceClose || event.target.id === 'imageModal' || event.target.className === 'close-modal') { 
+                document.getElementById("imageModal").style.display = "none"; 
+                document.body.style.overflow = "auto"; 
+            } 
+        }
+
+        // CART FUNCTIONS
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
         
         function addToCart(name, price, image) {
