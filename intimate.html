@@ -50,16 +50,28 @@
         .nav-right-controls { display: flex; align-items: center; gap: 15px; }
         
         /* ELEGANT BUTTONS */
-        .btn-solid { background: var(--gold); color: #000 !important; padding: 10px 24px; border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; border: 1px solid var(--gold); }
+        .btn-solid { background: var(--gold); color: #000 !important; padding: 12px 28px; border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; border: 1px solid var(--gold); }
         .btn-solid:hover { background: var(--gold-muted); border-color: var(--gold-muted); color: #fff !important; }
         .mobile-call-btn { display: none; } 
 
-        /* SENSUAL HERO SECTION */
-        .hero { position: relative; background: linear-gradient(to bottom, rgba(18, 18, 18, 0.2), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1517462964-21fdcec3f25b?q=80&w=2000&auto=format&fit=crop') center/cover; color: white; text-align: center; padding: clamp(120px, 15vw, 200px) 20px 80px 20px; overflow: hidden; border-bottom: 1px solid var(--border-color); }
+        /* SENSUAL HERO SECTION - FIXED FULL IMAGE */
+        .hero { 
+            position: relative; 
+            background: linear-gradient(to bottom, rgba(18, 18, 18, 0.3), rgba(18, 18, 18, 0.95)), url('https://images.unsplash.com/photo-1516589177422-e547e4fad41b?q=80&w=2000&auto=format&fit=crop') center 20%/cover no-repeat; 
+            color: white; 
+            text-align: center; 
+            min-height: 75vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px; 
+            border-bottom: 1px solid var(--border-color); 
+        }
         
         .hero-subtitle { font-size: 0.9em; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; display: block; animation: fadeInUp 0.8s ease forwards; }
-        .hero h2 { font-size: clamp(2.5em, 5vw, 4.5em); margin: 0 0 20px 0; font-weight: 300; line-height: 1.2; letter-spacing: -1px; animation: fadeInUp 0.8s ease 0.1s forwards; opacity: 0; color: var(--text-main); font-family: 'Playfair Display', serif; }
-        .hero p { font-size: clamp(1em, 2vw, 1.15em); max-width: 600px; margin: 0 auto 45px auto; opacity: 0; font-weight: 300; color: var(--text-muted); animation: fadeInUp 0.8s ease 0.2s forwards; }
+        .hero h2 { font-size: clamp(3em, 6vw, 5em); margin: 0 0 20px 0; font-weight: 300; line-height: 1.2; letter-spacing: -1px; animation: fadeInUp 0.8s ease 0.1s forwards; opacity: 0; color: var(--text-main); font-family: 'Playfair Display', serif; }
+        .hero p { font-size: clamp(1em, 2vw, 1.15em); max-width: 650px; margin: 0 auto 45px auto; opacity: 0; font-weight: 300; color: var(--text-muted); animation: fadeInUp 0.8s ease 0.2s forwards; }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -67,7 +79,7 @@
         .container { max-width: 1250px; margin: 0 auto; padding: 80px 20px; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-subtitle { font-size: 0.8em; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; display: block; }
-        .section-title { font-size: clamp(2em, 3vw, 2.5em); margin: 0; color: var(--text-main); font-weight: 300; letter-spacing: -0.5px; }
+        .section-title { font-size: clamp(2.2em, 3vw, 2.8em); margin: 0; color: var(--text-main); font-weight: 300; letter-spacing: -0.5px; }
 
         /* DARK MODE PRODUCT CARDS */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 40px; }
@@ -75,7 +87,7 @@
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(212, 175, 55, 0.1); border-color: rgba(212, 175, 55, 0.3); }
         
         .img-wrapper { position: relative; cursor: zoom-in; overflow: hidden; background: #000; }
-        .prod-real-img { width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.7s ease; opacity: 0.9; }
+        .prod-real-img { width: 100%; height: 350px; object-fit: cover; display: block; transition: transform 0.7s ease; opacity: 0.85; }
         .img-wrapper:hover .prod-real-img { transform: scale(1.05); opacity: 1; }
         
         .product-title { font-size: 1.3em; font-weight: 400; margin: 30px 0 10px 0; padding: 0 20px; color: var(--text-main); letter-spacing: 0.5px; }
@@ -143,7 +155,6 @@
 
     <nav>
         <a href="index.html" class="nav-brand">
-            <!-- You can use a gold-tinted logo here if you have one -->
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
@@ -198,13 +209,13 @@
         </div>
 
         <div class="product-grid">
+            <!-- UPDATED DATE NIGHT IN BOX -->
             <div class="product-card">
                 <div class="img-wrapper">
-                    <!-- Placeholder images for testing. Replace with your dark/sensual photography -->
                     <img src="Date%20Night%20In.jpeg" alt="The Date Night In Box" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1558024920-b41e1887dc32?q=80&w=800&auto=format&fit=crop';">
                 </div>
                 <h3 class="product-title">The "Date Night In" Box</h3>
-                <p class="product-desc">Everything you need for an unforgettable night at home. Includes a Satin Blindfold, Aromatic Massage Oil, Love Coupons, and Premium Chocolates.</p>
+                <p class="product-desc">A complete sensory experience. Includes a Satin Blindfold, Vanilla Massage Oil, Truth or Dare Intimacy Card Game, and Scented Tealight Candles.</p>
                 <div class="product-price">₹1,299</div>
                 <button class="product-btn" onclick="addToCart('The Date Night In Box', 1299, 'Date%20Night%20In.jpeg')">Add Experience</button>
             </div>
@@ -228,12 +239,42 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="img-wrapper">
-                    <img src="Massage%20Candle.jpeg" alt="Scented Massage Candle" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=800&auto=format&fit=crop';">
+                    <img src="Truth%20Or%20Dare.jpeg" alt="Truth or Dare Intimacy Card Game" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1611078813359-fb9e2c6081e6?q=80&w=800&auto=format&fit=crop';">
                 </div>
-                <h3 class="product-title">Scented Massage Candle</h3>
-                <p class="product-desc">Burns as a romantic candle, melts into a warm, skin-safe sensual massage oil.</p>
-                <div class="product-price">₹399</div>
-                <button class="product-btn" onclick="addToCart('Scented Massage Candle', 399, 'Massage%20Candle.jpeg')">Add Item</button>
+                <h3 class="product-title">"Truth or Dare" Intimacy Cards</h3>
+                <p class="product-desc">A playful, sensual card game designed to explore boundaries and break the ice on a romantic evening.</p>
+                <div class="product-price">₹349</div>
+                <button class="product-btn" onclick="addToCart('Truth or Dare Card Game', 349, 'Truth%20Or%20Dare.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Massage%20Oil.jpeg" alt="Vanilla Massage Oil" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Vanilla Massage Oil (50ml)</h3>
+                <p class="product-desc">A premium glass bottle of relaxing, sensual vanilla body oil for deep physical connection.</p>
+                <div class="product-price">₹449</div>
+                <button class="product-btn" onclick="addToCart('Vanilla Massage Oil', 449, 'Massage%20Oil.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Silk%20Blindfold.jpeg" alt="Satin Blindfold" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1584980633499-1bdc5a452df3?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Satin Blindfold</h3>
+                <p class="product-desc">Sleek, incredibly soft, and designed to heighten the senses and add mystery.</p>
+                <div class="product-price">₹249</div>
+                <button class="product-btn" onclick="addToCart('Satin Blindfold', 249, 'Silk%20Blindfold.jpeg')">Add Item</button>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrapper">
+                    <img src="Tealight%20Candles.jpeg" alt="Scented Tealight Candles" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1602928321679-560bb453f190?q=80&w=800&auto=format&fit=crop';">
+                </div>
+                <h3 class="product-title">Scented Tealight Candles</h3>
+                <p class="product-desc">The perfect warm, flickering ambiance to set the lighting in the bedroom.</p>
+                <div class="product-price">₹199</div>
+                <button class="product-btn" onclick="addToCart('Scented Tealight Candles', 199, 'Tealight%20Candles.jpeg')">Add Item</button>
             </div>
 
             <div class="product-card">
@@ -248,52 +289,12 @@
 
             <div class="product-card">
                 <div class="img-wrapper">
-                    <img src="Massage%20Oil.jpeg" alt="Aromatic Massage Oil" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop';">
-                </div>
-                <h3 class="product-title">Aromatic Massage Oil</h3>
-                <p class="product-desc">A premium glass bottle of relaxing, sensual body oil for deep connection.</p>
-                <div class="product-price">₹299</div>
-                <button class="product-btn" onclick="addToCart('Aromatic Massage Oil', 299, 'Massage%20Oil.jpeg')">Add Item</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper">
-                    <img src="Silk%20Blindfold.jpeg" alt="Silk Satin Blindfold" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1584980633499-1bdc5a452df3?q=80&w=800&auto=format&fit=crop';">
-                </div>
-                <h3 class="product-title">Silk Satin Blindfold</h3>
-                <p class="product-desc">Sleek, incredibly soft, and designed to heighten the senses and add mystery.</p>
-                <div class="product-price">₹199</div>
-                <button class="product-btn" onclick="addToCart('Silk Satin Blindfold', 199, 'Silk%20Blindfold.jpeg')">Add Item</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper">
                     <img src="Bath%20Salts.jpeg" alt="Rose Petal Bath Salts" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1616118491871-33100652613c?q=80&w=800&auto=format&fit=crop';">
                 </div>
                 <h3 class="product-title">Rose Petal Bath Salts</h3>
                 <p class="product-desc">A glass vial of deep red salts and petals. Perfect for drawing a romantic bath together.</p>
                 <div class="product-price">₹199</div>
                 <button class="product-btn" onclick="addToCart('Rose Petal Bath Salts', 199, 'Bath%20Salts.jpeg')">Add Item</button>
-            </div>
-
-            <div class="product-card">
-                <div class="img-wrapper">
-                    <img src="Love%20Coupons.jpeg" alt="Love Coupons Booklet" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800&auto=format&fit=crop';">
-                </div>
-                <h3 class="product-title">Love Coupons Booklet</h3>
-                <p class="product-desc">A beautiful booklet of tear-away favors and romantic gestures for your partner.</p>
-                <div class="product-price">₹149</div>
-                <button class="product-btn" onclick="addToCart('Love Coupons Booklet', 149, 'Love%20Coupons.jpeg')">Add Item</button>
-            </div>
-            
-            <div class="product-card">
-                <div class="img-wrapper">
-                    <img src="Dark%20Truffles.jpeg" alt="Premium Dark Truffles" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1548883354-94cb0b42b10a?q=80&w=800&auto=format&fit=crop';">
-                </div>
-                <h3 class="product-title">Premium Dark Truffles</h3>
-                <p class="product-desc">Rich, dark, and decadent melt-in-your-mouth cocoa meant to be shared intimately.</p>
-                <div class="product-price">₹349</div>
-                <button class="product-btn" onclick="addToCart('Premium Dark Truffles', 349, 'Dark%20Truffles.jpeg')">Add Item</button>
             </div>
         </div>
     </div>
