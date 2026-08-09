@@ -54,7 +54,7 @@
         .btn-solid:hover { background: var(--gold-muted); border-color: var(--gold-muted); color: #fff !important; }
         .mobile-call-btn { display: none; } 
 
-        /* SENSUAL HERO SECTION - USING UPLOADED IMAGE */
+        /* SENSUAL HERO SECTION */
         .hero { 
             position: relative; 
             background: linear-gradient(to bottom, rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.95)), url('sensual.jpeg') center/cover no-repeat; 
@@ -74,6 +74,15 @@
         .hero p { font-size: clamp(1em, 2vw, 1.15em); max-width: 650px; margin: 0 auto 45px auto; opacity: 0; font-weight: 300; color: var(--text-muted); animation: fadeInUp 0.8s ease 0.2s forwards; }
 
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* INTERACTIVE TEASER SECTION */
+        .teaser-section { text-align: center; padding: 70px 20px; background: #0a0a0a; border-bottom: 1px solid var(--border-color); }
+        .interactive-card { background: var(--bg-panel); border: 1px solid var(--gold); border-radius: 8px; max-width: 500px; margin: 0 auto; padding: 40px 30px; min-height: 160px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05); transition: opacity 0.4s ease, transform 0.4s ease; position: relative; overflow: hidden; }
+        .interactive-card::before { content: '✧'; position: absolute; top: 15px; color: var(--gold); opacity: 0.3; font-size: 1.5em; }
+        .interactive-card::after { content: '✧'; position: absolute; bottom: 15px; color: var(--gold); opacity: 0.3; font-size: 1.5em; }
+        #cardText { font-size: 1.15em; color: var(--text-main); font-style: italic; margin: 0; font-weight: 300; line-height: 1.5; }
+        .draw-btn { background: transparent; color: var(--gold); border: 1px solid var(--gold); padding: 12px 35px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px; cursor: pointer; transition: all 0.3s ease; }
+        .draw-btn:hover { background: var(--gold); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
 
         /* SECTION HEADERS */
         .container { max-width: 1250px; margin: 0 auto; padding: 80px 20px; }
@@ -218,6 +227,19 @@
         </div>
     </header>
 
+    <!-- 🔥 NEW INTERACTIVE TEASER SECTION 🔥 -->
+    <div class="teaser-section">
+        <span class="section-subtitle" style="font-size: 0.8em; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; display: block;">Set The Mood</span>
+        <h2 style="font-size: clamp(2em, 3vw, 2.5em); margin: 0 0 20px 0; color: var(--text-main); font-weight: 300;">A Taste of Midnight</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto; font-size: 0.95em; font-weight: 300;">Draw a virtual card to sample the <i>Midnight Conversations</i> and <i>Truth or Dare</i> games included in our curations. Read it aloud to your partner right now.</p>
+
+        <div class="interactive-card" id="interactiveCard">
+            <p id="cardText">"The deck is waiting. Click below to reveal your first prompt."</p>
+        </div>
+
+        <button class="draw-btn" onclick="drawCard()">Draw a Card</button>
+    </div>
+
     <div class="container" id="collection">
         <div class="section-header">
             <span class="section-subtitle">Curated Experiences</span>
@@ -299,7 +321,6 @@
                 <button class="product-btn" onclick="addToCart('Scented Tealight Candles', 199, 'Tealight%20Candles.jpeg')">Add Item</button>
             </div>
 
-            <!-- PRICE UPDATED TO ₹349 HERE -->
             <div class="product-card">
                 <div class="img-wrapper" onclick="openModal(this.querySelector('img').src, formatDetails('Midnight Conversations Game', ['Deep question cards', 'Perfect for wine nights', 'Sleek black card design']))">
                     <img src="Midnight%20Conversations.jpeg" alt="Midnight Conversations Game" class="prod-real-img" onerror="this.src='https://images.unsplash.com/photo-1611078813359-fb9e2c6081e6?q=80&w=800&auto=format&fit=crop';">
@@ -365,6 +386,37 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // INTERACTIVE TEASER GAME SCRIPT
+        const gamePrompts = [
+            "Truth: What was running through your mind the first time we kissed?",
+            "Dare: Maintain eye contact with me for 60 seconds without speaking.",
+            "Question: If we booked a hotel room for the weekend and couldn't leave the room, what are we doing?",
+            "Truth: What is your absolute favorite physical feature of mine?",
+            "Dare: Slowly trace the outline of my jaw with your fingertips.",
+            "Question: What is a fantasy you've always wanted to explore with me?",
+            "Truth: What is the most attractive thing I wear to bed?",
+            "Dare: Give me a slow, 30-second neck massage.",
+            "Question: What is a small, non-physical thing I do that turns you on?"
+        ];
+
+        function drawCard() {
+            const cardText = document.getElementById('cardText');
+            const cardBox = document.getElementById('interactiveCard');
+            
+            // Fade out
+            cardBox.style.opacity = 0;
+            cardBox.style.transform = "scale(0.98)";
+            
+            setTimeout(() => {
+                // Change text and fade back in
+                const randomPrompt = gamePrompts[Math.floor(Math.random() * gamePrompts.length)];
+                cardText.innerHTML = `<strong>${randomPrompt.split(':')[0]}:</strong>${randomPrompt.split(':')[1]}`;
+                
+                cardBox.style.opacity = 1;
+                cardBox.style.transform = "scale(1)";
+            }, 400);
+        }
+
         // MODAL FUNCTIONS
         function formatDetails(title, itemsList) { 
             let html = `<div style='text-align: left;'>
