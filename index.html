@@ -80,6 +80,13 @@
         .feature-item { text-align: center; font-weight: 400; color: var(--text-light); font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
         .feature-item::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: var(--gold); border-radius: 50%; }
         
+        /* 🔥 NEW INTIMATE TEASER BANNER 🔥 */
+        .midnight-teaser { background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.95)), url('sensual.jpeg') center/cover no-repeat; color: white; text-align: center; padding: 80px 20px; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
+        .midnight-teaser h2 { font-family: 'Playfair Display', serif; font-weight: 300; font-size: clamp(2em, 4vw, 3.5em); color: #f5f5f5; margin: 0 0 15px 0; }
+        .midnight-teaser p { color: #a0a0a0; font-weight: 300; margin: 0 auto 35px auto; font-size: 1.1em; max-width: 600px; }
+        .btn-midnight { background: transparent; color: #d4af37; border: 1px solid #d4af37; padding: 14px 40px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; display: inline-block; transition: all 0.3s ease; font-size: 0.9em; }
+        .btn-midnight:hover { background: #d4af37; color: #000; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
+
         /* SECTION HEADERS */
         .container { max-width: 1250px; margin: 0 auto; padding: 80px 20px; }
         .section-header { text-align: center; margin-bottom: 50px; }
@@ -213,10 +220,10 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="seasonal.html" onclick="toggleMenu()" style="color: var(--gold);">Onam Edit</a>
-            <a href="shop.html" onclick="toggleMenu()">Shop Collection</a>
+            <a href="seasonal.html" onclick="toggleMenu()">Onam Edit</a>
+            <a href="intimate.html" onclick="toggleMenu()" style="color: var(--primary);">The Midnight Edit</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop</a>
             <a href="create.html" onclick="toggleMenu()">Curate Hamper</a>
-            <a href="#about" onclick="toggleMenu()">Our Story</a>
             <a href="tel:+918296654218" class="btn-solid desktop-call-btn" onclick="toggleMenu()">Call Now</a>
         </div>
     </nav>
@@ -250,7 +257,6 @@
             <a href="create.html" class="hero-btn btn-primary-hero">✨ Build Your Own Hamper</a>
             <a href="shop.html" class="hero-btn btn-glass-hero">Shop Pre-Curated</a>
             <a href="https://www.instagram.com/giftastic101" target="_blank" class="hero-btn btn-glass-hero">Instagram</a>
-            <a href="https://wa.me/918296654218" target="_blank" class="hero-btn btn-glass-hero">WhatsApp</a>
         </div>
     </header>
 
@@ -258,6 +264,14 @@
         <div class="feature-item">Bespoke Curation</div>
         <div class="feature-item">Pan-India Delivery</div>
         <div class="feature-item">Premium Craftsmanship</div>
+    </div>
+
+    <!-- 🔥 THE VIP DOORWAY: MIDNIGHT TEASER BANNER 🔥 -->
+    <div class="midnight-teaser">
+        <span style="font-size: 0.85em; letter-spacing: 4px; text-transform: uppercase; color: #d4af37; font-weight: 600; display: block; margin-bottom: 10px;">Intimate Luxury Collection</span>
+        <h2>The Midnight Edit</h2>
+        <p>Cancel your dinner reservations. Strictly confidential, highly exclusive curations designed specifically for couples to explore after hours.</p>
+        <a href="intimate.html" class="btn-midnight">Slip Behind Closed Doors 🥂</a>
     </div>
 
     <div class="container">
