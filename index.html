@@ -79,8 +79,20 @@
         .features { display: flex; justify-content: center; gap: 40px; padding: 30px 20px; background: var(--bg-white); border-bottom: 1px solid #eaeaea; flex-wrap: wrap; }
         .feature-item { text-align: center; font-weight: 400; color: var(--text-light); font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
         .feature-item::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: var(--gold); border-radius: 50%; }
+
+        /* 🔥 NEW HOOK: FLOATING VIDEO WIDGET 🔥 */
+        .floating-video-widget { position: fixed; bottom: 30px; left: 30px; width: 110px; height: 160px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 1000; border: 2px solid white; cursor: pointer; transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; transform-origin: bottom left; }
+        .floating-video-widget:hover { transform: scale(1.05); }
+        .floating-video-widget video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .floating-video-badge { position: absolute; top: -10px; right: -10px; background: var(--primary); color: white; font-size: 0.6em; padding: 4px 8px; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 2px solid white; z-index: 1001; }
+        .close-video { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.5); color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em; z-index: 1002; cursor: pointer; }
         
-        /* 🔥 NEW INTIMATE TEASER BANNER 🔥 */
+        /* 🔥 NEW HOOK: SOCIAL PROOF TOAST 🔥 */
+        .social-proof-toast { position: fixed; top: 100px; left: -400px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border: 1px solid var(--gold); padding: 12px 20px; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; z-index: 1500; transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 0.85em; color: var(--secondary); font-weight: 500; }
+        .social-proof-toast.show { left: 30px; }
+        .social-proof-toast span { color: var(--gold); font-size: 1.2em; }
+        
+        /* THE VIP DOORWAY: MIDNIGHT TEASER BANNER */
         .midnight-teaser { background: linear-gradient(rgba(18,18,18,0.85), rgba(18,18,18,0.95)), url('sensual.jpeg') center/cover no-repeat; color: white; text-align: center; padding: 80px 20px; box-shadow: inset 0 0 50px rgba(0,0,0,0.5); }
         .midnight-teaser h2 { font-family: 'Playfair Display', serif; font-weight: 300; font-size: clamp(2em, 4vw, 3.5em); color: #f5f5f5; margin: 0 0 15px 0; }
         .midnight-teaser p { color: #a0a0a0; font-weight: 300; margin: 0 auto 35px auto; font-size: 1.1em; max-width: 600px; }
@@ -200,10 +212,27 @@
             .modal-layout { flex-direction: column; overflow-y: auto; }
             .modal-img-container { height: 40vh; flex: none; }
             .modal-details { flex: none; padding: 30px 20px; }
+            .floating-video-widget { bottom: 100px; left: 20px; width: 90px; height: 130px; }
+            .social-proof-toast { top: 80px; left: 5%; width: 90%; font-size: 0.8em; }
+            .social-proof-toast.show { left: 5%; }
         }
     </style>
 </head>
 <body>
+
+    <!-- 🔔 FOMO HOOK: SOCIAL PROOF TOAST -->
+    <div class="social-proof-toast" id="socialProofToast">
+        <span>✨</span> <div id="toastMessage">Someone in Bengaluru just curated a Hamper!</div>
+    </div>
+
+    <!-- 🎥 VISUAL HOOK: FLOATING VIDEO WIDGET -->
+    <div class="floating-video-widget" id="floatingVideo" onclick="window.location.href='#about'">
+        <span class="close-video" onclick="event.stopPropagation(); this.parentElement.style.display='none';">&times;</span>
+        <div class="floating-video-badge">Watch</div>
+        <video autoplay loop muted playsinline>
+            <source src="my-video.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div class="announcement">
         Pan-India Shipping
@@ -220,10 +249,10 @@
         </div>
         <div class="nav-links" id="navMenu">
             <a href="index.html" onclick="toggleMenu()">Home</a>
-            <a href="seasonal.html" onclick="toggleMenu()">Onam Edit</a>
-            <a href="intimate.html" onclick="toggleMenu()" style="color: var(--primary);">The Midnight Edit</a>
-            <a href="shop.html" onclick="toggleMenu()">Shop</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop Collection</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: var(--gold);">Onam Edit</a>
             <a href="create.html" onclick="toggleMenu()">Curate Hamper</a>
+            <a href="index.html#about" onclick="toggleMenu()">Our Story</a>
             <a href="tel:+918296654218" class="btn-solid desktop-call-btn" onclick="toggleMenu()">Call Now</a>
         </div>
     </nav>
@@ -266,7 +295,7 @@
         <div class="feature-item">Premium Craftsmanship</div>
     </div>
 
-    <!-- 🔥 THE VIP DOORWAY: MIDNIGHT TEASER BANNER 🔥 -->
+    <!-- THE VIP DOORWAY: MIDNIGHT TEASER BANNER -->
     <div class="midnight-teaser">
         <span style="font-size: 0.85em; letter-spacing: 4px; text-transform: uppercase; color: #d4af37; font-weight: 600; display: block; margin-bottom: 10px;">Intimate Luxury Collection</span>
         <h2>The Midnight Edit</h2>
@@ -692,6 +721,35 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // -------------------------
+        // SOCIAL PROOF NOTIFICATION SYSTEM
+        // -------------------------
+        const locations = ["Bengaluru", "Pune", "Kochi", "Trivandrum", "Mumbai"];
+        const actions = ["just started curating a hamper!", "is looking at The Midnight Edit.", "just built a custom anniversary box!", "is using the Giftastic Expert.", "added a custom mug to their hamper."];
+        
+        function triggerSocialProof() {
+            const toast = document.getElementById('socialProofToast');
+            const messageEl = document.getElementById('toastMessage');
+            
+            // Randomize message
+            const randomLoc = locations[Math.floor(Math.random() * locations.length)];
+            const randomAct = actions[Math.floor(Math.random() * actions.length)];
+            messageEl.innerText = `Someone in ${randomLoc} ${randomAct}`;
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide after 4 seconds
+            setTimeout(() => { toast.classList.remove('show'); }, 4000);
+        }
+
+        // Trigger first toast after 3 seconds to catch bouncing users, then every 20 seconds
+        setTimeout(() => {
+            triggerSocialProof();
+            setInterval(triggerSocialProof, 20000);
+        }, 3000);
+
+
         let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
         function addToHamper(name, price, image) {
             let existingItem = cart.find(item => item.name === name);
