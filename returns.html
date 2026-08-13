@@ -7,70 +7,295 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-DYMRJE47WB');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Return Policy & FAQs | Giftastic by Archana</title>
+    <title>Returns & Exchanges | Giftastic by Archana</title>
+    
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #c94b4b; --secondary: #4b134f; --gold: #f1c40f; --bg-light: #fdfbfb; --text-dark: #2d3436; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
-        nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); }
-        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--secondary); }
-        .nav-brand img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
-        .nav-brand h1 { margin: 0; font-size: 1.4em; font-weight: 800; }
-        .container { max-width: 800px; margin: 60px auto; padding: 40px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h2 { color: var(--secondary); font-size: 2.2em; margin-top: 0; border-bottom: 3px solid var(--primary); padding-bottom: 10px; display: inline-block; }
-        h3 { color: var(--primary); margin-top: 30px; font-size: 1.3em;}
-        p, li { line-height: 1.8; color: #555; font-size: 1.05em; }
-        .alert-box { background: rgba(201, 75, 75, 0.1); border-left: 4px solid var(--primary); padding: 20px; margin: 25px 0; border-radius: 4px; color: var(--text-dark);}
-        .faq-block { background: #fdfbfb; padding: 25px; border-radius: 12px; margin-top: 40px; border: 1px solid #eee; }
-        .faq-block h2 { font-size: 1.8em; border: none; margin-bottom: 10px; }
-        .faq-block h4 { color: var(--text-dark); font-size: 1.15em; margin: 25px 0 10px 0; }
-        .faq-block p { font-size: 1em; margin-top: 0; }
-        .back-btn { display: inline-block; margin-top: 30px; padding: 10px 25px; background: var(--secondary); color: white; text-decoration: none; border-radius: 25px; font-weight: 500; transition: background 0.3s ease;}
-        .back-btn:hover { background: var(--primary); }
+        /* PREMIUM COLOR PALETTE */
+        :root {
+            --primary: #9e6462; 
+            --primary-dark: #7a4d4c;
+            --secondary: #2c3539; 
+            --gold: #c5a059; 
+            --bg-light: #faf8f5; 
+            --bg-white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --border-color: #eaeaea;
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        
+        /* SLEEK ANNOUNCEMENT BAR */
+        .announcement { background-color: var(--secondary); color: var(--bg-light); text-align: center; padding: 10px; font-size: 0.75em; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; }
+
+        /* MINIMALIST NAVIGATION */
+        nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); position: sticky; top: 0; z-index: 100; transition: all 0.3s ease; }
+        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--secondary); }
+        .nav-brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #eaeaea; }
+        .nav-brand h1 { margin: 0; font-size: 1.3em; font-weight: 700; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 0.95em; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5em; cursor: pointer; color: var(--secondary); }
+        .nav-right-controls { display: flex; align-items: center; gap: 15px; }
+        
+        /* ELEGANT BUTTONS */
+        .btn-solid { background: var(--primary); color: white !important; padding: 10px 24px; border-radius: 4px; font-weight: 500; transition: all 0.3s ease; text-decoration: none; font-size: 0.9em; border: 1px solid var(--primary); }
+        .btn-solid:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+        .mobile-call-btn { display: none; } 
+
+        .page-header { text-align: center; padding: 80px 20px 40px 20px; }
+        .page-header h2 { font-size: clamp(2.5em, 5vw, 3.5em); margin: 0; color: var(--secondary); font-weight: 400; letter-spacing: -0.5px; }
+        .page-header h2 span { color: var(--primary); }
+
+        /* POLICY CONTENT CONTAINER */
+        .policy-container { max-width: 800px; margin: 0 auto 100px auto; padding: 50px; background: var(--bg-white); border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid var(--border-color); }
+        
+        .policy-section { margin-bottom: 40px; }
+        .policy-section:last-child { margin-bottom: 0; }
+        .policy-section h3 { color: var(--secondary); font-size: 1.4em; font-weight: 500; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .policy-section p { color: var(--text-light); line-height: 1.8; font-size: 1.05em; font-weight: 300; margin: 0; }
+        
+        .contact-box { background: rgba(197, 160, 89, 0.05); border: 1px dashed var(--gold); padding: 25px; border-radius: 6px; text-align: center; margin-top: 30px; }
+        .contact-box p { color: var(--secondary); font-weight: 500; margin-bottom: 15px; }
+
+        /* FLOATING CART */
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: var(--bg-white); color: var(--secondary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.1); z-index: 1000; transition: transform 0.3s ease; border: 1px solid #eaeaea; }
+        .floating-cart:hover { transform: translateY(-5px); }
+        .cart-count { position: absolute; top: -5px; right: -5px; background: var(--primary); color: white; font-size: 0.45em; font-weight: 600; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        
+        /* CART DRAWER */
+        .cart-panel { position: fixed; top: 0; right: -400px; width: 100%; max-width: 400px; height: 100vh; background: var(--bg-white); box-shadow: -10px 0 30px rgba(0,0,0,0.05); z-index: 2000; transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
+        .cart-panel.active { right: 0; }
+        .cart-header { padding: 25px; background: var(--bg-white); border-bottom: 1px solid #eaeaea; display: flex; justify-content: space-between; align-items: center; }
+        .cart-header h3 { margin: 0; font-size: 1.1em; font-weight: 600; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; }
+        .close-cart { font-size: 2em; cursor: pointer; line-height: 1; color: var(--text-light); font-weight: 300; }
+        .cart-items { flex-grow: 1; padding: 25px; overflow-y: auto; background: var(--bg-light); }
+        .cart-footer { padding: 25px; background: var(--bg-white); border-top: 1px solid #eaeaea; }
+        .cart-total { font-size: 1.2em; font-weight: 600; color: var(--secondary); margin-bottom: 20px; display: flex; justify-content: space-between;}
+        
+        .checkout-btn { width: 100%; background: var(--secondary); color: white; border: none; padding: 16px; font-size: 1em; font-family: 'Poppins', sans-serif; font-weight: 500; border-radius: 4px; cursor: pointer; transition: background 0.3s ease; letter-spacing: 1px; }
+        .checkout-btn:hover { background: #1a1f22; }
+        
+        .cart-item-row { display: flex; align-items: center; gap: 15px; background: var(--bg-white); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eaeaea; }
+        .cart-item-img { width: 60px; height: 60px; border-radius: 4px; object-fit: cover; }
+        .cart-item-details { flex-grow: 1; }
+        .cart-item-title { margin: 0 0 5px 0; font-size: 0.9em; color: var(--secondary); font-weight: 500; line-height: 1.3;}
+        .cart-item-price { color: var(--text-light); font-size: 0.85em; }
+        .qty-controls { display: flex; align-items: center; gap: 12px; }
+        .qty-btn { background: transparent; border: none; cursor: pointer; font-weight: 400; color: var(--text-light); font-size: 1.2em; padding: 0 5px; }
+        .qty-btn:hover { color: var(--primary); }
+
+        /* FOOTER */
+        .site-footer { background: var(--secondary); color: #e0e0e0; padding: 80px 5% 30px; font-family: 'Poppins', sans-serif; }
+        .footer-content { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 50px; max-width: 1200px; margin: 0 auto; }
+        .footer-col { flex: 1; min-width: 200px; }
+        .footer-col h3 { color: var(--bg-white); font-size: 1em; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .footer-col p { font-size: 0.9em; line-height: 1.8; font-weight: 300; color: #a0a0a0; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: #a0a0a0; text-decoration: none; transition: color 0.3s ease; font-size: 0.9em; font-weight: 300; }
+        .footer-links a:hover { color: var(--bg-white); }
+        .social-icons { display: flex; gap: 15px; margin-top: 25px; }
+        .social-icons a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #4a555c; border-radius: 50%; color: #a0a0a0; text-decoration: none; transition: all 0.3s ease; }
+        .social-icons a:hover { background: var(--bg-white); color: var(--secondary); border-color: var(--bg-white); }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 60px; border-top: 1px solid #3a444b; color: #777; font-size: 0.85em; font-weight: 300; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .mobile-call-btn { display: inline-block; padding: 8px 16px; font-size: 0.85em; }
+            .desktop-call-btn { display: none !important; }
+            .nav-links { position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-white); flex-direction: column; padding: 30px 0; gap: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: none; }
+            .nav-links.active { display: flex; }
+            .policy-container { padding: 30px 20px; margin: 0 20px 60px 20px; }
+        }
     </style>
 </head>
 <body>
+
+    <div class="announcement">
+        Pan-India Shipping
+    </div>
+
     <nav>
         <a href="index.html" class="nav-brand">
             <img src="logo.jpg" alt="Giftastic Logo">
             <h1>Giftastic</h1>
         </a>
+        <div class="nav-right-controls">
+            <a href="tel:+918296654218" class="btn-solid mobile-call-btn">Call Now</a>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+        <div class="nav-links" id="navMenu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="shop.html" onclick="toggleMenu()">Shop Collection</a>
+            <a href="seasonal.html" onclick="toggleMenu()" style="color: var(--gold);">Onam Edit</a>
+            <a href="create.html" onclick="toggleMenu()">Curate Hamper</a>
+            <a href="index.html#about" onclick="toggleMenu()">Our Story</a>
+            <a href="tel:+918296654218" class="btn-solid desktop-call-btn" onclick="toggleMenu()">Call Now</a>
+        </div>
     </nav>
-    <div class="container">
-        <h2>Return Policy</h2>
-        
-        <div class="alert-box">
-            <strong>Strict No-Return Policy:</strong> Because every Giftastic hamper is deeply personalized and customized specifically for your order, <strong>we do not accept returns, exchanges, or offer refunds</strong>. All sales are final.
-        </div>
 
-        <h3>Quality Assurance</h3>
-        <p>We pride ourselves on delivering premium quality products. Before any order leaves our facility, the products are thoroughly inspected and reviewed by our team.</p>
-        <p>We ensure that the quality, design, and components align perfectly with the requirements shared by you, the requester, during the ordering process.</p>
-
-        <h3>Dispatch & Delivery Proof</h3>
-        <p>Once your order passes our quality check, it is securely packaged and handed over to our courier partners. We will provide you with solid proof of dispatch (including courier tracking details) the moment your gift is on its way.</p>
-
-        <div class="faq-block">
-            <h2>Frequently Asked Questions</h2>
-            
-            <h4>Do I need to pay an advance to confirm my order?</h4>
-            <p>Yes, to begin crafting your personalized hamper, we require an advance payment of 40% of the total order cost. Once the advance is received, our team will immediately start working on your beautiful gift!</p>
-
-            <h4>Can I customize the items inside a hamper?</h4>
-            <p>Absolutely! Every hamper can be fully customized to match your specific wishes and budget. There are no limitations—we are here to bring your perfect gifting vision to life.</p>
-
-            <h4>How do I track my order?</h4>
-            <p>As soon as your custom gift is dispatched, we will share the tracking details and proof of dispatch with you. You can easily track your package's journey directly through our courier partner's official website.</p>
-        </div>
-
-        <a href="index.html" class="back-btn">← Back to Home</a>
+    <!-- FLOATING CART -->
+    <div class="floating-cart" onclick="toggleCart()">
+        <span style="font-size: 0.8em; margin-bottom: 2px;">🛍️</span>
+        <span class="cart-count" id="cartCount">0</span>
     </div>
+
+    <!-- SLIDING CART PANEL -->
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Your Selection</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span>₹<span id="cartTotal">0</span></span>
+            </div>
+            <button class="checkout-btn" onclick="checkoutWhatsapp()">Complete Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <span style="font-size: 0.8em; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); font-weight: 600; display: block; margin-bottom: 10px;">Client Care</span>
+        <h2>Returns & <span>Exchanges</span></h2>
+    </div>
+
+    <div class="policy-container">
+        
+        <div class="policy-section">
+            <h3><span style="color: var(--gold);">✧</span> Our Commitment to Quality</h3>
+            <p>To maintain the highest standards of hygiene and premium quality, every Giftastic hamper is freshly curated specifically for your order. As each arrangement is personalized just for you, all curations are final sale.</p>
+        </div>
+
+        <div class="policy-section">
+            <h3><span style="color: var(--gold);">✧</span> Order Cancellations</h3>
+            <p>Because we begin meticulously assembling your bespoke hamper shortly after your order is confirmed, we are unable to accommodate cancellations or modifications once the 40% advance payment has been processed and curation has begun.</p>
+        </div>
+
+        <div class="contact-box">
+            <p>Did your curation arrive less than perfect due to transit?</p>
+            <p style="font-weight: 300; font-size: 0.9em; margin-bottom: 20px; color: var(--text-light);">Our concierge team is always here to help ensure your gifting experience remains flawless.</p>
+            <a href="https://wa.me/918296654218" target="_blank" class="btn-solid" style="display: inline-block;">Message Our Concierge</a>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Giftastic</h3>
+                <p>India's finest curated luxury hampers, thoughtfully designed to make your loved ones feel truly extraordinary.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/918296654218" target="_blank" title="WhatsApp">W</a>
+                    <a href="https://www.instagram.com/giftastic101" target="_blank" title="Instagram">Ig</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Collections</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop All</a></li>
+                    <li><a href="seasonal.html">The Onam Edit</a></li>
+                    <li><a href="create.html">Curate Your Own</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Client Care</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#about">Our Story</a></li>
+                    <li><a href="shipping.html">Shipping Details</a></li>
+                    <li><a href="returns.html" style="color: var(--bg-white);">Returns & Exchanges</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>+91 8296654218</p>
+                <p>Pan-India Delivery</p>
+                <p>Mon - Sat, 9:00 to 20:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Giftastic by Archana. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('giftastic_cart')) || [];
+        
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            
+            cartItemsContainer.innerHTML = '';
+            let total = 0; let count = 0;
+            
+            if(cart.length === 0) { 
+                cartItemsContainer.innerHTML = '<p style="text-align:center; color:var(--text-light); margin-top:40px; font-weight:300;">Your selection is empty.</p>'; 
+            }
+            
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity; count += item.quantity;
+                let imgSrc = item.image && (item.image.includes('.jpeg') || item.image.includes('.jpg')) ? item.image : 'logo.jpg';
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item-row">
+                        <img src="${imgSrc}" class="cart-item-img" onerror="this.onerror=null; this.src='logo.jpg';">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.name}</h4>
+                            <div class="cart-item-price">₹${item.price}</div>
+                        </div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                            <span style="font-weight:500; font-size:0.9em; color:var(--secondary);">${item.quantity}</span>
+                            <button class="qty-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>`;
+            });
+            
+            cartCount.innerText = count; 
+            cartTotal.innerText = total;
+        }
+        
+        function changeQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) { cart.splice(index, 1); }
+            localStorage.setItem('giftastic_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+        
+        function toggleCart() { document.getElementById('cartPanel').classList.toggle('active'); }
+        
+        function checkoutWhatsapp() {
+            if(cart.length === 0) { alert("Please add items to your selection first."); return; }
+            let message = "Hello Archana, I would like to place a bespoke order from Giftastic101.in.\n\n*My Selection:*\n";
+            let total = 0;
+            cart.forEach(item => {
+                message += `▪ ${item.quantity}x ${item.name} - ₹${item.price * item.quantity}\n`;
+                if(item.details) { message += `   (${item.details})\n`; }
+                total += item.price * item.quantity;
+            });
+            message += `\n*Total Estimate: ₹${total}*\n\nPlease guide me regarding the 40% advance payment to confirm.`;
+            window.open('https://wa.me/918296654218?text=' + encodeURIComponent(message), '_blank');
+        }
+        
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
 </body>
 </html>
