@@ -80,14 +80,14 @@
         .feature-item { text-align: center; font-weight: 400; color: var(--text-light); font-size: 0.9em; letter-spacing: 1px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
         .feature-item::before { content: ''; display: inline-block; width: 6px; height: 6px; background-color: var(--gold); border-radius: 50%; }
 
-        /* 🔥 NEW HOOK: FLOATING VIDEO WIDGET 🔥 */
+        /* FLOATING VIDEO WIDGET */
         .floating-video-widget { position: fixed; bottom: 30px; left: 30px; width: 110px; height: 160px; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); z-index: 1000; border: 2px solid white; cursor: pointer; transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; transform-origin: bottom left; }
         .floating-video-widget:hover { transform: scale(1.05); }
         .floating-video-widget video { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
         .floating-video-badge { position: absolute; top: -10px; right: -10px; background: var(--primary); color: white; font-size: 0.6em; padding: 4px 8px; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 2px solid white; z-index: 1001; }
         .close-video { position: absolute; top: 5px; right: 5px; background: rgba(0,0,0,0.5); color: white; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8em; z-index: 1002; cursor: pointer; }
         
-        /* 🔥 NEW HOOK: SOCIAL PROOF TOAST 🔥 */
+        /* SOCIAL PROOF TOAST */
         .social-proof-toast { position: fixed; top: 100px; left: -400px; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); border: 1px solid var(--gold); padding: 12px 20px; border-radius: 8px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 12px; z-index: 1500; transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 0.85em; color: var(--secondary); font-weight: 500; }
         .social-proof-toast.show { left: 30px; }
         .social-proof-toast span { color: var(--gold); font-size: 1.2em; }
@@ -279,8 +279,10 @@
 
     <header class="hero">
         <span class="hero-subtitle">The Art of Custom Gifting</span>
-        <h2>You Choose. We Craft.<br>They Smile.</h2>
-        <p>Why settle for pre-made? Build your own bespoke luxury hamper online. Pick your box, add premium treats, and let us create the perfect surprise for your loved ones.</p>
+        
+        <!-- 🔥 EMOTIONAL HOOK HEADLINE 🔥 -->
+        <h2>Gift a Feeling.<br>Create a Memory.</h2>
+        <p>Why settle for pre-made? Build your own bespoke luxury hamper online. Pick your box, add premium treats, and let us curate an unforgettable experience for the people who matter most.</p>
         
         <div class="hero-actions">
             <a href="create.html" class="hero-btn btn-primary-hero">✨ Build Your Own Hamper</a>
@@ -689,7 +691,7 @@
             <div class="footer-col">
                 <h3>Client Care</h3>
                 <ul class="footer-links">
-                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="index.html#about">Our Story</a></li>
                     <li><a href="shipping.html">Shipping Details</a></li>
                     <li><a href="returns.html">Returns & Exchanges</a></li>
                 </ul>
